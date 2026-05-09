@@ -1,0 +1,16 @@
+/home/lmx/cpp-game-room/build/CMakeFiles/test.dir
+/home/lmx/cpp-game-room/build/CMakeFiles/edit_cache.dir
+/home/lmx/cpp-game-room/build/CMakeFiles/rebuild_cache.dir
+/home/lmx/cpp-game-room/build/src/CMakeFiles/game_core.dir
+/home/lmx/cpp-game-room/build/src/CMakeFiles/game_server.dir
+/home/lmx/cpp-game-room/build/src/CMakeFiles/test.dir
+/home/lmx/cpp-game-room/build/src/CMakeFiles/edit_cache.dir
+/home/lmx/cpp-game-room/build/src/CMakeFiles/rebuild_cache.dir
+/home/lmx/cpp-game-room/build/bot/CMakeFiles/game_bot.dir
+/home/lmx/cpp-game-room/build/bot/CMakeFiles/test.dir
+/home/lmx/cpp-game-room/build/bot/CMakeFiles/edit_cache.dir
+/home/lmx/cpp-game-room/build/bot/CMakeFiles/rebuild_cache.dir
+/home/lmx/cpp-game-room/build/tests/CMakeFiles/game_tests.dir
+/home/lmx/cpp-game-room/build/tests/CMakeFiles/test.dir
+/home/lmx/cpp-game-room/build/tests/CMakeFiles/edit_cache.dir
+/home/lmx/cpp-game-room/build/tests/CMakeFiles/rebuild_cache.dir

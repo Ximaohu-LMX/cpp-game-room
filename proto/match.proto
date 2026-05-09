@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+
+message MatchRequest {
+  int64 player_id = 1;
+}
+
+message MatchCancelRequest {
+  int64 player_id = 1;
+}
+
+message MatchResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message MatchSuccessNotify {
+  int64 room_id = 1;
+  repeated int64 player_ids = 2;
+}
+

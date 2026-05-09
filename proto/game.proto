@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package proto;
+
+message PlayerInput {
+  int64 player_id = 1;
+  int64 input_seq = 2;
+  float move_x = 3;
+  float move_y = 4;
+  bool fire = 5;
+}
+
+message InputRequest {
+  PlayerInput input = 1;
+}
+
+message PlayerState {
+  int64 player_id = 1;
+  float x = 2;
+  float y = 3;
+  int32 hp = 4;
+}
+
+message GameStateNotify {
+  int64 room_id = 1;
+  int64 frame_id = 2;
+  repeated PlayerState players = 3;
+}
+
+message GameOverNotify {
+  int64 room_id = 1;
+  int64 winner_id = 2;
+  repeated int64 loser_ids = 3;
+}
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto;
+
+message EnterRoomRequest {
+  int64 room_id = 1;
+}
+
+message EnterRoomResponse {
+  int32 code = 1;
+  int64 room_id = 2;
+}
+
+message ReadyRequest {
+  bool ready = 1;
+}
+
+message ReadyNotify {
+  int64 player_id = 1;
+  bool ready = 2;
+}
+
+message RoomStateNotify {
+  int64 room_id = 1;
+  int32 state = 2;
+  repeated int64 player_ids = 3;
+}
+

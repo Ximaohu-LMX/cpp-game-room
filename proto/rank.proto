@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+message RankRequest {
+  int32 offset = 1;
+  int32 limit = 2;
+}
+
+message RankItem {
+  int64 player_id = 1;
+  string name = 2;
+  int32 score = 3;
+  int32 rank = 4;
+}
+
+message RankResponse {
+  repeated RankItem items = 1;
+}
+
