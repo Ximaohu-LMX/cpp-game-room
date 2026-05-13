@@ -16,6 +16,34 @@ TEST(SettlementTest, SettlementLogIsIdempotentByBattlePlayer) {
     EXPECT_FALSE(battle_repo.InsertSettlementLog(log));
 }
 
+TEST(SettlementTest, BattleHasOneRowAndPlayerResultsArePerPlayer) {
+    game::BattleRepository battle_repo;
+    game::Battle battle;
+    battle.battle_id = 1;
+    battle.room_id = 10;
+    battle.winner_id = 100;
+    battle.result_json = "{}";
+
+    EXPECT_TRUE(battle_repo.InsertBattle(battle));
+    EXPECT_FALSE(battle_repo.InsertBattle(battle));
+
+    game::BattlePlayerResult winner;
+    winner.battle_id = 1;
+    winner.player_id = 100;
+    winner.result = "WIN";
+    winner.score_delta = 20;
+
+    game::BattlePlayerResult loser;
+    loser.battle_id = 1;
+    loser.player_id = 101;
+    loser.result = "LOSE";
+    loser.score_delta = -10;
+
+    EXPECT_TRUE(battle_repo.InsertBattlePlayerResult(winner));
+    EXPECT_TRUE(battle_repo.InsertBattlePlayerResult(loser));
+    EXPECT_FALSE(battle_repo.InsertBattlePlayerResult(loser));
+}
+
 TEST(SettlementTest, UpdateRankAfterSettle) {
     game::RedisClient redis(true);
     game::PlayerRepository players;

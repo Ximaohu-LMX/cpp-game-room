@@ -11,18 +11,26 @@ CREATE TABLE IF NOT EXISTS player (
     update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS battle_record (
-    record_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS battle (
     battle_id BIGINT NOT NULL,
     room_id BIGINT NOT NULL,
     winner_id BIGINT NOT NULL,
-    loser_id BIGINT NOT NULL,
     start_time TIMESTAMP NULL,
     end_time TIMESTAMP NULL,
     result_json TEXT,
-    UNIQUE KEY uniq_battle_loser (battle_id, loser_id),
+    PRIMARY KEY (battle_id),
     KEY idx_battle_room (room_id),
     KEY idx_battle_winner (winner_id)
+);
+
+CREATE TABLE IF NOT EXISTS battle_player_result (
+    result_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    battle_id BIGINT NOT NULL,
+    player_id BIGINT NOT NULL,
+    result VARCHAR(16) NOT NULL,
+    score_delta INT NOT NULL,
+    UNIQUE KEY uniq_battle_player_result (battle_id, player_id),
+    KEY idx_battle_player (player_id)
 );
 
 CREATE TABLE IF NOT EXISTS settlement_log (

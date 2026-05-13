@@ -2,6 +2,8 @@
 
 一个基于 C++17 的房间制多人对战游戏服务端示例项目，覆盖 TCP 长连接、protobuf 协议、登录会话、匹配队列、房间状态机、固定 tick 状态同步、战斗结算、Redis 排行榜、MySQL 持久化接口和 bot 压测工具。
 
+游戏背景采用吃鸡式对战：每个房间开启一局 battle，一局游戏只有一个最终胜者，其他参与玩家均为失败方；当前示例用简化的移动、攻击和血量规则模拟这一机制。
+
 ## 技术栈
 
 - C++17
@@ -95,10 +97,10 @@ bot 示例：
 
 ## Redis / MySQL 数据设计
 
-- MySQL: `player`、`battle_record`、`settlement_log`。
+- MySQL: `player`、`battle`、`battle_player_result`、`settlement_log`。
 - Redis: `ZSET rank:score`，member 为 player_id，score 为玩家积分。Docker Compose 默认映射到宿主机 `6380`，避免和本机已有 Redis 的 `6379` 冲突。
 
-`settlement_log` 使用 `(battle_id, player_id)` 唯一键保证同一场战斗同一玩家只结算一次。`battle_record` 使用 `(battle_id, loser_id)` 唯一键，支持多人房间下一场战斗产生多条战绩记录。
+`battle` 表一局游戏一条记录，保存 `battle_id`、`room_id` 和最终 `winner_id`。`battle_player_result` 表一名参与玩家一条记录，保存该玩家在本局中的 `WIN` / `LOSE` 结果和积分变化。`settlement_log` 使用 `(battle_id, player_id)` 唯一键保证同一场战斗同一玩家只结算一次。
 
 当前源码的 MysqlClient / RedisClient 是可替换的薄封装：默认构建使用内存结构；开启 `GAME_USE_MYSQL` / `GAME_USE_REDIS` 后分别使用 MySQL/MariaDB C client 和 hiredis 连接真实服务。
 
