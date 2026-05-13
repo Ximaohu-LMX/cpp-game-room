@@ -17,7 +17,7 @@ TEST(SettlementTest, SettlementLogIsIdempotentByBattlePlayer) {
 }
 
 TEST(SettlementTest, UpdateRankAfterSettle) {
-    game::RedisClient redis;
+    game::RedisClient redis(true);
     game::PlayerRepository players;
     game::BattleRepository battles;
     game::RankService rank(&redis);
@@ -28,4 +28,3 @@ TEST(SettlementTest, UpdateRankAfterSettle) {
     ASSERT_FALSE(items.empty());
     EXPECT_EQ(items[0].player_id, 10);
 }
-

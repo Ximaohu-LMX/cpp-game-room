@@ -1,0 +1,5 @@
+if(EXISTS "/home/lmx/cpp-game-room/build-real/tests/game_tests[1]_tests.cmake")
+  include("/home/lmx/cpp-game-room/build-real/tests/game_tests[1]_tests.cmake")
+else()
+  add_test(game_tests_NOT_BUILT game_tests_NOT_BUILT)
+endif()

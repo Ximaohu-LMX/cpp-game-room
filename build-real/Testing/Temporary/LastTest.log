@@ -1,0 +1,193 @@
+Start testing: May 12 22:13 CST
+----------------------------------------------------------
+1/7 Testing: RoomStateTest.ReadyStartsGame
+1/7 Test: RoomStateTest.ReadyStartsGame
+Command: "/home/lmx/cpp-game-room/build-real/tests/game_tests" "--gtest_filter=RoomStateTest.ReadyStartsGame" "--gtest_also_run_disabled_tests"
+Directory: /home/lmx/cpp-game-room/build-real/tests
+"RoomStateTest.ReadyStartsGame" start time: May 12 22:13 CST
+Output:
+----------------------------------------------------------
+Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RoomStateTest.ReadyStartsGame
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RoomStateTest
+[ RUN      ] RoomStateTest.ReadyStartsGame
+[       OK ] RoomStateTest.ReadyStartsGame (0 ms)
+[----------] 1 test from RoomStateTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"RoomStateTest.ReadyStartsGame" end time: May 12 22:13 CST
+"RoomStateTest.ReadyStartsGame" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: MatchQueueTest.PreventDuplicatePush
+2/7 Test: MatchQueueTest.PreventDuplicatePush
+Command: "/home/lmx/cpp-game-room/build-real/tests/game_tests" "--gtest_filter=MatchQueueTest.PreventDuplicatePush" "--gtest_also_run_disabled_tests"
+Directory: /home/lmx/cpp-game-room/build-real/tests
+"MatchQueueTest.PreventDuplicatePush" start time: May 12 22:13 CST
+Output:
+----------------------------------------------------------
+Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = MatchQueueTest.PreventDuplicatePush
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatchQueueTest
+[ RUN      ] MatchQueueTest.PreventDuplicatePush
+[       OK ] MatchQueueTest.PreventDuplicatePush (0 ms)
+[----------] 1 test from MatchQueueTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"MatchQueueTest.PreventDuplicatePush" end time: May 12 22:13 CST
+"MatchQueueTest.PreventDuplicatePush" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/7 Testing: MatchQueueTest.RemoveAndPopN
+3/7 Test: MatchQueueTest.RemoveAndPopN
+Command: "/home/lmx/cpp-game-room/build-real/tests/game_tests" "--gtest_filter=MatchQueueTest.RemoveAndPopN" "--gtest_also_run_disabled_tests"
+Directory: /home/lmx/cpp-game-room/build-real/tests
+"MatchQueueTest.RemoveAndPopN" start time: May 12 22:13 CST
+Output:
+----------------------------------------------------------
+Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = MatchQueueTest.RemoveAndPopN
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatchQueueTest
+[ RUN      ] MatchQueueTest.RemoveAndPopN
+[       OK ] MatchQueueTest.RemoveAndPopN (0 ms)
+[----------] 1 test from MatchQueueTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"MatchQueueTest.RemoveAndPopN" end time: May 12 22:13 CST
+"MatchQueueTest.RemoveAndPopN" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/7 Testing: ProtocolTest.EncodeDecodeOnePacket
+4/7 Test: ProtocolTest.EncodeDecodeOnePacket
+Command: "/home/lmx/cpp-game-room/build-real/tests/game_tests" "--gtest_filter=ProtocolTest.EncodeDecodeOnePacket" "--gtest_also_run_disabled_tests"
+Directory: /home/lmx/cpp-game-room/build-real/tests
+"ProtocolTest.EncodeDecodeOnePacket" start time: May 12 22:13 CST
+Output:
+----------------------------------------------------------
+Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = ProtocolTest.EncodeDecodeOnePacket
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ProtocolTest
+[ RUN      ] ProtocolTest.EncodeDecodeOnePacket
+[       OK ] ProtocolTest.EncodeDecodeOnePacket (0 ms)
+[----------] 1 test from ProtocolTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ProtocolTest.EncodeDecodeOnePacket" end time: May 12 22:13 CST
+"ProtocolTest.EncodeDecodeOnePacket" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/7 Testing: ProtocolTest.HalfPacketWaitsForMoreData
+5/7 Test: ProtocolTest.HalfPacketWaitsForMoreData
+Command: "/home/lmx/cpp-game-room/build-real/tests/game_tests" "--gtest_filter=ProtocolTest.HalfPacketWaitsForMoreData" "--gtest_also_run_disabled_tests"
+Directory: /home/lmx/cpp-game-room/build-real/tests
+"ProtocolTest.HalfPacketWaitsForMoreData" start time: May 12 22:13 CST
+Output:
+----------------------------------------------------------
+Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = ProtocolTest.HalfPacketWaitsForMoreData
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ProtocolTest
+[ RUN      ] ProtocolTest.HalfPacketWaitsForMoreData
+[       OK ] ProtocolTest.HalfPacketWaitsForMoreData (0 ms)
+[----------] 1 test from ProtocolTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ProtocolTest.HalfPacketWaitsForMoreData" end time: May 12 22:13 CST
+"ProtocolTest.HalfPacketWaitsForMoreData" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/7 Testing: SettlementTest.SettlementLogIsIdempotentByBattlePlayer
+6/7 Test: SettlementTest.SettlementLogIsIdempotentByBattlePlayer
+Command: "/home/lmx/cpp-game-room/build-real/tests/game_tests" "--gtest_filter=SettlementTest.SettlementLogIsIdempotentByBattlePlayer" "--gtest_also_run_disabled_tests"
+Directory: /home/lmx/cpp-game-room/build-real/tests
+"SettlementTest.SettlementLogIsIdempotentByBattlePlayer" start time: May 12 22:13 CST
+Output:
+----------------------------------------------------------
+Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.SettlementLogIsIdempotentByBattlePlayer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.SettlementLogIsIdempotentByBattlePlayer
+[       OK ] SettlementTest.SettlementLogIsIdempotentByBattlePlayer (0 ms)
+[----------] 1 test from SettlementTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SettlementTest.SettlementLogIsIdempotentByBattlePlayer" end time: May 12 22:13 CST
+"SettlementTest.SettlementLogIsIdempotentByBattlePlayer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: SettlementTest.UpdateRankAfterSettle
+7/7 Test: SettlementTest.UpdateRankAfterSettle
+Command: "/home/lmx/cpp-game-room/build-real/tests/game_tests" "--gtest_filter=SettlementTest.UpdateRankAfterSettle" "--gtest_also_run_disabled_tests"
+Directory: /home/lmx/cpp-game-room/build-real/tests
+"SettlementTest.UpdateRankAfterSettle" start time: May 12 22:13 CST
+Output:
+----------------------------------------------------------
+Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.UpdateRankAfterSettle
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.UpdateRankAfterSettle
+[2026-05-12 22:13:16.382] [info] settled battle 1000000, room 1, winner 10
+[       OK ] SettlementTest.UpdateRankAfterSettle (0 ms)
+[----------] 1 test from SettlementTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"SettlementTest.UpdateRankAfterSettle" end time: May 12 22:13 CST
+"SettlementTest.UpdateRankAfterSettle" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 12 22:13 CST

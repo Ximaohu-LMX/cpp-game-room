@@ -8,7 +8,7 @@
 - Boost.Asio
 - protobuf
 - spdlog
-- Redis / MySQL 设计
+- Redis / MySQL
 - CMake
 - Docker Compose
 - GoogleTest
@@ -42,10 +42,12 @@ MessageDispatcher
 - Room 状态机：Waiting -> Ready -> Playing -> Settlement -> Closed。
 - GameLoop 以固定 50ms tick 推进 GameRoom，统一消费玩家输入并同步状态。
 - SettlementService 通过 settlement_log 思路保证战斗结算幂等。
-- RankService 以 Redis Sorted Set 为目标结构，当前代码提供内存实现，方便本地演示。
+- RankService 支持 Redis Sorted Set 排行榜；默认内存实现方便本地演示，开启 `GAME_USE_REDIS` 后接入真实 Redis。
 - Bot 工具可批量模拟登录、匹配、准备和输入。
 
 ## 快速启动
+
+默认构建使用内存 storage，便于不启动外部依赖时跑通单元测试和主流程：
 
 ```bash
 mkdir build
@@ -55,16 +57,30 @@ cmake --build .
 ./game_server
 ```
 
-启动依赖：
+真实 MySQL / Redis 模式需要先安装开发库，例如 Ubuntu / Debian：
+
+```bash
+sudo apt-get install -y libmariadb-dev libhiredis-dev
+```
+
+启动依赖服务：
 
 ```bash
 docker compose up -d mysql redis
 ```
 
+然后开启真实 storage 编译：
+
+```bash
+cmake -S . -B build-real -DGAME_USE_MYSQL=ON -DGAME_USE_REDIS=ON
+cmake --build build-real
+./build-real/src/game_server
+```
+
 bot 示例：
 
 ```bash
-./game_bot --host 127.0.0.1 --port 9000 --count 1000
+./build-real/bot/game_bot --host 127.0.0.1 --port 9000 --count 1000
 ```
 
 ## 协议设计
@@ -79,10 +95,12 @@ bot 示例：
 
 ## Redis / MySQL 数据设计
 
-- MySQL: player、battle_record、settlement_log。
-- Redis: `ZSET rank:score`，member 为 player_id，score 为玩家积分。
+- MySQL: `player`、`battle_record`、`settlement_log`。
+- Redis: `ZSET rank:score`，member 为 player_id，score 为玩家积分。Docker Compose 默认映射到宿主机 `6380`，避免和本机已有 Redis 的 `6379` 冲突。
 
-当前源码的 MysqlClient / RedisClient 是可替换的薄封装，默认用内存结构跑通主流程；接真实依赖时只需要替换 storage 层实现。
+`settlement_log` 使用 `(battle_id, player_id)` 唯一键保证同一场战斗同一玩家只结算一次。`battle_record` 使用 `(battle_id, loser_id)` 唯一键，支持多人房间下一场战斗产生多条战绩记录。
+
+当前源码的 MysqlClient / RedisClient 是可替换的薄封装：默认构建使用内存结构；开启 `GAME_USE_MYSQL` / `GAME_USE_REDIS` 后分别使用 MySQL/MariaDB C client 和 hiredis 连接真实服务。
 
 ## 压测结果
 
@@ -95,4 +113,3 @@ bot 示例：
 - 房间广播可从全量状态改为增量同步。
 - MySQL 可增加连接池和异步落库队列。
 - Redis 与 MySQL 不一致时，可通过 MySQL 快照恢复排行榜，再消费未落库结算日志。
-

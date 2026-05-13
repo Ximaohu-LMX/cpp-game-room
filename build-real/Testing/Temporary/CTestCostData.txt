@@ -1,0 +1,8 @@
+RoomStateTest.ReadyStartsGame 2 0.00296845
+MatchQueueTest.PreventDuplicatePush 2 0.0035622
+MatchQueueTest.RemoveAndPopN 2 0.00407913
+ProtocolTest.EncodeDecodeOnePacket 2 0.00281931
+ProtocolTest.HalfPacketWaitsForMoreData 2 0.00254069
+SettlementTest.SettlementLogIsIdempotentByBattlePlayer 2 0.00262661
+SettlementTest.UpdateRankAfterSettle 1 0.00534188
+---

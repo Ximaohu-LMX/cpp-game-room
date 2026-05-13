@@ -1,0 +1,7 @@
+# Hashes of file build rules.
+21ba121a3edb67de003f2381dbb33342 src/common.pb.h
+19e9666103425e01bd12010aaa68eb25 src/game.pb.h
+5e3099665323836b8fcac49a6b9c9551 src/login.pb.h
+4b134a21d71bfe83ae62767127b371d4 src/match.pb.h
+39576f3081894d1353ccc610d9218570 src/rank.pb.h
+17100f697bdbe19e2afdee696626c733 src/room.pb.h

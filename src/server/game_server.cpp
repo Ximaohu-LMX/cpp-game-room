@@ -17,8 +17,14 @@ bool GameServer::Init() {
 
     mysql_client_ = std::make_unique<MysqlClient>();
     redis_client_ = std::make_unique<RedisClient>();
-    mysql_client_->Connect();
-    redis_client_->Connect();
+    if (!mysql_client_->Connect()) {
+        LOG_ERROR("failed to connect mysql");
+        return false;
+    }
+    if (!redis_client_->Connect()) {
+        LOG_ERROR("failed to connect redis");
+        return false;
+    }
 
     player_repository_ = std::make_unique<PlayerRepository>(mysql_client_.get());
     battle_repository_ = std::make_unique<BattleRepository>(mysql_client_.get());

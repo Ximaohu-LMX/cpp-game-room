@@ -137,6 +137,7 @@ bot/game_bot: /usr/lib/x86_64-linux-gnu/libabsl_int128.so.20210324.0.0
 bot/game_bot: /usr/lib/x86_64-linux-gnu/libabsl_throw_delegate.so.20210324.0.0
 bot/game_bot: /usr/lib/x86_64-linux-gnu/libabsl_raw_logging_internal.so.20210324.0.0
 bot/game_bot: /usr/lib/x86_64-linux-gnu/libabsl_log_severity.so.20210324.0.0
+bot/game_bot: /home/lmx/anaconda3/lib/libabsl_log_internal_check_op.so
 bot/game_bot: bot/CMakeFiles/game_bot.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lmx/cpp-game-room/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable game_bot"
 	cd /home/lmx/cpp-game-room/build/bot && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/game_bot.dir/link.txt --verbose=$(VERBOSE)

@@ -12,13 +12,17 @@ CREATE TABLE IF NOT EXISTS player (
 );
 
 CREATE TABLE IF NOT EXISTS battle_record (
-    battle_id BIGINT PRIMARY KEY,
+    record_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    battle_id BIGINT NOT NULL,
     room_id BIGINT NOT NULL,
     winner_id BIGINT NOT NULL,
     loser_id BIGINT NOT NULL,
     start_time TIMESTAMP NULL,
     end_time TIMESTAMP NULL,
-    result_json TEXT
+    result_json TEXT,
+    UNIQUE KEY uniq_battle_loser (battle_id, loser_id),
+    KEY idx_battle_room (room_id),
+    KEY idx_battle_winner (winner_id)
 );
 
 CREATE TABLE IF NOT EXISTS settlement_log (
@@ -29,4 +33,3 @@ CREATE TABLE IF NOT EXISTS settlement_log (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE KEY uniq_battle_player (battle_id, player_id)
 );
-

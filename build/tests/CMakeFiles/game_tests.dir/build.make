@@ -155,6 +155,7 @@ tests/game_tests: /usr/lib/x86_64-linux-gnu/libabsl_int128.so.20210324.0.0
 tests/game_tests: /usr/lib/x86_64-linux-gnu/libabsl_throw_delegate.so.20210324.0.0
 tests/game_tests: /usr/lib/x86_64-linux-gnu/libabsl_raw_logging_internal.so.20210324.0.0
 tests/game_tests: /usr/lib/x86_64-linux-gnu/libabsl_log_severity.so.20210324.0.0
+tests/game_tests: /home/lmx/anaconda3/lib/libabsl_log_internal_check_op.so
 tests/game_tests: /usr/lib/x86_64-linux-gnu/libgtest.a
 tests/game_tests: tests/CMakeFiles/game_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lmx/cpp-game-room/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable game_tests"
