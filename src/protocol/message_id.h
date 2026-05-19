@@ -4,6 +4,10 @@
 
 namespace game {
 
+/**
+ * @brief 业务消息 ID。
+ * @help 服务端通过 msg_id 将 Packet 分发到不同业务服务。
+ */
 enum MessageId : uint32_t {
     MSG_LOGIN_REQ = 1001,
     MSG_LOGIN_RESP = 1002,
@@ -32,4 +36,3 @@ enum MessageId : uint32_t {
 };
 
 } // namespace game
-

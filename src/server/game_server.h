@@ -21,10 +21,27 @@
 
 namespace game {
 
+/**
+ * @brief 游戏服务器总控类。
+ * @help 负责初始化所有模块、完成依赖注入、注册消息处理器并启动网络/定时器/GameLoop。
+ */
 class GameServer {
 public:
+    /**
+     * @brief 初始化服务器模块。
+     * @return 初始化成功返回 true，依赖连接失败返回 false。
+     */
     bool Init();
+
+    /**
+     * @brief 启动服务器。
+     * @help 启动 GameLoop、TimerManager 和 TCP 监听。
+     */
     void Start();
+
+    /**
+     * @brief 停止服务器。
+     */
     void Stop();
 
 private:
@@ -49,4 +66,3 @@ private:
 };
 
 } // namespace game
-

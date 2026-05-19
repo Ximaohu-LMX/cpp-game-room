@@ -9,8 +9,15 @@
 
 namespace game {
 
+/**
+ * @brief 日志初始化工具。
+ * @help 如果开启 GAME_USE_SPDLOG，则初始化 spdlog；否则日志宏为空实现。
+ */
 class Logger {
 public:
+    /**
+     * @brief 初始化日志系统。
+     */
     static void Init();
 };
 

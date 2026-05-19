@@ -30,7 +30,8 @@ void TcpConnection::Start() {
 }
 
 void TcpConnection::Send(const Packet& packet) {
-    auto self = shared_from_this();
+    // 拿到一份 `shared_ptr` 指向自己 this,保证 lambda 执行期间对象不会被销毁
+    auto self = shared_from_this();  
     boost::asio::post(socket_.get_executor(), [this, self, packet]() {
         const bool writing = !write_queue_.empty();
         write_queue_.push_back(codec_.Encode(packet));

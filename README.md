@@ -2,7 +2,7 @@
 
 一个基于 C++17 的房间制多人对战游戏服务端示例项目，覆盖 TCP 长连接、protobuf 协议、登录会话、匹配队列、房间状态机、固定 tick 状态同步、战斗结算、Redis 排行榜、MySQL 持久化接口和 bot 压测工具。
 
-游戏背景采用吃鸡式对战：每个房间开启一局 battle，一局游戏只有一个最终胜者，其他参与玩家均为失败方；当前示例用简化的移动、攻击和血量规则模拟这一机制。
+游戏背景采用回合制单胜者对战：每个房间开启一局 battle，一局游戏只有一个最终胜者，其他参与玩家均为失败方。当前示例实现的是简化战斗流程，用移动、攻击、血量和存活判断模拟战斗，不包含完整商业游戏中的地图、装备、子弹、技能、安全区、回放等复杂玩法。
 
 ## 技术栈
 
@@ -43,6 +43,7 @@ MessageDispatcher
 - MatchQueue 使用 deque + unordered_set，保证有序匹配并防止重复入队。
 - Room 状态机：Waiting -> Ready -> Playing -> Settlement -> Closed。
 - GameLoop 以固定 50ms tick 推进 GameRoom，统一消费玩家输入并同步状态。
+- 简化战斗模型支持玩家移动、范围攻击、血量扣减、死亡判断和唯一胜者判定。
 - SettlementService 通过 settlement_log 思路保证战斗结算幂等。
 - RankService 支持 Redis Sorted Set 排行榜；默认内存实现方便本地演示，开启 `GAME_USE_REDIS` 后接入真实 Redis。
 - Bot 工具可批量模拟登录、匹配、准备和输入。
