@@ -153,8 +153,10 @@ src/CMakeFiles/game_core.dir/game/settlement_service.cpp.o: \
  /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/unordered_set \
- /usr/include/c++/11/bits/unordered_set.h \
+ /usr/include/c++/11/bits/vector.tcc /usr/include/mariadb/mysql.h \
+ /usr/include/mariadb/mariadb_com.h \
+ /usr/include/mariadb/mariadb_version.h /usr/include/mariadb/ma_list.h \
+ /usr/include/mariadb/mariadb_ctype.h /usr/include/mariadb/mariadb_stmt.h \
  /home/lmx/cpp-game-room/src/storage/player_repository.h \
  /home/lmx/cpp-game-room/src/rank/rank_service.h \
  /home/lmx/cpp-game-room/src/net/session.h \
@@ -174,9 +176,9 @@ src/CMakeFiles/game_core.dir/game/settlement_service.cpp.o: \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
  /home/lmx/cpp-game-room/src/storage/redis_client.h \
- /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/bits/stl_map.h \
- /usr/include/c++/11/bits/stl_multimap.h \
+ /usr/include/hiredis/hiredis.h /usr/include/hiredis/read.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/hiredis/sds.h \
+ /usr/include/hiredis/alloc.h /usr/include/c++/11/stdlib.h \
  /home/lmx/cpp-game-room/src/util/id_generator.h \
  /usr/include/c++/11/atomic /home/lmx/cpp-game-room/src/util/logger.h \
  /usr/include/spdlog/spdlog.h /usr/include/spdlog/common.h \

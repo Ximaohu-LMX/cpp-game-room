@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/game_tests.dir/test_match_queue.cpp.o.d"
   "CMakeFiles/game_tests.dir/test_protocol.cpp.o"
   "CMakeFiles/game_tests.dir/test_protocol.cpp.o.d"
+  "CMakeFiles/game_tests.dir/test_rank_service.cpp.o"
+  "CMakeFiles/game_tests.dir/test_rank_service.cpp.o.d"
   "CMakeFiles/game_tests.dir/test_room_state.cpp.o"
   "CMakeFiles/game_tests.dir/test_room_state.cpp.o.d"
   "CMakeFiles/game_tests.dir/test_settlement.cpp.o"

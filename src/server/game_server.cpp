@@ -16,7 +16,7 @@ bool GameServer::Init() {
     dispatcher_ = std::make_unique<MessageDispatcher>();
     connection_manager_ = std::make_unique<ConnectionManager>();
 
-    // 初始化存储客户端。默认构建是内存 stub，开启 GAME_USE_MYSQL / GAME_USE_REDIS 后连接真实服务。
+    // 初始化真实存储客户端：MySQL 负责持久化，Redis 负责排行榜。
     mysql_client_ = std::make_unique<MysqlClient>();
     redis_client_ = std::make_unique<RedisClient>();
     if (!mysql_client_->Connect()) {

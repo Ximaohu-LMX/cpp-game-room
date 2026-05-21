@@ -152,10 +152,12 @@ src/CMakeFiles/game_core.dir/storage/battle_repository.cpp.o: \
  /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/unordered_set \
- /usr/include/c++/11/bits/unordered_set.h /usr/include/c++/11/sstream \
- /usr/include/c++/11/istream /usr/include/c++/11/ios \
- /usr/include/c++/11/bits/ios_base.h \
+ /usr/include/c++/11/bits/vector.tcc /usr/include/mariadb/mysql.h \
+ /usr/include/mariadb/mariadb_com.h \
+ /usr/include/mariadb/mariadb_version.h /usr/include/mariadb/ma_list.h \
+ /usr/include/mariadb/mariadb_ctype.h /usr/include/mariadb/mariadb_stmt.h \
+ /usr/include/c++/11/sstream /usr/include/c++/11/istream \
+ /usr/include/c++/11/ios /usr/include/c++/11/bits/ios_base.h \
  /usr/include/c++/11/bits/locale_classes.h \
  /usr/include/c++/11/bits/locale_classes.tcc \
  /usr/include/c++/11/streambuf /usr/include/c++/11/bits/streambuf.tcc \

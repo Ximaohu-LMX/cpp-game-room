@@ -7,8 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(BUILD_TESTS "Build unit tests" ON)
-option(GAME_USE_MYSQL "Use real MySQL/MariaDB client instead of the in-memory stub" OFF)
-option(GAME_USE_REDIS "Use real Redis hiredis client instead of the in-memory stub" OFF)
 
 find_package(Protobuf REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system)

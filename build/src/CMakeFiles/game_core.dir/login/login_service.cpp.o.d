@@ -292,6 +292,9 @@ src/CMakeFiles/game_core.dir/login/login_service.cpp.o: \
  /home/lmx/cpp-game-room/src/server/service_context.h \
  /home/lmx/cpp-game-room/src/storage/player_repository.h \
  /home/lmx/cpp-game-room/src/storage/mysql_client.h \
+ /usr/include/mariadb/mysql.h /usr/include/mariadb/mariadb_com.h \
+ /usr/include/mariadb/mariadb_version.h /usr/include/mariadb/ma_list.h \
+ /usr/include/mariadb/mariadb_ctype.h /usr/include/mariadb/mariadb_stmt.h \
  /home/lmx/cpp-game-room/src/util/id_generator.h \
  /home/lmx/cpp-game-room/src/util/logger.h /usr/include/spdlog/spdlog.h \
  /usr/include/spdlog/common.h /usr/include/spdlog/tweakme.h \

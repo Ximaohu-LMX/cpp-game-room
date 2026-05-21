@@ -1,29 +1,20 @@
 #pragma once
 
-#include <map>
 #include <mutex>
 #include <string>
-#include <unordered_map>
 #include <utility>
 #include <vector>
-
-#if defined(GAME_USE_REDIS) && GAME_USE_REDIS
 #include <hiredis/hiredis.h>
-#endif
 
 namespace game {
 
 /**
  * @brief Redis 客户端封装。
- * @help 默认可使用内存模式便于单元测试；开启 GAME_USE_REDIS 后使用 hiredis 连接真实 Redis。
+ * @help 使用 hiredis 连接真实 Redis。
  */
 class RedisClient {
 public:
-    /**
-     * @brief 创建 Redis 客户端。
-     * @param memory_mode 是否强制使用内存模式。
-     */
-    explicit RedisClient(bool memory_mode = false);
+    RedisClient() = default;
 
     /**
      * @brief 析构时断开连接。
@@ -79,12 +70,7 @@ public:
 
 private:
     std::recursive_mutex mutex_;
-    bool memory_mode_ = false;
-    std::unordered_map<std::string, std::string> kv_;
-    std::unordered_map<std::string, std::unordered_map<std::string, int>> zsets_;
-#if defined(GAME_USE_REDIS) && GAME_USE_REDIS
     redisContext* context_ = nullptr;
-#endif
 };
 
 } // namespace game

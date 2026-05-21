@@ -35,6 +35,8 @@ void TcpConnection::Send(const Packet& packet) {
     boost::asio::post(socket_.get_executor(), [this, self, packet]() {
         const bool writing = !write_queue_.empty();
         write_queue_.push_back(codec_.Encode(packet));
+        // 如果队列之前是空的，就重启服务器发送；
+        //如果不空，说明发送器正在发送了，不需要重启。
         if (!writing) {
             DoWrite();
         }

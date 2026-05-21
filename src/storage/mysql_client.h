@@ -5,10 +5,7 @@
 #include <mutex>
 #include <unordered_map>
 #include <vector>
-
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
 #include <mysql.h>
-#endif
 
 namespace game {
 
@@ -20,7 +17,7 @@ using QueryResult = std::vector<QueryRow>;
 
 /**
  * @brief MySQL 客户端封装。
- * @help 默认构建为内存 stub；开启 GAME_USE_MYSQL 后使用 MySQL/MariaDB C API。
+ * @help 使用 MySQL/MariaDB C API 连接真实数据库。
  */
 class MysqlClient {
 public:
@@ -81,11 +78,7 @@ public:
 
 private:
     mutable std::recursive_mutex mutex_;
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
     MYSQL* conn_ = nullptr;
-#else
-    bool connected_ = false;
-#endif
 };
 
 } // namespace game

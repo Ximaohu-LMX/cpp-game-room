@@ -127,6 +127,8 @@ bot/game_bot: bot/CMakeFiles/game_bot.dir/build.make
 bot/game_bot: src/libgame_core.a
 bot/game_bot: /usr/lib/x86_64-linux-gnu/libprotobuf.so
 bot/game_bot: /usr/local/lib/libboost_system.so.1.79.0
+bot/game_bot: /usr/lib/x86_64-linux-gnu/libmariadb.so
+bot/game_bot: /usr/lib/x86_64-linux-gnu/libhiredis.so
 bot/game_bot: /usr/lib/x86_64-linux-gnu/libspdlog.so.1.9.2
 bot/game_bot: /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1
 bot/game_bot: /usr/lib/x86_64-linux-gnu/libabsl_strings.so.20210324.0.0

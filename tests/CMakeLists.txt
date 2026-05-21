@@ -10,9 +10,11 @@ add_executable(game_tests
     test_match_queue.cpp
     test_protocol.cpp
     test_settlement.cpp
+    test_rank_service.cpp
 )
 
 target_link_libraries(game_tests PRIVATE game_core protobuf::libprotobuf GTest::gtest GTest::gtest_main)
+target_compile_definitions(game_tests PRIVATE GAME_TEST_SOURCE_DIR="${PROJECT_SOURCE_DIR}")
 
 include(GoogleTest)
 gtest_discover_tests(game_tests)

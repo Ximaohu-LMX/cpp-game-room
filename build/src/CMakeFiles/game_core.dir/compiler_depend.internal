@@ -1700,8 +1700,12 @@ src/CMakeFiles/game_core.dir/game/settlement_service.cpp.o
  /usr/include/c++/11/bits/stl_vector.h
  /usr/include/c++/11/bits/stl_bvector.h
  /usr/include/c++/11/bits/vector.tcc
- /usr/include/c++/11/unordered_set
- /usr/include/c++/11/bits/unordered_set.h
+ /usr/include/mariadb/mysql.h
+ /usr/include/mariadb/mariadb_com.h
+ /usr/include/mariadb/mariadb_version.h
+ /usr/include/mariadb/ma_list.h
+ /usr/include/mariadb/mariadb_ctype.h
+ /usr/include/mariadb/mariadb_stmt.h
  /home/lmx/cpp-game-room/src/storage/player_repository.h
  /home/lmx/cpp-game-room/src/rank/rank_service.h
  /home/lmx/cpp-game-room/src/net/session.h
@@ -1724,10 +1728,12 @@ src/CMakeFiles/game_core.dir/game/settlement_service.cpp.o
  /usr/include/c++/11/pstl/glue_memory_defs.h
  /usr/include/c++/11/pstl/execution_defs.h
  /home/lmx/cpp-game-room/src/storage/redis_client.h
- /usr/include/c++/11/map
- /usr/include/c++/11/bits/stl_tree.h
- /usr/include/c++/11/bits/stl_map.h
- /usr/include/c++/11/bits/stl_multimap.h
+ /usr/include/hiredis/hiredis.h
+ /usr/include/hiredis/read.h
+ /usr/include/x86_64-linux-gnu/sys/time.h
+ /usr/include/hiredis/sds.h
+ /usr/include/hiredis/alloc.h
+ /usr/include/c++/11/stdlib.h
  /home/lmx/cpp-game-room/src/util/id_generator.h
  /usr/include/c++/11/atomic
  /home/lmx/cpp-game-room/src/util/logger.h
@@ -2841,6 +2847,12 @@ src/CMakeFiles/game_core.dir/login/login_service.cpp.o
  /home/lmx/cpp-game-room/src/server/service_context.h
  /home/lmx/cpp-game-room/src/storage/player_repository.h
  /home/lmx/cpp-game-room/src/storage/mysql_client.h
+ /usr/include/mariadb/mysql.h
+ /usr/include/mariadb/mariadb_com.h
+ /usr/include/mariadb/mariadb_version.h
+ /usr/include/mariadb/ma_list.h
+ /usr/include/mariadb/mariadb_ctype.h
+ /usr/include/mariadb/mariadb_stmt.h
  /home/lmx/cpp-game-room/src/util/id_generator.h
  /home/lmx/cpp-game-room/src/util/logger.h
  /usr/include/spdlog/spdlog.h
@@ -9423,12 +9435,6 @@ src/CMakeFiles/game_core.dir/rank/rank_service.cpp.o
  /usr/include/c++/11/pstl/glue_memory_defs.h
  /usr/include/c++/11/pstl/execution_defs.h
  /home/lmx/cpp-game-room/src/storage/redis_client.h
- /usr/include/c++/11/map
- /usr/include/c++/11/bits/stl_tree.h
- /usr/include/c++/11/bits/node_handle.h
- /usr/include/c++/11/bits/stl_map.h
- /usr/include/c++/11/bits/stl_multimap.h
- /usr/include/c++/11/bits/erase_if.h
  /usr/include/c++/11/mutex
  /usr/include/c++/11/chrono
  /usr/include/c++/11/ratio
@@ -9440,15 +9446,16 @@ src/CMakeFiles/game_core.dir/rank/rank_service.cpp.o
  /usr/include/c++/11/stdexcept
  /usr/include/c++/11/bits/std_mutex.h
  /usr/include/c++/11/bits/unique_lock.h
- /usr/include/c++/11/unordered_map
- /usr/include/c++/11/bits/hashtable.h
- /usr/include/c++/11/bits/hashtable_policy.h
- /usr/include/c++/11/bits/enable_special_members.h
- /usr/include/c++/11/bits/unordered_map.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_vector.h
  /usr/include/c++/11/bits/stl_bvector.h
  /usr/include/c++/11/bits/vector.tcc
+ /usr/include/hiredis/hiredis.h
+ /usr/include/hiredis/read.h
+ /usr/include/x86_64-linux-gnu/sys/time.h
+ /usr/include/hiredis/sds.h
+ /usr/include/hiredis/alloc.h
+ /usr/include/c++/11/stdlib.h
  /home/lmx/cpp-game-room/src/protocol/message_id.h
  /home/lmx/cpp-game-room/src/protocol/proto_helper.h
  /usr/include/google/protobuf/message.h
@@ -9462,6 +9469,13 @@ src/CMakeFiles/game_core.dir/rank/rank_service.cpp.o
  /usr/include/c++/11/pstl/glue_algorithm_defs.h
  /usr/include/c++/11/functional
  /usr/include/c++/11/bits/std_function.h
+ /usr/include/c++/11/unordered_map
+ /usr/include/c++/11/bits/hashtable.h
+ /usr/include/c++/11/bits/hashtable_policy.h
+ /usr/include/c++/11/bits/enable_special_members.h
+ /usr/include/c++/11/bits/node_handle.h
+ /usr/include/c++/11/bits/unordered_map.h
+ /usr/include/c++/11/bits/erase_if.h
  /usr/include/c++/11/iostream
  /usr/include/c++/11/ostream
  /usr/include/c++/11/ios
@@ -9483,12 +9497,15 @@ src/CMakeFiles/game_core.dir/rank/rank_service.cpp.o
  /usr/include/c++/11/bits/ostream.tcc
  /usr/include/c++/11/istream
  /usr/include/c++/11/bits/istream.tcc
+ /usr/include/c++/11/map
+ /usr/include/c++/11/bits/stl_tree.h
+ /usr/include/c++/11/bits/stl_map.h
+ /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/set
  /usr/include/c++/11/bits/stl_set.h
  /usr/include/c++/11/bits/stl_multiset.h
  /usr/include/google/protobuf/stubs/port.h
  /usr/include/assert.h
- /usr/include/c++/11/stdlib.h
  /usr/include/c++/11/cstddef
  /usr/include/string.h
  /usr/include/strings.h
@@ -10917,8 +10934,12 @@ src/CMakeFiles/game_core.dir/server/game_server.cpp.o
  /home/lmx/cpp-game-room/src/game/settlement_service.h
  /home/lmx/cpp-game-room/src/storage/battle_repository.h
  /home/lmx/cpp-game-room/src/storage/mysql_client.h
- /usr/include/c++/11/unordered_set
- /usr/include/c++/11/bits/unordered_set.h
+ /usr/include/mariadb/mysql.h
+ /usr/include/mariadb/mariadb_com.h
+ /usr/include/mariadb/mariadb_version.h
+ /usr/include/mariadb/ma_list.h
+ /usr/include/mariadb/mariadb_ctype.h
+ /usr/include/mariadb/mariadb_stmt.h
  /home/lmx/cpp-game-room/src/storage/player_repository.h
  /home/lmx/cpp-game-room/src/login/login_service.h
  /home/lmx/cpp-game-room/src/net/session.h
@@ -10929,6 +10950,8 @@ src/CMakeFiles/game_core.dir/server/game_server.cpp.o
  /usr/include/c++/11/deque
  /usr/include/c++/11/bits/stl_deque.h
  /usr/include/c++/11/bits/deque.tcc
+ /usr/include/c++/11/unordered_set
+ /usr/include/c++/11/bits/unordered_set.h
  /home/lmx/cpp-game-room/src/net/connection_manager.h
  /home/lmx/cpp-game-room/src/net/tcp_server.h
  /home/lmx/cpp-game-room/src/net/tcp_connection.h
@@ -12013,10 +12036,11 @@ src/CMakeFiles/game_core.dir/server/game_server.cpp.o
  /home/lmx/cpp-game-room/src/player/player.h
  /home/lmx/cpp-game-room/src/rank/rank_service.h
  /home/lmx/cpp-game-room/src/storage/redis_client.h
- /usr/include/c++/11/map
- /usr/include/c++/11/bits/stl_tree.h
- /usr/include/c++/11/bits/stl_map.h
- /usr/include/c++/11/bits/stl_multimap.h
+ /usr/include/hiredis/hiredis.h
+ /usr/include/hiredis/read.h
+ /usr/include/hiredis/sds.h
+ /usr/include/hiredis/alloc.h
+ /usr/include/c++/11/stdlib.h
  /home/lmx/cpp-game-room/src/room/room_manager.h
  /home/lmx/cpp-game-room/src/room/room.h
  /home/lmx/cpp-game-room/src/room/room_player.h
@@ -12025,11 +12049,14 @@ src/CMakeFiles/game_core.dir/server/game_server.cpp.o
  /usr/include/google/protobuf/stubs/casts.h
  /usr/include/google/protobuf/stubs/common.h
  /usr/include/c++/11/iostream
+ /usr/include/c++/11/map
+ /usr/include/c++/11/bits/stl_tree.h
+ /usr/include/c++/11/bits/stl_map.h
+ /usr/include/c++/11/bits/stl_multimap.h
  /usr/include/c++/11/set
  /usr/include/c++/11/bits/stl_set.h
  /usr/include/c++/11/bits/stl_multiset.h
  /usr/include/google/protobuf/stubs/port.h
- /usr/include/c++/11/stdlib.h
  /usr/include/google/protobuf/stubs/platform_macros.h
  /usr/include/google/protobuf/port_def.inc
  /usr/include/x86_64-linux-gnu/sys/param.h
@@ -12567,8 +12594,12 @@ src/CMakeFiles/game_core.dir/storage/battle_repository.cpp.o
  /usr/include/c++/11/bits/stl_vector.h
  /usr/include/c++/11/bits/stl_bvector.h
  /usr/include/c++/11/bits/vector.tcc
- /usr/include/c++/11/unordered_set
- /usr/include/c++/11/bits/unordered_set.h
+ /usr/include/mariadb/mysql.h
+ /usr/include/mariadb/mariadb_com.h
+ /usr/include/mariadb/mariadb_version.h
+ /usr/include/mariadb/ma_list.h
+ /usr/include/mariadb/mariadb_ctype.h
+ /usr/include/mariadb/mariadb_stmt.h
  /usr/include/c++/11/sstream
  /usr/include/c++/11/istream
  /usr/include/c++/11/ios
@@ -12780,6 +12811,12 @@ src/CMakeFiles/game_core.dir/storage/mysql_client.cpp.o
  /usr/include/c++/11/bits/stl_vector.h
  /usr/include/c++/11/bits/stl_bvector.h
  /usr/include/c++/11/bits/vector.tcc
+ /usr/include/mariadb/mysql.h
+ /usr/include/mariadb/mariadb_com.h
+ /usr/include/mariadb/mariadb_version.h
+ /usr/include/mariadb/ma_list.h
+ /usr/include/mariadb/mariadb_ctype.h
+ /usr/include/mariadb/mariadb_stmt.h
  /home/lmx/cpp-game-room/src/config/config_manager.h
  /home/lmx/cpp-game-room/src/util/logger.h
  /usr/include/spdlog/spdlog.h
@@ -13050,6 +13087,12 @@ src/CMakeFiles/game_core.dir/storage/player_repository.cpp.o
  /usr/include/c++/11/bits/stl_vector.h
  /usr/include/c++/11/bits/stl_bvector.h
  /usr/include/c++/11/bits/vector.tcc
+ /usr/include/mariadb/mysql.h
+ /usr/include/mariadb/mariadb_com.h
+ /usr/include/mariadb/mariadb_version.h
+ /usr/include/mariadb/ma_list.h
+ /usr/include/mariadb/mariadb_ctype.h
+ /usr/include/mariadb/mariadb_stmt.h
  /usr/include/c++/11/sstream
  /usr/include/c++/11/istream
  /usr/include/c++/11/ios
@@ -13077,9 +13120,9 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /home/lmx/cpp-game-room/src/storage/redis_client.cpp
  /usr/include/stdc-predef.h
  /home/lmx/cpp-game-room/src/storage/redis_client.h
- /usr/include/c++/11/map
- /usr/include/c++/11/bits/stl_tree.h
- /usr/include/c++/11/bits/stl_algobase.h
+ /usr/include/c++/11/mutex
+ /usr/include/c++/11/tuple
+ /usr/include/c++/11/utility
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h
  /usr/include/features.h
@@ -13092,14 +13135,18 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h
  /usr/include/c++/11/pstl/pstl_config.h
- /usr/include/c++/11/bits/functexcept.h
- /usr/include/c++/11/bits/exception_defines.h
- /usr/include/c++/11/bits/cpp_type_traits.h
- /usr/include/c++/11/ext/type_traits.h
- /usr/include/c++/11/ext/numeric_traits.h
+ /usr/include/c++/11/bits/stl_relops.h
  /usr/include/c++/11/bits/stl_pair.h
  /usr/include/c++/11/bits/move.h
  /usr/include/c++/11/type_traits
+ /usr/include/c++/11/initializer_list
+ /usr/include/c++/11/array
+ /usr/include/c++/11/bits/functexcept.h
+ /usr/include/c++/11/bits/exception_defines.h
+ /usr/include/c++/11/bits/stl_algobase.h
+ /usr/include/c++/11/bits/cpp_type_traits.h
+ /usr/include/c++/11/ext/type_traits.h
+ /usr/include/c++/11/ext/numeric_traits.h
  /usr/include/c++/11/bits/stl_iterator_base_types.h
  /usr/include/c++/11/bits/stl_iterator_base_funcs.h
  /usr/include/c++/11/bits/concept_check.h
@@ -13108,31 +13155,9 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/c++/11/bits/ptr_traits.h
  /usr/include/c++/11/debug/debug.h
  /usr/include/c++/11/bits/predefined_ops.h
- /usr/include/c++/11/bits/allocator.h
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h
- /usr/include/c++/11/ext/new_allocator.h
- /usr/include/c++/11/new
- /usr/include/c++/11/bits/exception.h
- /usr/include/c++/11/bits/memoryfwd.h
- /usr/include/c++/11/bits/stl_function.h
- /usr/include/c++/11/backward/binders.h
- /usr/include/c++/11/ext/alloc_traits.h
- /usr/include/c++/11/bits/alloc_traits.h
- /usr/include/c++/11/bits/stl_construct.h
- /usr/include/c++/11/ext/aligned_buffer.h
- /usr/include/c++/11/bits/node_handle.h
- /usr/include/c++/11/bits/stl_map.h
- /usr/include/c++/11/initializer_list
- /usr/include/c++/11/tuple
- /usr/include/c++/11/utility
- /usr/include/c++/11/bits/stl_relops.h
- /usr/include/c++/11/array
  /usr/include/c++/11/bits/range_access.h
  /usr/include/c++/11/bits/uses_allocator.h
  /usr/include/c++/11/bits/invoke.h
- /usr/include/c++/11/bits/stl_multimap.h
- /usr/include/c++/11/bits/erase_if.h
- /usr/include/c++/11/mutex
  /usr/include/c++/11/chrono
  /usr/include/c++/11/ratio
  /usr/include/c++/11/cstdint
@@ -13165,10 +13190,12 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h
  /usr/include/c++/11/bits/parse_numbers.h
  /usr/include/c++/11/exception
+ /usr/include/c++/11/bits/exception.h
  /usr/include/c++/11/bits/exception_ptr.h
  /usr/include/c++/11/bits/cxxabi_init_exception.h
  /usr/include/c++/11/typeinfo
  /usr/include/c++/11/bits/hash_bytes.h
+ /usr/include/c++/11/new
  /usr/include/c++/11/bits/nested_exception.h
  /usr/include/c++/11/system_error
  /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h
@@ -13182,6 +13209,7 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h
  /usr/include/c++/11/iosfwd
  /usr/include/c++/11/bits/stringfwd.h
+ /usr/include/c++/11/bits/memoryfwd.h
  /usr/include/c++/11/bits/postypes.h
  /usr/include/c++/11/cwchar
  /usr/include/wchar.h
@@ -13196,6 +13224,9 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/c++/11/stdexcept
  /usr/include/c++/11/string
  /usr/include/c++/11/bits/char_traits.h
+ /usr/include/c++/11/bits/allocator.h
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h
+ /usr/include/c++/11/ext/new_allocator.h
  /usr/include/c++/11/bits/localefwd.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h
  /usr/include/c++/11/clocale
@@ -13205,6 +13236,8 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/ctype.h
  /usr/include/c++/11/bits/ostream_insert.h
  /usr/include/c++/11/bits/cxxabi_forced.h
+ /usr/include/c++/11/bits/stl_function.h
+ /usr/include/c++/11/backward/binders.h
  /usr/include/c++/11/bits/basic_string.h
  /usr/include/c++/11/ext/atomicity.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h
@@ -13226,6 +13259,9 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h
  /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h
+ /usr/include/c++/11/ext/alloc_traits.h
+ /usr/include/c++/11/bits/alloc_traits.h
+ /usr/include/c++/11/bits/stl_construct.h
  /usr/include/c++/11/string_view
  /usr/include/c++/11/bits/functional_hash.h
  /usr/include/c++/11/bits/string_view.tcc
@@ -13255,16 +13291,17 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/c++/11/bits/basic_string.tcc
  /usr/include/c++/11/bits/std_mutex.h
  /usr/include/c++/11/bits/unique_lock.h
- /usr/include/c++/11/unordered_map
- /usr/include/c++/11/bits/hashtable.h
- /usr/include/c++/11/bits/hashtable_policy.h
- /usr/include/c++/11/bits/enable_special_members.h
- /usr/include/c++/11/bits/unordered_map.h
  /usr/include/c++/11/vector
  /usr/include/c++/11/bits/stl_uninitialized.h
  /usr/include/c++/11/bits/stl_vector.h
  /usr/include/c++/11/bits/stl_bvector.h
  /usr/include/c++/11/bits/vector.tcc
+ /usr/include/hiredis/hiredis.h
+ /usr/include/hiredis/read.h
+ /usr/include/x86_64-linux-gnu/sys/time.h
+ /usr/include/hiredis/sds.h
+ /usr/include/hiredis/alloc.h
+ /usr/include/c++/11/stdlib.h
  /home/lmx/cpp-game-room/src/config/config_manager.h
  /home/lmx/cpp-game-room/src/util/logger.h
  /usr/include/spdlog/spdlog.h
@@ -13284,6 +13321,7 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/c++/11/bits/shared_ptr_base.h
  /usr/include/c++/11/bits/allocated_ptr.h
  /usr/include/c++/11/bits/refwrap.h
+ /usr/include/c++/11/ext/aligned_buffer.h
  /usr/include/c++/11/ext/concurrence.h
  /usr/include/c++/11/bits/shared_ptr_atomic.h
  /usr/include/c++/11/backward/auto_ptr.h
@@ -13291,6 +13329,13 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/c++/11/pstl/execution_defs.h
  /usr/include/c++/11/functional
  /usr/include/c++/11/bits/std_function.h
+ /usr/include/c++/11/unordered_map
+ /usr/include/c++/11/bits/hashtable.h
+ /usr/include/c++/11/bits/hashtable_policy.h
+ /usr/include/c++/11/bits/enable_special_members.h
+ /usr/include/c++/11/bits/node_handle.h
+ /usr/include/c++/11/bits/unordered_map.h
+ /usr/include/c++/11/bits/erase_if.h
  /usr/include/c++/11/bits/stl_algo.h
  /usr/include/c++/11/bits/algorithmfwd.h
  /usr/include/c++/11/bits/stl_heap.h
@@ -13345,8 +13390,6 @@ src/CMakeFiles/game_core.dir/storage/redis_client.cpp.o
  /usr/include/assert.h
  /usr/include/spdlog/version.h
  /usr/include/spdlog/details/synchronous_factory.h
- /usr/include/c++/11/algorithm
- /usr/include/c++/11/pstl/glue_algorithm_defs.h
 
 src/CMakeFiles/game_core.dir/timer/timer_manager.cpp.o
  /home/lmx/cpp-game-room/src/timer/timer_manager.cpp

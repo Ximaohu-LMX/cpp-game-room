@@ -188,6 +188,30 @@ test_protocol.cpp.s:
 	cd /home/lmx/cpp-game-room/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/game_tests.dir/build.make tests/CMakeFiles/game_tests.dir/test_protocol.cpp.s
 .PHONY : test_protocol.cpp.s
 
+test_rank_service.o: test_rank_service.cpp.o
+.PHONY : test_rank_service.o
+
+# target to build an object file
+test_rank_service.cpp.o:
+	cd /home/lmx/cpp-game-room/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/game_tests.dir/build.make tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o
+.PHONY : test_rank_service.cpp.o
+
+test_rank_service.i: test_rank_service.cpp.i
+.PHONY : test_rank_service.i
+
+# target to preprocess a source file
+test_rank_service.cpp.i:
+	cd /home/lmx/cpp-game-room/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/game_tests.dir/build.make tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.i
+.PHONY : test_rank_service.cpp.i
+
+test_rank_service.s: test_rank_service.cpp.s
+.PHONY : test_rank_service.s
+
+# target to generate assembly for a file
+test_rank_service.cpp.s:
+	cd /home/lmx/cpp-game-room/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/game_tests.dir/build.make tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.s
+.PHONY : test_rank_service.cpp.s
+
 test_room_state.o: test_room_state.cpp.o
 .PHONY : test_room_state.o
 
@@ -252,6 +276,9 @@ help:
 	@echo "... test_protocol.o"
 	@echo "... test_protocol.i"
 	@echo "... test_protocol.s"
+	@echo "... test_rank_service.o"
+	@echo "... test_rank_service.i"
+	@echo "... test_rank_service.s"
 	@echo "... test_room_state.o"
 	@echo "... test_room_state.i"
 	@echo "... test_room_state.s"

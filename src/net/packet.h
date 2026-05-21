@@ -5,7 +5,7 @@
 
 namespace game {
 
-/** @brief 网络包头总长度：length + msg_id + seq。 */
+/** @brief 网络包头总长度：length + msg_id + seq。字节 */
 constexpr uint32_t kPacketHeaderSize = 12;
 
 /** @brief length 字段中固定元信息长度：msg_id + seq。 */

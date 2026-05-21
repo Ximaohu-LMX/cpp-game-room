@@ -6,6 +6,9 @@
 
 #include "rank.pb.h"
 
+#include <cstdlib>
+#include <string>
+
 namespace game {
 
 namespace {
@@ -25,27 +28,33 @@ void RankService::RegisterHandlers(MessageDispatcher& dispatcher) {
 }
 
 void RankService::UpdateScore(int64_t player_id, int score) {
-    if (redis_) {
-        redis_->ZAdd(kRankScoreKey, score, std::to_string(player_id));
+    if (!redis_) {
+        return;
     }
+    redis_->ZAdd(kRankScoreKey, score, std::to_string(player_id));
 }
 
 std::vector<RankEntry> RankService::GetTopN(int offset, int limit) {
-    std::vector<RankEntry> result;
+    std::vector<RankEntry> entries;
     if (!redis_ || limit <= 0) {
-        return result;
+        return entries;
     }
-    auto items = redis_->ZRevRange(kRankScoreKey, offset, offset + limit - 1);
-    result.reserve(items.size());
+
+    if (offset < 0) {
+        offset = 0;
+    }
+    const int stop = offset + limit - 1;
+    const auto items = redis_->ZRevRange(kRankScoreKey, offset, stop);
+    entries.reserve(items.size());
     for (size_t i = 0; i < items.size(); ++i) {
         RankEntry entry;
-        entry.player_id = std::stoll(items[i].first);
+        entry.player_id = std::strtoll(items[i].first.c_str(), nullptr, 10);
         entry.name = "player_" + items[i].first;
         entry.score = items[i].second;
         entry.rank = offset + static_cast<int>(i) + 1;
-        result.push_back(std::move(entry));
+        entries.push_back(std::move(entry));
     }
-    return result;
+    return entries;
 }
 
 void RankService::HandleRankRequest(const SessionPtr& session, const Packet& packet) {
@@ -66,4 +75,3 @@ void RankService::HandleRankRequest(const SessionPtr& session, const Packet& pac
 }
 
 } // namespace game
-

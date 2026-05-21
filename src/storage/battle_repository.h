@@ -3,9 +3,7 @@
 #include "storage/mysql_client.h"
 
 #include <cstdint>
-#include <mutex>
 #include <string>
-#include <unordered_set>
 
 namespace game {
 
@@ -47,9 +45,9 @@ class BattleRepository {
 public:
     /**
      * @brief 创建战斗仓储。
-     * @param mysql MySQL 客户端；为空时使用内存模式。
+     * @param mysql MySQL 客户端。
      */
-    explicit BattleRepository(MysqlClient* mysql = nullptr);
+    explicit BattleRepository(MysqlClient* mysql);
 
     /**
      * @brief 插入战斗总记录。
@@ -81,27 +79,7 @@ public:
     bool HasSettlement(int64_t battle_id, int64_t player_id);
 
 private:
-    /**
-     * @brief 构造结算幂等 key。
-     * @param battle_id 战斗 ID。
-     * @param player_id 玩家 ID。
-     * @return 字符串 key。
-     */
-    static std::string SettlementKey(int64_t battle_id, int64_t player_id);
-
-    /**
-     * @brief 构造玩家战斗结果幂等 key。
-     * @param battle_id 战斗 ID。
-     * @param player_id 玩家 ID。
-     * @return 字符串 key。
-     */
-    static std::string BattlePlayerKey(int64_t battle_id, int64_t player_id);
-
     MysqlClient* mysql_;
-    std::mutex mutex_;
-    std::unordered_set<int64_t> battle_ids_;
-    std::unordered_set<std::string> battle_player_keys_;
-    std::unordered_set<std::string> settlement_keys_;
 };
 
 } // namespace game

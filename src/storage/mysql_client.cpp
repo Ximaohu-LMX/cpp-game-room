@@ -13,8 +13,7 @@ MysqlClient::~MysqlClient() {
 
 bool MysqlClient::Connect() {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
-    Disconnect();
+    Disconnect();  // 先断开旧连接，防止重复连接导致资源泄漏
 
     conn_ = mysql_init(nullptr);
     if (!conn_) {
@@ -39,28 +38,18 @@ bool MysqlClient::Connect() {
 
     LOG_INFO("mysql connected to {}:{}/{}", config.host, config.port, config.database);
     return true;
-#else
-    LOG_INFO("mysql client uses in-memory stub in this version");
-    connected_ = true;
-    return true;
-#endif
 }
 
 void MysqlClient::Disconnect() {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
     if (conn_) {
         mysql_close(conn_);
         conn_ = nullptr;
     }
-#else
-    connected_ = false;
-#endif
 }
 
 bool MysqlClient::Execute(const std::string& sql) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
     if (!conn_ && !Connect()) {
         return false;
     }
@@ -76,15 +65,10 @@ bool MysqlClient::Execute(const std::string& sql) {
         }
     }
     return true;
-#else
-    LOG_DEBUG("mysql execute: {}", sql);
-    return connected_;
-#endif
 }
 
 int64_t MysqlClient::ExecuteAffected(const std::string& sql) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
     if (!conn_ && !Connect()) {
         return -1;
     }
@@ -93,15 +77,10 @@ int64_t MysqlClient::ExecuteAffected(const std::string& sql) {
         return -1;
     }
     return static_cast<int64_t>(mysql_affected_rows(conn_));
-#else
-    LOG_DEBUG("mysql execute affected: {}", sql);
-    return connected_ ? 1 : -1;
-#endif
 }
 
 QueryResult MysqlClient::Query(const std::string& sql) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
     QueryResult output;
     if (!conn_ && !Connect()) {
         return output;
@@ -133,15 +112,10 @@ QueryResult MysqlClient::Query(const std::string& sql) {
     }
     mysql_free_result(result);
     return output;
-#else
-    LOG_DEBUG("mysql query: {}", sql);
-    return {};
-#endif
 }
 
 std::string MysqlClient::EscapeString(const std::string& value) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
     if (!conn_ && !Connect()) {
         return value;
     }
@@ -151,26 +125,11 @@ std::string MysqlClient::EscapeString(const std::string& value) {
         conn_, escaped.data(), value.data(), static_cast<unsigned long>(value.size()));
     escaped.resize(len);
     return escaped;
-#else
-    std::string escaped;
-    escaped.reserve(value.size());
-    for (char ch : value) {
-        if (ch == '\'' || ch == '\\') {
-            escaped.push_back('\\');
-        }
-        escaped.push_back(ch);
-    }
-    return escaped;
-#endif
 }
 
 bool MysqlClient::IsConnected() const {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-#if defined(GAME_USE_MYSQL) && GAME_USE_MYSQL
     return conn_ != nullptr;
-#else
-    return connected_;
-#endif
 }
 
 } // namespace game

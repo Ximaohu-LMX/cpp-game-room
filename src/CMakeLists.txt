@@ -58,36 +58,30 @@ target_link_libraries(game_core
         Threads::Threads
 )
 
-if(GAME_USE_MYSQL)
-    find_path(GAME_MYSQL_INCLUDE_DIR
-        NAMES mysql.h
-        PATH_SUFFIXES mysql mariadb
-    )
-    find_library(GAME_MYSQL_LIBRARY
-        NAMES mysqlclient mariadb
-    )
-    if(NOT GAME_MYSQL_INCLUDE_DIR OR NOT GAME_MYSQL_LIBRARY)
-        message(FATAL_ERROR "GAME_USE_MYSQL=ON requires MySQL/MariaDB development files, for example libmysqlclient-dev or libmariadb-dev")
-    endif()
-    target_include_directories(game_core PUBLIC ${GAME_MYSQL_INCLUDE_DIR})
-    target_link_libraries(game_core PUBLIC ${GAME_MYSQL_LIBRARY})
-    target_compile_definitions(game_core PUBLIC GAME_USE_MYSQL=1)
+find_path(GAME_MYSQL_INCLUDE_DIR
+    NAMES mysql.h
+    PATH_SUFFIXES mysql mariadb
+)
+find_library(GAME_MYSQL_LIBRARY
+    NAMES mysqlclient mariadb
+)
+if(NOT GAME_MYSQL_INCLUDE_DIR OR NOT GAME_MYSQL_LIBRARY)
+    message(FATAL_ERROR "MySQL/MariaDB development files are required, for example libmysqlclient-dev or libmariadb-dev")
 endif()
+target_include_directories(game_core PUBLIC ${GAME_MYSQL_INCLUDE_DIR})
+target_link_libraries(game_core PUBLIC ${GAME_MYSQL_LIBRARY})
 
-if(GAME_USE_REDIS)
-    find_path(GAME_HIREDIS_INCLUDE_DIR
-        NAMES hiredis/hiredis.h
-    )
-    find_library(GAME_HIREDIS_LIBRARY
-        NAMES hiredis
-    )
-    if(NOT GAME_HIREDIS_INCLUDE_DIR OR NOT GAME_HIREDIS_LIBRARY)
-        message(FATAL_ERROR "GAME_USE_REDIS=ON requires hiredis development files, for example libhiredis-dev")
-    endif()
-    target_include_directories(game_core PUBLIC ${GAME_HIREDIS_INCLUDE_DIR})
-    target_link_libraries(game_core PUBLIC ${GAME_HIREDIS_LIBRARY})
-    target_compile_definitions(game_core PUBLIC GAME_USE_REDIS=1)
+find_path(GAME_HIREDIS_INCLUDE_DIR
+    NAMES hiredis/hiredis.h
+)
+find_library(GAME_HIREDIS_LIBRARY
+    NAMES hiredis
+)
+if(NOT GAME_HIREDIS_INCLUDE_DIR OR NOT GAME_HIREDIS_LIBRARY)
+    message(FATAL_ERROR "hiredis development files are required, for example libhiredis-dev")
 endif()
+target_include_directories(game_core PUBLIC ${GAME_HIREDIS_INCLUDE_DIR})
+target_link_libraries(game_core PUBLIC ${GAME_HIREDIS_LIBRARY})
 
 if(spdlog_FOUND)
     target_link_libraries(game_core PUBLIC spdlog::spdlog)

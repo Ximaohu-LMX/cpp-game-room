@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/lmx/cpp-game-room/tests/test_match_queue.cpp" "tests/CMakeFiles/game_tests.dir/test_match_queue.cpp.o" "gcc" "tests/CMakeFiles/game_tests.dir/test_match_queue.cpp.o.d"
   "/home/lmx/cpp-game-room/tests/test_protocol.cpp" "tests/CMakeFiles/game_tests.dir/test_protocol.cpp.o" "gcc" "tests/CMakeFiles/game_tests.dir/test_protocol.cpp.o.d"
+  "/home/lmx/cpp-game-room/tests/test_rank_service.cpp" "tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o" "gcc" "tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o.d"
   "/home/lmx/cpp-game-room/tests/test_room_state.cpp" "tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o" "gcc" "tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o.d"
   "/home/lmx/cpp-game-room/tests/test_settlement.cpp" "tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o" "gcc" "tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o.d"
   )

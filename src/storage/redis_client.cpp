@@ -3,12 +3,9 @@
 #include "config/config_manager.h"
 #include "util/logger.h"
 
-#include <algorithm>
 #include <cstdlib>
 
 namespace game {
-
-RedisClient::RedisClient(bool memory_mode) : memory_mode_(memory_mode) {}
 
 RedisClient::~RedisClient() {
     Disconnect();
@@ -16,10 +13,6 @@ RedisClient::~RedisClient() {
 
 bool RedisClient::Connect() {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-    if (memory_mode_) {
-        return true;
-    }
-#if defined(GAME_USE_REDIS) && GAME_USE_REDIS
     Disconnect();
 
     const auto config = ConfigManager::Instance().Redis();
@@ -31,28 +24,18 @@ bool RedisClient::Connect() {
     }
     LOG_INFO("redis connected to {}:{}", config.host, config.port);
     return true;
-#else
-    return true;
-#endif
 }
 
 void RedisClient::Disconnect() {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-#if defined(GAME_USE_REDIS) && GAME_USE_REDIS
     if (context_) {
         redisFree(context_);
         context_ = nullptr;
     }
-#endif
 }
 
 bool RedisClient::ZAdd(const std::string& key, int score, const std::string& member) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-    if (memory_mode_) {
-        zsets_[key][member] = score;
-        return true;
-    }
-#if defined(GAME_USE_REDIS) && GAME_USE_REDIS
     if (!context_ && !Connect()) {
         return false;
     }
@@ -69,39 +52,10 @@ bool RedisClient::ZAdd(const std::string& key, int score, const std::string& mem
     }
     freeReplyObject(reply);
     return ok;
-#else
-    zsets_[key][member] = score;
-    return true;
-#endif
 }
 
 std::vector<std::pair<std::string, int>> RedisClient::ZRevRange(const std::string& key, int start, int stop) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-    if (memory_mode_) {
-        std::vector<std::pair<std::string, int>> items;
-        auto it = zsets_.find(key);
-        if (it == zsets_.end()) {
-            return items;
-        }
-
-        for (const auto& [member, score] : it->second) {
-            items.emplace_back(member, score);
-        }
-        std::sort(items.begin(), items.end(), [](const auto& a, const auto& b) {
-            if (a.second != b.second) {
-                return a.second > b.second;
-            }
-            return a.first < b.first;
-        });
-
-        if (start < 0) start = 0;
-        if (stop >= static_cast<int>(items.size())) stop = static_cast<int>(items.size()) - 1;
-        if (start > stop || start >= static_cast<int>(items.size())) {
-            return {};
-        }
-        return {items.begin() + start, items.begin() + stop + 1};
-    }
-#if defined(GAME_USE_REDIS) && GAME_USE_REDIS
     std::vector<std::pair<std::string, int>> items;
     if (!context_ && !Connect()) {
         return items;
@@ -129,39 +83,10 @@ std::vector<std::pair<std::string, int>> RedisClient::ZRevRange(const std::strin
     }
     freeReplyObject(reply);
     return items;
-#else
-    std::vector<std::pair<std::string, int>> items;
-    auto it = zsets_.find(key);
-    if (it == zsets_.end()) {
-        return items;
-    }
-
-    for (const auto& [member, score] : it->second) {
-        items.emplace_back(member, score);
-    }
-    std::sort(items.begin(), items.end(), [](const auto& a, const auto& b) {
-        if (a.second != b.second) {
-            return a.second > b.second;
-        }
-        return a.first < b.first;
-    });
-
-    if (start < 0) start = 0;
-    if (stop >= static_cast<int>(items.size())) stop = static_cast<int>(items.size()) - 1;
-    if (start > stop || start >= static_cast<int>(items.size())) {
-        return {};
-    }
-    return {items.begin() + start, items.begin() + stop + 1};
-#endif
 }
 
 bool RedisClient::Set(const std::string& key, const std::string& value) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-    if (memory_mode_) {
-        kv_[key] = value;
-        return true;
-    }
-#if defined(GAME_USE_REDIS) && GAME_USE_REDIS
     if (!context_ && !Connect()) {
         return false;
     }
@@ -178,19 +103,10 @@ bool RedisClient::Set(const std::string& key, const std::string& value) {
     }
     freeReplyObject(reply);
     return ok;
-#else
-    kv_[key] = value;
-    return true;
-#endif
 }
 
 std::string RedisClient::Get(const std::string& key) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
-    if (memory_mode_) {
-        auto it = kv_.find(key);
-        return it == kv_.end() ? "" : it->second;
-    }
-#if defined(GAME_USE_REDIS) && GAME_USE_REDIS
     if (!context_ && !Connect()) {
         return "";
     }
@@ -209,10 +125,6 @@ std::string RedisClient::Get(const std::string& key) {
     }
     freeReplyObject(reply);
     return value;
-#else
-    auto it = kv_.find(key);
-    return it == kv_.end() ? "" : it->second;
-#endif
 }
 
 } // namespace game

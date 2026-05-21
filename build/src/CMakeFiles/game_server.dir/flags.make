@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB
 
-CXX_INCLUDES = -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room
+CXX_INCLUDES = -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb
 
 CXX_FLAGS = -std=c++17
 

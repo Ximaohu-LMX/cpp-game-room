@@ -212,12 +212,12 @@ bot/CMakeFiles/game_bot.dir/clean:
 tests/CMakeFiles/game_tests.dir/all: src/CMakeFiles/game_core.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/game_tests.dir/build.make tests/CMakeFiles/game_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/game_tests.dir/build.make tests/CMakeFiles/game_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lmx/cpp-game-room/build-real/CMakeFiles --progress-num=49,50,51,52,53 "Built target game_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lmx/cpp-game-room/build-real/CMakeFiles --progress-num=49,50,51,52,53,54 "Built target game_tests"
 .PHONY : tests/CMakeFiles/game_tests.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/game_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lmx/cpp-game-room/build-real/CMakeFiles 47
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lmx/cpp-game-room/build-real/CMakeFiles 48
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/game_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lmx/cpp-game-room/build-real/CMakeFiles 0
 .PHONY : tests/CMakeFiles/game_tests.dir/rule

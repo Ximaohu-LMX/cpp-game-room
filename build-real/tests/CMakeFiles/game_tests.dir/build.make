@@ -125,12 +125,27 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game_tests.dir/test_settlement.cpp.s"
 	cd /home/lmx/cpp-game-room/build-real/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lmx/cpp-game-room/tests/test_settlement.cpp -o CMakeFiles/game_tests.dir/test_settlement.cpp.s
 
+tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o: tests/CMakeFiles/game_tests.dir/flags.make
+tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o: ../tests/test_rank_service.cpp
+tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o: tests/CMakeFiles/game_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lmx/cpp-game-room/build-real/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o"
+	cd /home/lmx/cpp-game-room/build-real/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o -MF CMakeFiles/game_tests.dir/test_rank_service.cpp.o.d -o CMakeFiles/game_tests.dir/test_rank_service.cpp.o -c /home/lmx/cpp-game-room/tests/test_rank_service.cpp
+
+tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game_tests.dir/test_rank_service.cpp.i"
+	cd /home/lmx/cpp-game-room/build-real/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lmx/cpp-game-room/tests/test_rank_service.cpp > CMakeFiles/game_tests.dir/test_rank_service.cpp.i
+
+tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game_tests.dir/test_rank_service.cpp.s"
+	cd /home/lmx/cpp-game-room/build-real/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lmx/cpp-game-room/tests/test_rank_service.cpp -o CMakeFiles/game_tests.dir/test_rank_service.cpp.s
+
 # Object files for target game_tests
 game_tests_OBJECTS = \
 "CMakeFiles/game_tests.dir/test_room_state.cpp.o" \
 "CMakeFiles/game_tests.dir/test_match_queue.cpp.o" \
 "CMakeFiles/game_tests.dir/test_protocol.cpp.o" \
-"CMakeFiles/game_tests.dir/test_settlement.cpp.o"
+"CMakeFiles/game_tests.dir/test_settlement.cpp.o" \
+"CMakeFiles/game_tests.dir/test_rank_service.cpp.o"
 
 # External object files for target game_tests
 game_tests_EXTERNAL_OBJECTS =
@@ -139,6 +154,7 @@ tests/game_tests: tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o
 tests/game_tests: tests/CMakeFiles/game_tests.dir/test_match_queue.cpp.o
 tests/game_tests: tests/CMakeFiles/game_tests.dir/test_protocol.cpp.o
 tests/game_tests: tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o
+tests/game_tests: tests/CMakeFiles/game_tests.dir/test_rank_service.cpp.o
 tests/game_tests: tests/CMakeFiles/game_tests.dir/build.make
 tests/game_tests: src/libgame_core.a
 tests/game_tests: /usr/lib/x86_64-linux-gnu/libprotobuf.so
@@ -159,7 +175,7 @@ tests/game_tests: /usr/lib/x86_64-linux-gnu/libabsl_log_severity.so.20210324.0.0
 tests/game_tests: /home/lmx/anaconda3/lib/libabsl_log_internal_check_op.so
 tests/game_tests: /home/lmx/anaconda3/lib/libgtest.so.1.11.0
 tests/game_tests: tests/CMakeFiles/game_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lmx/cpp-game-room/build-real/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable game_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lmx/cpp-game-room/build-real/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable game_tests"
 	cd /home/lmx/cpp-game-room/build-real/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/game_tests.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/lmx/cpp-game-room/build-real/tests && /usr/bin/cmake -D TEST_TARGET=game_tests -D TEST_EXECUTABLE=/home/lmx/cpp-game-room/build-real/tests/game_tests -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/lmx/cpp-game-room/build-real/tests -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D TEST_FILTER= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=game_tests_TESTS -D CTEST_FILE=/home/lmx/cpp-game-room/build-real/tests/game_tests[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -D TEST_XML_OUTPUT_DIR= -P /usr/share/cmake-3.22/Modules/GoogleTestAddTests.cmake
 

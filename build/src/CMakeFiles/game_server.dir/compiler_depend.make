@@ -223,8 +223,12 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
   ../src/game/settlement_service.h \
   ../src/storage/battle_repository.h \
   ../src/storage/mysql_client.h \
-  /usr/include/c++/11/unordered_set \
-  /usr/include/c++/11/bits/unordered_set.h \
+  /usr/include/mariadb/mysql.h \
+  /usr/include/mariadb/mariadb_com.h \
+  /usr/include/mariadb/mariadb_version.h \
+  /usr/include/mariadb/ma_list.h \
+  /usr/include/mariadb/mariadb_ctype.h \
+  /usr/include/mariadb/mariadb_stmt.h \
   ../src/storage/player_repository.h \
   ../src/login/login_service.h \
   ../src/net/session.h \
@@ -235,6 +239,8 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/deque \
   /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/deque.tcc \
+  /usr/include/c++/11/unordered_set \
+  /usr/include/c++/11/bits/unordered_set.h \
   ../src/net/connection_manager.h \
   ../src/net/tcp_server.h \
   ../src/net/tcp_connection.h \
@@ -1319,10 +1325,11 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
   ../src/player/player.h \
   ../src/rank/rank_service.h \
   ../src/storage/redis_client.h \
-  /usr/include/c++/11/map \
-  /usr/include/c++/11/bits/stl_tree.h \
-  /usr/include/c++/11/bits/stl_map.h \
-  /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/hiredis/hiredis.h \
+  /usr/include/hiredis/read.h \
+  /usr/include/hiredis/sds.h \
+  /usr/include/hiredis/alloc.h \
+  /usr/include/c++/11/stdlib.h \
   ../src/room/room_manager.h \
   ../src/room/room.h \
   ../src/room/room_player.h \
@@ -1331,11 +1338,14 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
   /usr/include/google/protobuf/stubs/casts.h \
   /usr/include/google/protobuf/stubs/common.h \
   /usr/include/c++/11/iostream \
+  /usr/include/c++/11/map \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/stl_map.h \
+  /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/set \
   /usr/include/c++/11/bits/stl_set.h \
   /usr/include/c++/11/bits/stl_multiset.h \
   /usr/include/google/protobuf/stubs/port.h \
-  /usr/include/c++/11/stdlib.h \
   /usr/include/google/protobuf/stubs/platform_macros.h \
   /usr/include/google/protobuf/port_def.inc \
   /usr/include/x86_64-linux-gnu/sys/param.h \
@@ -1453,9 +1463,11 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/sys/param.h:
 
-/usr/include/c++/11/stdlib.h:
-
 /usr/include/c++/11/set:
+
+/usr/include/c++/11/bits/stl_multimap.h:
+
+/usr/include/c++/11/map:
 
 /usr/include/c++/11/iostream:
 
@@ -1469,9 +1481,13 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 ../src/room/room_manager.h:
 
-/usr/include/c++/11/bits/stl_multimap.h:
+/usr/include/c++/11/stdlib.h:
 
-/usr/include/c++/11/map:
+/usr/include/hiredis/sds.h:
+
+/usr/include/hiredis/read.h:
+
+/usr/include/hiredis/hiredis.h:
 
 ../src/storage/redis_client.h:
 
@@ -1713,15 +1729,17 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/detail/future.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/struct_stat.h:
+/usr/local/include/boost/asio/local/stream_protocol.hpp:
 
-/usr/local/include/boost/system/detail/errc.hpp:
+/usr/local/include/boost/asio/local/datagram_protocol.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+/usr/local/include/boost/asio/local/connect_pair.hpp:
 
-/usr/local/include/boost/asio/detail/impl/eventfd_select_interrupter.ipp:
+/usr/local/include/boost/asio/local/detail/impl/endpoint.ipp:
 
-/usr/local/include/boost/preprocessor/control/detail/while.hpp:
+/usr/local/include/boost/asio/local/detail/endpoint.hpp:
+
+/usr/local/include/boost/asio/local/basic_endpoint.hpp:
 
 /usr/local/include/boost/asio/detail/epoll_reactor.hpp:
 
@@ -1730,14 +1748,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/bits/hashtable_policy.h:
 
 /usr/include/x86_64-linux-gnu/bits/signal_ext.h:
-
-/usr/include/x86_64-linux-gnu/bits/stat.h:
-
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
-
-/usr/local/include/boost/predef/platform.h:
-
-/usr/local/include/boost/asio/basic_datagram_socket.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/sigstksz.h:
 
@@ -1907,8 +1917,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/bits/ostream_insert.h:
 
-/usr/local/include/boost/asio/local/detail/endpoint.hpp:
-
 /usr/local/include/boost/system/api_config.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/termios-baud.h:
@@ -1928,6 +1936,12 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/preprocessor/logical/bitor.hpp:
 
 /usr/local/include/boost/preprocessor/facilities/overload.hpp:
+
+/usr/local/include/boost/system/detail/errc.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_stat.h:
 
 /usr/local/include/boost/predef/compiler/clang.h:
 
@@ -2113,10 +2127,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/type_traits:
 
-/usr/local/include/boost/asio/detail/eventfd_select_interrupter.hpp:
-
-/usr/local/include/boost/asio/execution/scheduler.hpp:
-
 /usr/include/x86_64-linux-gnu/sys/socket.h:
 
 /usr/local/include/boost/asio/execution.hpp:
@@ -2126,6 +2136,8 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/asio/detail/is_executor.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
+
+/usr/include/hiredis/alloc.h:
 
 /usr/local/include/boost/asio/is_executor.hpp:
 
@@ -2205,8 +2217,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/ip/address_v4.hpp:
 
-/usr/local/include/boost/asio/ip/impl/address_v6.ipp:
-
 /usr/local/include/boost/asio/detail/memory.hpp:
 
 /usr/local/include/boost/asio/detail/atomic_count.hpp:
@@ -2241,8 +2251,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/detail/push_options.hpp:
 
-/usr/local/include/boost/asio/detail/select_interrupter.hpp:
-
 /usr/local/include/boost/asio/traits/bulk_execute_member.hpp:
 
 /usr/local/include/boost/asio/associator.hpp:
@@ -2264,6 +2272,30 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/config/detail/posix_features.hpp:
 
 /usr/local/include/boost/asio/cancellation_signal.hpp:
+
+/usr/local/include/boost/config/detail/select_platform_config.hpp:
+
+/usr/include/c++/11/backward/binders.h:
+
+/usr/include/linux/close_range.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+../src/player/player_manager.h:
+
+/usr/local/include/boost/asio/traits/query_static_constexpr_member.hpp:
+
+/usr/local/include/boost/asio/registered_buffer.hpp:
+
+/usr/local/include/boost/preprocessor/arithmetic/limits/inc_256.hpp:
+
+/usr/local/include/boost/predef/architecture/arm.h:
+
+/usr/include/c++/11/bits/functexcept.h:
+
+/usr/local/include/boost/asio/traits/require_free.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/c++/11/bits/string_view.tcc:
 
@@ -2331,6 +2363,8 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/bits/stl_pair.h:
 
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/pthread.h:
@@ -2363,13 +2397,13 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/ip/network_v4.hpp:
 
-/usr/include/c++/11/backward/binders.h:
-
-/usr/local/include/boost/config/detail/select_platform_config.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/local/include/boost/asio/detail/functional.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
@@ -2431,8 +2465,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
 
-/usr/include/asm-generic/int-ll64.h:
-
 /usr/local/include/boost/date_time/gregorian/greg_day_of_year.hpp:
 
 /usr/local/include/boost/config/helper_macros.hpp:
@@ -2462,14 +2494,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/core/enable_if.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
-
-/usr/local/include/boost/predef/architecture/arm.h:
-
-/usr/include/c++/11/bits/functexcept.h:
-
-/usr/local/include/boost/asio/detail/functional.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
 /usr/include/unistd.h:
 
@@ -2569,10 +2593,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/basic_socket_iostream.hpp:
 
-/usr/local/include/boost/asio/traits/require_free.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/confname.h:
-
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /usr/local/include/boost/date_time/period.hpp:
@@ -2618,8 +2638,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/asio/windows/basic_stream_handle.hpp:
 
 /usr/include/c++/11/bits/range_access.h:
-
-/usr/include/linux/close_range.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
@@ -2667,6 +2685,10 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/mpl/aux_/numeric_op.hpp:
 
+/usr/include/mariadb/mariadb_stmt.h:
+
+/usr/local/include/boost/date_time/gregorian/greg_day.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
@@ -2707,14 +2729,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
-/usr/local/include/boost/mpl/aux_/preprocessor/default_params.hpp:
-
-/usr/local/include/boost/asio/execution/occupancy.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
-
-/usr/include/x86_64-linux-gnu/bits/ioctls.h:
-
 ../src/storage/battle_repository.h:
 
 ../src/net/tcp_connection.h:
@@ -2722,16 +2736,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
 /usr/include/ctype.h:
-
-../src/player/player_manager.h:
-
-/usr/local/include/boost/asio/traits/query_static_constexpr_member.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
-
-/usr/local/include/boost/asio/registered_buffer.hpp:
-
-/usr/local/include/boost/preprocessor/arithmetic/limits/inc_256.hpp:
 
 /usr/local/include/boost/config.hpp:
 
@@ -2756,6 +2760,14 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/asio/impl/connect_pipe.ipp:
 
 /usr/local/include/boost/asio/detail/scheduler.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/x86_64-linux-gnu/bits/stat.h:
+
+/usr/local/include/boost/predef/platform.h:
+
+/usr/local/include/boost/asio/basic_datagram_socket.hpp:
 
 /usr/include/c++/11/cstdint:
 
@@ -2806,8 +2818,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/config/stdlib/libstdcpp3.hpp:
 
 /usr/local/include/boost/asio/detail/descriptor_ops.hpp:
-
-/usr/local/include/boost/asio/steady_timer.hpp:
 
 /usr/include/c++/11/new:
 
@@ -2901,12 +2911,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/cerrno:
 
-/usr/include/x86_64-linux-gnu/bits/signum-arch.h:
-
-/usr/local/include/boost/mpl/aux_/config/compiler.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
 /usr/local/include/boost/system/error_condition.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
@@ -2961,11 +2965,11 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/bits/enable_special_members.h:
 
-/usr/include/c++/11/bits/ptr_traits.h:
+/usr/local/include/boost/asio/ip/impl/address_v6.ipp:
 
-/usr/local/include/boost/preprocessor/array/elem.hpp:
+/usr/include/mariadb/mariadb_ctype.h:
 
-/usr/include/c++/11/bits/erase_if.h:
+/usr/local/include/boost/asio/detail/base_from_cancellation_state.hpp:
 
 ../src/game/input_buffer.h:
 
@@ -3037,6 +3041,10 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/bits/align.h:
 
+/usr/local/include/boost/asio/steady_timer.hpp:
+
+/usr/include/mariadb/mysql.h:
+
 /usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
 
 ../src/match/match_queue.h:
@@ -3087,6 +3095,18 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/buffered_read_stream.hpp:
 
+/usr/local/include/boost/mpl/aux_/preprocessor/default_params.hpp:
+
+/usr/local/include/boost/asio/execution/occupancy.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/ioctls.h:
+
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/include/mariadb/mariadb_com.h:
+
 /usr/local/include/boost/predef/detail/_cassert.h:
 
 /usr/local/include/boost/asio/impl/buffered_read_stream.hpp:
@@ -3102,6 +3122,16 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/asio/error.hpp:
 
 /usr/include/c++/11/bits/stl_heap.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum-arch.h:
+
+/usr/local/include/boost/mpl/aux_/config/compiler.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/mariadb/ma_list.h:
+
+/usr/local/include/boost/asio/connect.hpp:
 
 /usr/include/google/protobuf/repeated_field.h:
 
@@ -3120,6 +3150,12 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/mpl/aux_/arity.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/termios-struct.h:
+
+/usr/include/c++/11/bits/ptr_traits.h:
+
+/usr/local/include/boost/preprocessor/array/elem.hpp:
+
+/usr/include/c++/11/bits/erase_if.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:
 
@@ -3145,7 +3181,15 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/mpl/apply_wrap.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+/usr/local/include/boost/asio/detail/select_interrupter.hpp:
+
+/usr/local/include/boost/asio/execution/scheduler.hpp:
+
+/usr/local/include/boost/asio/detail/eventfd_select_interrupter.hpp:
+
+/usr/local/include/boost/preprocessor/control/detail/while.hpp:
+
+/usr/local/include/boost/asio/detail/impl/eventfd_select_interrupter.ipp:
 
 /usr/include/x86_64-linux-gnu/bits/statx.h:
 
@@ -3459,6 +3503,8 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/predef/hardware/simd.h:
 
+/usr/include/mariadb/mariadb_version.h:
+
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
 /usr/local/include/boost/predef/compiler/mpw.h:
@@ -3488,8 +3534,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/tr1/special_function_util.h:
 
 /usr/include/c++/11/tr1/bessel_function.tcc:
-
-/usr/local/include/boost/asio/local/detail/impl/endpoint.ipp:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
 
@@ -3574,8 +3618,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/date_time/gregorian_calendar.ipp:
 
 /usr/local/include/boost/date_time/gregorian/greg_ymd.hpp:
-
-/usr/local/include/boost/date_time/gregorian/greg_day.hpp:
 
 /usr/local/include/boost/date_time/gregorian/greg_year.hpp:
 
@@ -3691,8 +3733,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/defer.hpp:
 
-/usr/local/include/boost/asio/local/stream_protocol.hpp:
-
 /usr/local/include/boost/asio/traits/equality_comparable.hpp:
 
 /usr/local/include/boost/asio/basic_io_object.hpp:
@@ -3708,8 +3748,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/asio/use_future.hpp:
 
 /usr/local/include/boost/asio/detail/consuming_buffers.hpp:
-
-/usr/local/include/boost/asio/local/basic_endpoint.hpp:
 
 /usr/local/include/boost/preprocessor/debug/error.hpp:
 
@@ -3927,8 +3965,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp:
 
-/usr/local/include/boost/asio/local/datagram_protocol.hpp:
-
 /usr/local/include/boost/numeric/conversion/detail/sign_mixture.hpp:
 
 /usr/local/include/boost/date_time/posix_time/time_period.hpp:
@@ -4045,8 +4081,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/impl/write.hpp:
 
-/usr/local/include/boost/asio/detail/base_from_cancellation_state.hpp:
-
 /usr/local/include/boost/asio/detail/dependent_type.hpp:
 
 /usr/include/c++/11/ext/string_conversions.h:
@@ -4059,8 +4093,6 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/impl/compose.hpp:
 
-/usr/local/include/boost/asio/connect.hpp:
-
 /usr/local/include/boost/predef/platform/ios.h:
 
 /usr/local/include/boost/predef/architecture/ptx.h:
@@ -4069,9 +4101,9 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 
 /usr/local/include/boost/asio/impl/defer.hpp:
 
-/usr/include/signal.h:
-
 /usr/local/include/boost/date_time/constrained_value.hpp:
+
+/usr/include/signal.h:
 
 /usr/local/include/boost/asio/ip/basic_resolver_entry.hpp:
 
@@ -4174,5 +4206,3 @@ src/CMakeFiles/game_server.dir/main.cpp.o: ../src/main.cpp \
 /usr/local/include/boost/asio/detail/reactive_wait_op.hpp:
 
 /usr/local/include/boost/asio/ip/v6_only.hpp:
-
-/usr/local/include/boost/asio/local/connect_pair.hpp:

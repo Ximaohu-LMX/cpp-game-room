@@ -95,6 +95,8 @@ src/game_server: src/CMakeFiles/game_server.dir/build.make
 src/game_server: src/libgame_core.a
 src/game_server: /usr/lib/x86_64-linux-gnu/libprotobuf.so
 src/game_server: /usr/local/lib/libboost_system.so.1.79.0
+src/game_server: /usr/lib/x86_64-linux-gnu/libmariadb.so
+src/game_server: /usr/lib/x86_64-linux-gnu/libhiredis.so
 src/game_server: /usr/lib/x86_64-linux-gnu/libspdlog.so.1.9.2
 src/game_server: /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1
 src/game_server: /usr/lib/x86_64-linux-gnu/libabsl_strings.so.20210324.0.0

@@ -184,8 +184,9 @@ src/CMakeFiles/game_server.dir/main.cpp.o: \
  /home/lmx/cpp-game-room/src/game/settlement_service.h \
  /home/lmx/cpp-game-room/src/storage/battle_repository.h \
  /home/lmx/cpp-game-room/src/storage/mysql_client.h \
- /usr/include/c++/11/unordered_set \
- /usr/include/c++/11/bits/unordered_set.h \
+ /usr/include/mariadb/mysql.h /usr/include/mariadb/mariadb_com.h \
+ /usr/include/mariadb/mariadb_version.h /usr/include/mariadb/ma_list.h \
+ /usr/include/mariadb/mariadb_ctype.h /usr/include/mariadb/mariadb_stmt.h \
  /home/lmx/cpp-game-room/src/storage/player_repository.h \
  /home/lmx/cpp-game-room/src/login/login_service.h \
  /home/lmx/cpp-game-room/src/net/session.h \
@@ -194,6 +195,8 @@ src/CMakeFiles/game_server.dir/main.cpp.o: \
  /home/lmx/cpp-game-room/src/match/match_queue.h \
  /usr/include/c++/11/cstddef /usr/include/c++/11/deque \
  /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
+ /usr/include/c++/11/unordered_set \
+ /usr/include/c++/11/bits/unordered_set.h \
  /home/lmx/cpp-game-room/src/net/connection_manager.h \
  /home/lmx/cpp-game-room/src/net/tcp_server.h \
  /home/lmx/cpp-game-room/src/net/tcp_connection.h \
@@ -1247,9 +1250,9 @@ src/CMakeFiles/game_server.dir/main.cpp.o: \
  /home/lmx/cpp-game-room/src/player/player.h \
  /home/lmx/cpp-game-room/src/rank/rank_service.h \
  /home/lmx/cpp-game-room/src/storage/redis_client.h \
- /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/bits/stl_map.h \
- /usr/include/c++/11/bits/stl_multimap.h \
+ /usr/include/hiredis/hiredis.h /usr/include/hiredis/read.h \
+ /usr/include/hiredis/sds.h /usr/include/hiredis/alloc.h \
+ /usr/include/c++/11/stdlib.h \
  /home/lmx/cpp-game-room/src/room/room_manager.h \
  /home/lmx/cpp-game-room/src/room/room.h \
  /home/lmx/cpp-game-room/src/room/room_player.h \
@@ -1257,9 +1260,12 @@ src/CMakeFiles/game_server.dir/main.cpp.o: \
  /usr/include/google/protobuf/message.h \
  /usr/include/google/protobuf/stubs/casts.h \
  /usr/include/google/protobuf/stubs/common.h /usr/include/c++/11/iostream \
- /usr/include/c++/11/set /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
+ /usr/include/c++/11/bits/stl_map.h \
+ /usr/include/c++/11/bits/stl_multimap.h /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
- /usr/include/google/protobuf/stubs/port.h /usr/include/c++/11/stdlib.h \
+ /usr/include/google/protobuf/stubs/port.h \
  /usr/include/google/protobuf/stubs/platform_macros.h \
  /usr/include/google/protobuf/port_def.inc \
  /usr/include/x86_64-linux-gnu/sys/param.h \

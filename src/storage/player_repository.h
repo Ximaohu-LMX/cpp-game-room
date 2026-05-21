@@ -3,9 +3,7 @@
 #include "storage/mysql_client.h"
 
 #include <cstdint>
-#include <mutex>
 #include <string>
-#include <unordered_map>
 
 namespace game {
 
@@ -22,15 +20,15 @@ struct PlayerData {
 
 /**
  * @brief 玩家仓储。
- * @help 封装 player 表读写；默认模式使用内存 map，真实模式读写 MySQL。
+ * @help 封装 player 表读写，数据来源固定为 MySQL。
  */
 class PlayerRepository {
 public:
     /**
      * @brief 创建玩家仓储。
-     * @param mysql MySQL 客户端；为空时使用内存模式。
+     * @param mysql MySQL 客户端。
      */
-    explicit PlayerRepository(MysqlClient* mysql = nullptr);
+    explicit PlayerRepository(MysqlClient* mysql);
 
     /**
      * @brief 加载玩家数据。
@@ -56,8 +54,6 @@ public:
 
 private:
     MysqlClient* mysql_;
-    std::mutex mutex_;
-    std::unordered_map<int64_t, PlayerData> players_;
 };
 
 } // namespace game
