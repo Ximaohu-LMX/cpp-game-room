@@ -1,0 +1,222 @@
+[
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/server/game_server.cpp.o -c /home/lmx/cpp-game-room/src/server/game_server.cpp",
+  "file": "/home/lmx/cpp-game-room/src/server/game_server.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/server/service_context.cpp.o -c /home/lmx/cpp-game-room/src/server/service_context.cpp",
+  "file": "/home/lmx/cpp-game-room/src/server/service_context.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/server/message_dispatcher.cpp.o -c /home/lmx/cpp-game-room/src/server/message_dispatcher.cpp",
+  "file": "/home/lmx/cpp-game-room/src/server/message_dispatcher.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/net/tcp_server.cpp.o -c /home/lmx/cpp-game-room/src/net/tcp_server.cpp",
+  "file": "/home/lmx/cpp-game-room/src/net/tcp_server.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/net/tcp_connection.cpp.o -c /home/lmx/cpp-game-room/src/net/tcp_connection.cpp",
+  "file": "/home/lmx/cpp-game-room/src/net/tcp_connection.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/net/session.cpp.o -c /home/lmx/cpp-game-room/src/net/session.cpp",
+  "file": "/home/lmx/cpp-game-room/src/net/session.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/net/packet.cpp.o -c /home/lmx/cpp-game-room/src/net/packet.cpp",
+  "file": "/home/lmx/cpp-game-room/src/net/packet.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/net/codec.cpp.o -c /home/lmx/cpp-game-room/src/net/codec.cpp",
+  "file": "/home/lmx/cpp-game-room/src/net/codec.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/protocol/proto_helper.cpp.o -c /home/lmx/cpp-game-room/src/protocol/proto_helper.cpp",
+  "file": "/home/lmx/cpp-game-room/src/protocol/proto_helper.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/player/player.cpp.o -c /home/lmx/cpp-game-room/src/player/player.cpp",
+  "file": "/home/lmx/cpp-game-room/src/player/player.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/player/player_manager.cpp.o -c /home/lmx/cpp-game-room/src/player/player_manager.cpp",
+  "file": "/home/lmx/cpp-game-room/src/player/player_manager.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/login/login_service.cpp.o -c /home/lmx/cpp-game-room/src/login/login_service.cpp",
+  "file": "/home/lmx/cpp-game-room/src/login/login_service.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/match/match_queue.cpp.o -c /home/lmx/cpp-game-room/src/match/match_queue.cpp",
+  "file": "/home/lmx/cpp-game-room/src/match/match_queue.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/match/match_service.cpp.o -c /home/lmx/cpp-game-room/src/match/match_service.cpp",
+  "file": "/home/lmx/cpp-game-room/src/match/match_service.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/room/room.cpp.o -c /home/lmx/cpp-game-room/src/room/room.cpp",
+  "file": "/home/lmx/cpp-game-room/src/room/room.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/room/room_manager.cpp.o -c /home/lmx/cpp-game-room/src/room/room_manager.cpp",
+  "file": "/home/lmx/cpp-game-room/src/room/room_manager.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/game/input_buffer.cpp.o -c /home/lmx/cpp-game-room/src/game/input_buffer.cpp",
+  "file": "/home/lmx/cpp-game-room/src/game/input_buffer.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/game/game_room.cpp.o -c /home/lmx/cpp-game-room/src/game/game_room.cpp",
+  "file": "/home/lmx/cpp-game-room/src/game/game_room.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/game/game_loop.cpp.o -c /home/lmx/cpp-game-room/src/game/game_loop.cpp",
+  "file": "/home/lmx/cpp-game-room/src/game/game_loop.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/game/state_sync.cpp.o -c /home/lmx/cpp-game-room/src/game/state_sync.cpp",
+  "file": "/home/lmx/cpp-game-room/src/game/state_sync.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/game/settlement_service.cpp.o -c /home/lmx/cpp-game-room/src/game/settlement_service.cpp",
+  "file": "/home/lmx/cpp-game-room/src/game/settlement_service.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/storage/mysql_client.cpp.o -c /home/lmx/cpp-game-room/src/storage/mysql_client.cpp",
+  "file": "/home/lmx/cpp-game-room/src/storage/mysql_client.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/storage/redis_client.cpp.o -c /home/lmx/cpp-game-room/src/storage/redis_client.cpp",
+  "file": "/home/lmx/cpp-game-room/src/storage/redis_client.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/storage/player_repository.cpp.o -c /home/lmx/cpp-game-room/src/storage/player_repository.cpp",
+  "file": "/home/lmx/cpp-game-room/src/storage/player_repository.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/storage/battle_repository.cpp.o -c /home/lmx/cpp-game-room/src/storage/battle_repository.cpp",
+  "file": "/home/lmx/cpp-game-room/src/storage/battle_repository.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/rank/rank_service.cpp.o -c /home/lmx/cpp-game-room/src/rank/rank_service.cpp",
+  "file": "/home/lmx/cpp-game-room/src/rank/rank_service.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/timer/timer_manager.cpp.o -c /home/lmx/cpp-game-room/src/timer/timer_manager.cpp",
+  "file": "/home/lmx/cpp-game-room/src/timer/timer_manager.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/util/logger.cpp.o -c /home/lmx/cpp-game-room/src/util/logger.cpp",
+  "file": "/home/lmx/cpp-game-room/src/util/logger.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/config/config_manager.cpp.o -c /home/lmx/cpp-game-room/src/config/config_manager.cpp",
+  "file": "/home/lmx/cpp-game-room/src/config/config_manager.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/common.pb.cc.o -c /home/lmx/cpp-game-room/build/src/common.pb.cc",
+  "file": "/home/lmx/cpp-game-room/build/src/common.pb.cc"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/login.pb.cc.o -c /home/lmx/cpp-game-room/build/src/login.pb.cc",
+  "file": "/home/lmx/cpp-game-room/build/src/login.pb.cc"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/match.pb.cc.o -c /home/lmx/cpp-game-room/build/src/match.pb.cc",
+  "file": "/home/lmx/cpp-game-room/build/src/match.pb.cc"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/room.pb.cc.o -c /home/lmx/cpp-game-room/build/src/room.pb.cc",
+  "file": "/home/lmx/cpp-game-room/build/src/room.pb.cc"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/game.pb.cc.o -c /home/lmx/cpp-game-room/build/src/game.pb.cc",
+  "file": "/home/lmx/cpp-game-room/build/src/game.pb.cc"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_core.dir/rank.pb.cc.o -c /home/lmx/cpp-game-room/build/src/rank.pb.cc",
+  "file": "/home/lmx/cpp-game-room/build/src/rank.pb.cc"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/src",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_server.dir/main.cpp.o -c /home/lmx/cpp-game-room/src/main.cpp",
+  "file": "/home/lmx/cpp-game-room/src/main.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/bot",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_bot.dir/bot_main.cpp.o -c /home/lmx/cpp-game-room/bot/bot_main.cpp",
+  "file": "/home/lmx/cpp-game-room/bot/bot_main.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/bot",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_bot.dir/bot_client.cpp.o -c /home/lmx/cpp-game-room/bot/bot_client.cpp",
+  "file": "/home/lmx/cpp-game-room/bot/bot_client.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/bot",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -std=c++17 -o CMakeFiles/game_bot.dir/bot_manager.cpp.o -c /home/lmx/cpp-game-room/bot/bot_manager.cpp",
+  "file": "/home/lmx/cpp-game-room/bot/bot_manager.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/tests",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_TEST_SOURCE_DIR=\\\"/home/lmx/cpp-game-room\\\" -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -DGTEST_HAS_PTHREAD=1 -std=c++17 -o CMakeFiles/game_tests.dir/test_room_state.cpp.o -c /home/lmx/cpp-game-room/tests/test_room_state.cpp",
+  "file": "/home/lmx/cpp-game-room/tests/test_room_state.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/tests",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_TEST_SOURCE_DIR=\\\"/home/lmx/cpp-game-room\\\" -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -DGTEST_HAS_PTHREAD=1 -std=c++17 -o CMakeFiles/game_tests.dir/test_match_queue.cpp.o -c /home/lmx/cpp-game-room/tests/test_match_queue.cpp",
+  "file": "/home/lmx/cpp-game-room/tests/test_match_queue.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/tests",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_TEST_SOURCE_DIR=\\\"/home/lmx/cpp-game-room\\\" -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -DGTEST_HAS_PTHREAD=1 -std=c++17 -o CMakeFiles/game_tests.dir/test_protocol.cpp.o -c /home/lmx/cpp-game-room/tests/test_protocol.cpp",
+  "file": "/home/lmx/cpp-game-room/tests/test_protocol.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/tests",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_TEST_SOURCE_DIR=\\\"/home/lmx/cpp-game-room\\\" -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -DGTEST_HAS_PTHREAD=1 -std=c++17 -o CMakeFiles/game_tests.dir/test_settlement.cpp.o -c /home/lmx/cpp-game-room/tests/test_settlement.cpp",
+  "file": "/home/lmx/cpp-game-room/tests/test_settlement.cpp"
+},
+{
+  "directory": "/home/lmx/cpp-game-room/build/tests",
+  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DFMT_LOCALE -DFMT_SHARED -DGAME_TEST_SOURCE_DIR=\\\"/home/lmx/cpp-game-room\\\" -DGAME_USE_SPDLOG=1 -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/home/lmx/cpp-game-room/src -I/home/lmx/cpp-game-room/build/src -I/home/lmx/cpp-game-room -I/usr/include/mariadb -DGTEST_HAS_PTHREAD=1 -std=c++17 -o CMakeFiles/game_tests.dir/test_rank_service.cpp.o -c /home/lmx/cpp-game-room/tests/test_rank_service.cpp",
+  "file": "/home/lmx/cpp-game-room/tests/test_rank_service.cpp"
+}
+]
