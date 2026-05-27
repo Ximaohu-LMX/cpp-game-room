@@ -1,10 +1,10 @@
-Start testing: May 20 17:17 CST
+Start testing: May 26 21:40 CST
 ----------------------------------------------------------
 1/9 Testing: RoomStateTest.ReadyStartsGame
 1/9 Test: RoomStateTest.ReadyStartsGame
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=RoomStateTest.ReadyStartsGame" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"RoomStateTest.ReadyStartsGame" start time: May 20 17:17 CST
+"RoomStateTest.ReadyStartsGame" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -23,7 +23,7 @@ Note: Google Test filter = RoomStateTest.ReadyStartsGame
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"RoomStateTest.ReadyStartsGame" end time: May 20 17:17 CST
+"RoomStateTest.ReadyStartsGame" end time: May 26 21:40 CST
 "RoomStateTest.ReadyStartsGame" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -31,7 +31,7 @@ Test Passed.
 2/9 Test: MatchQueueTest.PreventDuplicatePush
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=MatchQueueTest.PreventDuplicatePush" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"MatchQueueTest.PreventDuplicatePush" start time: May 20 17:17 CST
+"MatchQueueTest.PreventDuplicatePush" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -47,10 +47,10 @@ Note: Google Test filter = MatchQueueTest.PreventDuplicatePush
 [==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"MatchQueueTest.PreventDuplicatePush" end time: May 20 17:17 CST
+"MatchQueueTest.PreventDuplicatePush" end time: May 26 21:40 CST
 "MatchQueueTest.PreventDuplicatePush" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -58,7 +58,7 @@ Test Passed.
 3/9 Test: MatchQueueTest.RemoveAndPopN
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=MatchQueueTest.RemoveAndPopN" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"MatchQueueTest.RemoveAndPopN" start time: May 20 17:17 CST
+"MatchQueueTest.RemoveAndPopN" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -74,10 +74,10 @@ Note: Google Test filter = MatchQueueTest.RemoveAndPopN
 [==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"MatchQueueTest.RemoveAndPopN" end time: May 20 17:17 CST
+"MatchQueueTest.RemoveAndPopN" end time: May 26 21:40 CST
 "MatchQueueTest.RemoveAndPopN" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -85,7 +85,7 @@ Test Passed.
 4/9 Test: ProtocolTest.EncodeDecodeOnePacket
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=ProtocolTest.EncodeDecodeOnePacket" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"ProtocolTest.EncodeDecodeOnePacket" start time: May 20 17:17 CST
+"ProtocolTest.EncodeDecodeOnePacket" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -101,10 +101,10 @@ Note: Google Test filter = ProtocolTest.EncodeDecodeOnePacket
 [==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"ProtocolTest.EncodeDecodeOnePacket" end time: May 20 17:17 CST
+"ProtocolTest.EncodeDecodeOnePacket" end time: May 26 21:40 CST
 "ProtocolTest.EncodeDecodeOnePacket" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -112,7 +112,7 @@ Test Passed.
 5/9 Test: ProtocolTest.HalfPacketWaitsForMoreData
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=ProtocolTest.HalfPacketWaitsForMoreData" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"ProtocolTest.HalfPacketWaitsForMoreData" start time: May 20 17:17 CST
+"ProtocolTest.HalfPacketWaitsForMoreData" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -128,10 +128,10 @@ Note: Google Test filter = ProtocolTest.HalfPacketWaitsForMoreData
 [==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"ProtocolTest.HalfPacketWaitsForMoreData" end time: May 20 17:17 CST
+"ProtocolTest.HalfPacketWaitsForMoreData" end time: May 26 21:40 CST
 "ProtocolTest.HalfPacketWaitsForMoreData" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -139,7 +139,7 @@ Test Passed.
 6/9 Test: SettlementTest.SettlementLogIsIdempotentByBattlePlayer
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=SettlementTest.SettlementLogIsIdempotentByBattlePlayer" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"SettlementTest.SettlementLogIsIdempotentByBattlePlayer" start time: May 20 17:17 CST
+"SettlementTest.SettlementLogIsIdempotentByBattlePlayer" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -148,17 +148,23 @@ Note: Google Test filter = SettlementTest.SettlementLogIsIdempotentByBattlePlaye
 [----------] Global test environment set-up.
 [----------] 1 test from SettlementTest
 [ RUN      ] SettlementTest.SettlementLogIsIdempotentByBattlePlayer
-[       OK ] SettlementTest.SettlementLogIsIdempotentByBattlePlayer (0 ms)
-[----------] 1 test from SettlementTest (0 ms total)
+[2026-05-26 21:40:56.969] [error] mysql connect failed: Can't create TCP/IP socket (1)
+/home/lmx/cpp-game-room/tests/test_settlement.cpp:30: Skipped
+MySQL is not available
+[  SKIPPED ] SettlementTest.SettlementLogIsIdempotentByBattlePlayer (1 ms)
+[----------] 1 test from SettlementTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 0 tests.
+[  SKIPPED ] 1 test, listed below:
+[  SKIPPED ] SettlementTest.SettlementLogIsIdempotentByBattlePlayer
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
-Test Passed.
-"SettlementTest.SettlementLogIsIdempotentByBattlePlayer" end time: May 20 17:17 CST
+Test Pass Reason:
+Skip regular expression found in output. Regex=[\[  SKIPPED \]]
+"SettlementTest.SettlementLogIsIdempotentByBattlePlayer" end time: May 26 21:40 CST
 "SettlementTest.SettlementLogIsIdempotentByBattlePlayer" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -166,7 +172,7 @@ Test Passed.
 7/9 Test: SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer" start time: May 20 17:17 CST
+"SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -175,17 +181,23 @@ Note: Google Test filter = SettlementTest.BattleHasOneRowAndPlayerResultsArePerP
 [----------] Global test environment set-up.
 [----------] 1 test from SettlementTest
 [ RUN      ] SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer
-[       OK ] SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer (0 ms)
-[----------] 1 test from SettlementTest (0 ms total)
+[2026-05-26 21:40:56.976] [error] mysql connect failed: Can't create TCP/IP socket (1)
+/home/lmx/cpp-game-room/tests/test_settlement.cpp:46: Skipped
+MySQL is not available
+[  SKIPPED ] SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer (1 ms)
+[----------] 1 test from SettlementTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
-[  PASSED  ] 1 test.
+[==========] 1 test from 1 test suite ran. (1 ms total)
+[  PASSED  ] 0 tests.
+[  SKIPPED ] 1 test, listed below:
+[  SKIPPED ] SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
-Test Passed.
-"SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer" end time: May 20 17:17 CST
+Test Pass Reason:
+Skip regular expression found in output. Regex=[\[  SKIPPED \]]
+"SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer" end time: May 26 21:40 CST
 "SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -193,7 +205,7 @@ Test Passed.
 8/9 Test: SettlementTest.UpdateRankAfterSettle
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=SettlementTest.UpdateRankAfterSettle" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"SettlementTest.UpdateRankAfterSettle" start time: May 20 17:17 CST
+"SettlementTest.UpdateRankAfterSettle" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -202,26 +214,23 @@ Note: Google Test filter = SettlementTest.UpdateRankAfterSettle
 [----------] Global test environment set-up.
 [----------] 1 test from SettlementTest
 [ RUN      ] SettlementTest.UpdateRankAfterSettle
-[2026-05-20 17:17:33.514] [info] settled battle 1000000, room 1, winner 10
-/home/lmx/cpp-game-room/tests/test_settlement.cpp:56: Failure
-Value of: items.empty()
-  Actual: true
-Expected: false
-[  FAILED  ] SettlementTest.UpdateRankAfterSettle (0 ms)
-[----------] 1 test from SettlementTest (0 ms total)
+[2026-05-26 21:40:56.984] [error] mysql connect failed: Can't create TCP/IP socket (1)
+/home/lmx/cpp-game-room/tests/test_settlement.cpp:84: Skipped
+MySQL is not available
+[  SKIPPED ] SettlementTest.UpdateRankAfterSettle (1 ms)
+[----------] 1 test from SettlementTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 1 test from 1 test suite ran. (0 ms total)
+[==========] 1 test from 1 test suite ran. (1 ms total)
 [  PASSED  ] 0 tests.
-[  FAILED  ] 1 test, listed below:
-[  FAILED  ] SettlementTest.UpdateRankAfterSettle
-
- 1 FAILED TEST
+[  SKIPPED ] 1 test, listed below:
+[  SKIPPED ] SettlementTest.UpdateRankAfterSettle
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
-Test Failed.
-"SettlementTest.UpdateRankAfterSettle" end time: May 20 17:17 CST
+Test Pass Reason:
+Skip regular expression found in output. Regex=[\[  SKIPPED \]]
+"SettlementTest.UpdateRankAfterSettle" end time: May 26 21:40 CST
 "SettlementTest.UpdateRankAfterSettle" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -229,7 +238,7 @@ Test Failed.
 9/9 Test: RankServiceTest.GetTopNByScoreDesc
 Command: "/home/lmx/cpp-game-room/build/tests/game_tests" "--gtest_filter=RankServiceTest.GetTopNByScoreDesc" "--gtest_also_run_disabled_tests"
 Directory: /home/lmx/cpp-game-room/build/tests
-"RankServiceTest.GetTopNByScoreDesc" start time: May 20 17:17 CST
+"RankServiceTest.GetTopNByScoreDesc" start time: May 26 21:40 CST
 Output:
 ----------------------------------------------------------
 Running main() from ./googletest/src/gtest_main.cc
@@ -238,28 +247,24 @@ Note: Google Test filter = RankServiceTest.GetTopNByScoreDesc
 [----------] Global test environment set-up.
 [----------] 1 test from RankServiceTest
 [ RUN      ] RankServiceTest.GetTopNByScoreDesc
-/home/lmx/cpp-game-room/tests/test_rank_service.cpp:16: Failure
-Expected equality of these values:
-  items.size()
-    Which is: 0
-  3u
-    Which is: 3
-[  FAILED  ] RankServiceTest.GetTopNByScoreDesc (0 ms)
+[2026-05-26 21:40:56.990] [error] redis connect failed: Can't create socket: Operation not permitted
+/home/lmx/cpp-game-room/tests/test_rank_service.cpp:27: Skipped
+Redis is not available
+[  SKIPPED ] RankServiceTest.GetTopNByScoreDesc (0 ms)
 [----------] 1 test from RankServiceTest (0 ms total)
 
 [----------] Global test environment tear-down
 [==========] 1 test from 1 test suite ran. (0 ms total)
 [  PASSED  ] 0 tests.
-[  FAILED  ] 1 test, listed below:
-[  FAILED  ] RankServiceTest.GetTopNByScoreDesc
-
- 1 FAILED TEST
+[  SKIPPED ] 1 test, listed below:
+[  SKIPPED ] RankServiceTest.GetTopNByScoreDesc
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
-Test Failed.
-"RankServiceTest.GetTopNByScoreDesc" end time: May 20 17:17 CST
+Test Pass Reason:
+Skip regular expression found in output. Regex=[\[  SKIPPED \]]
+"RankServiceTest.GetTopNByScoreDesc" end time: May 26 21:40 CST
 "RankServiceTest.GetTopNByScoreDesc" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 20 17:17 CST
+End testing: May 26 21:40 CST

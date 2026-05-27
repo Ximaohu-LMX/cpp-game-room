@@ -91,9 +91,7 @@ void RoomManager::HandleReady(const SessionPtr& session, const Packet& packet) {
     if (!room) {
         return;
     }
-    room->SetReady(session->PlayerId(), request.ready());
-    if (room->CanStart()) {
-        room->StartGame();
+    if (room->SetReadyAndTryStart(session->PlayerId(), request.ready())) {
         StartGameRoom(room);
     }
 }
@@ -140,4 +138,3 @@ void RoomManager::StartGameRoom(const RoomPtr& room) {
 }
 
 } // namespace game
-

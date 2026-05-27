@@ -68,8 +68,11 @@ void MatchService::HandleCancelMatch(const SessionPtr& session, const Packet& pa
 
 void MatchService::TryCreateRoom() {
     const auto need_count = static_cast<size_t>(ConfigManager::Instance().RoomPlayerCount());
-    while (queue_.Size() >= need_count) {
-        auto players = queue_.PopN(need_count);
+    while (true) {
+        auto players = queue_.TryPopN(need_count);
+        if (players.empty()) {
+            return;
+        }
         if (players.size() != need_count || !context_ || !context_->room_manager) {
             return;
         }

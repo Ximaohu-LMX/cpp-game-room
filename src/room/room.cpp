@@ -46,6 +46,34 @@ void Room::SetReady(int64_t player_id, bool ready) {
     Broadcast(MSG_READY_NOTIFY, notify);
 }
 
+bool Room::SetReadyAndTryStart(int64_t player_id, bool ready) {
+    bool started = false;
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto it = players_.find(player_id);
+        if (it == players_.end() || state_ == RoomState::Playing || state_ == RoomState::Closed) {
+            return false;
+        }
+        it->second.ready = ready;
+        bool all_ready = !players_.empty();
+        for (const auto& [_, player] : players_) {
+            all_ready = all_ready && player.ready;
+        }
+        if (all_ready) {
+            state_ = RoomState::Playing;
+            started = true;
+        } else {
+            state_ = RoomState::Waiting;
+        }
+    }
+
+    proto::ReadyNotify notify;
+    notify.set_player_id(player_id);
+    notify.set_ready(ready);
+    Broadcast(MSG_READY_NOTIFY, notify);
+    return started;
+}
+
 bool Room::CanStart() const {
     std::lock_guard<std::mutex> lock(mutex_);
     return state_ == RoomState::Ready;

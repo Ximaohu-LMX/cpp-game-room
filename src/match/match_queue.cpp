@@ -29,6 +29,10 @@ bool MatchQueue::Contains(int64_t player_id) const {
 }
 
 std::vector<int64_t> MatchQueue::PopN(size_t n) {
+    return TryPopN(n);
+}
+
+std::vector<int64_t> MatchQueue::TryPopN(size_t n) {
     std::lock_guard<std::mutex> lock(mutex_);
     std::vector<int64_t> result;
     if (queue_.size() < n) {
@@ -50,4 +54,3 @@ size_t MatchQueue::Size() const {
 }
 
 } // namespace game
-

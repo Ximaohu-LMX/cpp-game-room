@@ -49,6 +49,14 @@ public:
     void SetReady(int64_t player_id, bool ready);
 
     /**
+     * @brief 设置玩家准备状态，并在所有玩家准备后原子切换到 Playing。
+     * @param player_id 玩家 ID。
+     * @param ready 是否准备。
+     * @return 本次调用是否把房间切换到了 Playing。
+     */
+    bool SetReadyAndTryStart(int64_t player_id, bool ready);
+
+    /**
      * @brief 判断房间是否可以开始游戏。
      * @return 所有玩家准备完毕返回 true。
      */

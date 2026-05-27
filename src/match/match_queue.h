@@ -44,6 +44,14 @@ public:
     std::vector<int64_t> PopN(size_t n);
 
     /**
+     * @brief 人数足够时按入队顺序弹出 N 个玩家。
+     * @help 在同一把锁中完成人数判断和弹出，避免并发成房时 Size 与 PopN 之间状态变化。
+     * @param n 需要弹出的玩家数量。
+     * @return 人数足够返回 N 个玩家；人数不足返回空列表。
+     */
+    std::vector<int64_t> TryPopN(size_t n);
+
+    /**
      * @brief 获取当前队列长度。
      * @return 队列中玩家数量。
      */
