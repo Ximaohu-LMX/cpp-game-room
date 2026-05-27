@@ -22,6 +22,7 @@ namespace game {
 class TcpServer {
 public:
     using MessageCallback = TcpConnection::MessageCallback;
+    using SessionCloseCallback = std::function<void(const SessionPtr& session)>;
 
     /**
      * @brief 创建 TCP 服务端。
@@ -29,7 +30,10 @@ public:
      * @param message_callback 收到完整 Packet 后的回调。
      * @param worker_threads io_context 工作线程数。
      */
-    TcpServer(ConnectionManager& connection_manager, MessageCallback message_callback, int worker_threads);
+    TcpServer(ConnectionManager& connection_manager,
+              MessageCallback message_callback,
+              int worker_threads,
+              SessionCloseCallback session_close_callback = {});
 
     /**
      * @brief 析构时停止服务端。
@@ -59,6 +63,7 @@ private:
     boost::asio::ip::tcp::acceptor acceptor_;
     ConnectionManager& connection_manager_;
     MessageCallback message_callback_;
+    SessionCloseCallback session_close_callback_;
     int worker_threads_ = 1;
     std::atomic<bool> running_{false};
     std::vector<std::thread> workers_;

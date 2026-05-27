@@ -1,6 +1,7 @@
 #include "room/room_manager.h"
 
 #include "game/input_buffer.h"
+#include "player/player_manager.h"
 #include "protocol/message_id.h"
 #include "protocol/proto_helper.h"
 #include "server/message_dispatcher.h"
@@ -55,14 +56,34 @@ RoomPtr RoomManager::GetRoom(int64_t room_id) {
 }
 
 void RoomManager::RemoveRoom(int64_t room_id) {
-    std::lock_guard<std::mutex> lock(mutex_);
-    auto it = rooms_.find(room_id);
-    if (it != rooms_.end()) {
-        for (auto player_id : it->second->PlayerIds()) {
-            player_room_map_.erase(player_id);
+    std::vector<int64_t> player_ids;
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        auto it = rooms_.find(room_id);
+        if (it != rooms_.end()) {
+            player_ids = it->second->PlayerIds();
+            for (auto player_id : player_ids) {
+                player_room_map_.erase(player_id);
+            }
+        }
+        rooms_.erase(room_id);
+    }
+
+    for (auto player_id : player_ids) {
+        SessionPtr session;
+        if (context_ && context_->connection_manager) {
+            session = context_->connection_manager->GetByPlayerId(player_id);
+            if (session) {
+                session->SetRoomId(0);
+            }
+        }
+        if (context_ && context_->player_manager) {
+            auto player = context_->player_manager->GetOrCreatePlayer(player_id);
+            player->SetRoomId(0);
+            player->SetStatus(session ? PlayerStatus::Online : PlayerStatus::Offline);
         }
     }
-    rooms_.erase(room_id);
+
     if (context_ && context_->game_loop) {
         context_->game_loop->RemoveRoom(room_id);
     }
@@ -123,14 +144,20 @@ void RoomManager::StartGameRoom(const RoomPtr& room) {
     if (!room || !context_ || !context_->game_loop) {
         return;
     }
+    const auto player_ids = room->PlayerIds();
     auto game_room = std::make_shared<GameRoom>(room->RoomId());
-    game_room->Start(room->PlayerIds());
+    game_room->Start(player_ids);
     context_->game_loop->AddRoom(game_room);
 
     proto::RoomStateNotify notify;
     notify.set_room_id(room->RoomId());
     notify.set_state(static_cast<int32_t>(RoomState::Playing));
-    for (auto player_id : room->PlayerIds()) {
+    for (auto player_id : player_ids) {
+        if (context_->player_manager) {
+            auto player = context_->player_manager->GetOrCreatePlayer(player_id);
+            player->SetStatus(PlayerStatus::Playing);
+            player->SetRoomId(room->RoomId());
+        }
         notify.add_player_ids(player_id);
     }
     room->Broadcast(MSG_ROOM_STATE_NOTIFY, notify);

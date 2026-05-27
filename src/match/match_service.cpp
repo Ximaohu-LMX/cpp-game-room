@@ -40,6 +40,11 @@ void MatchService::HandleMatch(const SessionPtr& session, const Packet& packet) 
     }
 
     if (!queue_.Push(player_id)) {
+        if (queue_.Contains(player_id) && context_ && context_->player_manager) {
+            auto player = context_->player_manager->GetOrCreatePlayer(player_id);
+            player->SetStatus(PlayerStatus::Matching);
+            player->SetRoomId(0);
+        }
         response.set_code(2);
         response.set_message("already matching");
         session->Send(MSG_MATCH_RESP, response);
@@ -63,7 +68,12 @@ void MatchService::HandleCancelMatch(const SessionPtr& session, const Packet& pa
         return;
     }
     const int64_t player_id = request.player_id() == 0 ? session->PlayerId() : request.player_id();
-    queue_.Remove(player_id);
+    if (queue_.Remove(player_id) && context_ && context_->player_manager) {
+        auto player = context_->player_manager->GetOrCreatePlayer(player_id);
+        player->SetStatus(PlayerStatus::Online);
+        player->SetRoomId(0);
+        session->SetRoomId(0);
+    }
 }
 
 void MatchService::TryCreateRoom() {

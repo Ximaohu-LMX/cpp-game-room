@@ -10625,6 +10625,8 @@ src/CMakeFiles/game_core.dir/room/room_manager.cpp.o: ../src/room/room_manager.c
   /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
   /usr/include/google/protobuf/stubs/callback.h \
   /usr/include/google/protobuf/stubs/stl_util.h \
+  ../src/player/player_manager.h \
+  ../src/player/player.h \
   ../src/protocol/message_id.h \
   ../src/protocol/proto_helper.h \
   ../src/server/message_dispatcher.h \

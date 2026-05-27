@@ -1359,6 +1359,32 @@ tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o: ../tests/test_room_state.
   /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
   /usr/include/google/protobuf/stubs/callback.h \
   /usr/include/google/protobuf/stubs/stl_util.h \
+  ../src/game/game_loop.h \
+  ../src/game/game_room.h \
+  ../src/game/game_state.h \
+  ../src/game/input_buffer.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  ../src/player/player_manager.h \
+  ../src/player/player.h \
+  ../src/protocol/message_id.h \
+  ../src/protocol/proto_helper.h \
+  ../src/room/room_manager.h \
+  ../src/server/message_dispatcher.h \
+  ../src/server/service_context.h \
+  src/room.pb.h \
+  /usr/include/google/protobuf/generated_message_table_driven.h \
+  /usr/include/google/protobuf/map.h \
+  /usr/include/google/protobuf/map_type_handler.h \
+  /usr/include/google/protobuf/map_entry_lite.h \
+  /usr/include/google/protobuf/generated_message_util.h \
+  /usr/include/google/protobuf/any.h \
+  /usr/include/google/protobuf/has_bits.h \
+  /usr/include/google/protobuf/map_field_lite.h \
+  /usr/include/google/protobuf/inlined_string_field.h \
+  /usr/include/google/protobuf/extension_set.h \
+  /usr/include/c++/11/cassert \
   /usr/include/gtest/gtest.h \
   /usr/include/gtest/internal/gtest-internal.h \
   /usr/include/gtest/internal/gtest-port.h \
@@ -1414,7 +1440,6 @@ tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o: ../tests/test_room_state.
   /usr/include/gtest/internal/custom/gtest-printers.h \
   /usr/include/gtest/gtest-param-test.h \
   /usr/include/gtest/internal/gtest-param-util.h \
-  /usr/include/c++/11/cassert \
   /usr/include/gtest/gtest-test-part.h \
   /usr/include/gtest/gtest_prod.h \
   /usr/include/gtest/gtest-typed-test.h \
@@ -1779,6 +1804,26 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 
 /usr/include/mariadb/mariadb_ctype.h:
 
+/usr/include/google/protobuf/inlined_string_field.h:
+
+/usr/include/google/protobuf/map_field_lite.h:
+
+/usr/include/google/protobuf/map_entry_lite.h:
+
+/usr/include/google/protobuf/map_type_handler.h:
+
+/usr/include/google/protobuf/generated_message_table_driven.h:
+
+../src/server/message_dispatcher.h:
+
+../src/room/room_manager.h:
+
+../src/protocol/proto_helper.h:
+
+../src/protocol/message_id.h:
+
+../src/player/player_manager.h:
+
 /usr/include/google/protobuf/stubs/callback.h:
 
 /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h:
@@ -1806,6 +1851,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/google/protobuf/stubs/once.h:
 
 /usr/include/google/protobuf/descriptor.h:
+
+../src/player/player.h:
 
 /usr/include/google/protobuf/port.h:
 
@@ -1840,6 +1887,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/c++/11/algorithm:
 
 /usr/include/google/protobuf/stubs/casts.h:
+
+../src/server/service_context.h:
 
 /usr/include/google/protobuf/port_undef.inc:
 
@@ -1907,6 +1956,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 
 /usr/include/gtest/internal/gtest-type-util.h:
 
+/usr/include/google/protobuf/has_bits.h:
+
 /usr/include/c++/11/bits/stl_multiset.h:
 
 /usr/include/c++/11/set:
@@ -1955,6 +2006,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 
 /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
+/usr/include/google/protobuf/extension_set.h:
+
 /usr/include/c++/11/bits/quoted_string.h:
 
 /usr/include/x86_64-linux-gnu/bits/signum-generic.h:
@@ -1990,6 +2043,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
+
+../src/game/input_buffer.h:
 
 /usr/include/google/protobuf/stubs/macros.h:
 
@@ -2030,6 +2085,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
+
+/usr/include/google/protobuf/generated_message_util.h:
 
 /usr/include/errno.h:
 
@@ -2123,6 +2180,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 
 /usr/include/c++/11/bits/postypes.h:
 
+../src/game/game_room.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
@@ -2157,6 +2216,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
 
+../src/game/game_loop.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
@@ -2183,6 +2244,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 
 /usr/include/c++/11/system_error:
 
+/usr/include/google/protobuf/any.h:
+
 /usr/include/c++/11/cstddef:
 
 /usr/include/c++/11/bits/stl_vector.h:
@@ -2198,6 +2261,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/c++/11/thread:
 
 /usr/include/c++/11/ratio:
 
@@ -2339,6 +2404,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
+/usr/include/c++/11/bits/std_thread.h:
+
 /usr/include/c++/11/bits/cpp_type_traits.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_funcs.h:
@@ -2402,6 +2469,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
 
 /usr/include/c++/11/ext/concurrence.h:
+
+../src/game/game_state.h:
 
 /usr/include/wctype.h:
 
@@ -2525,6 +2594,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 
 /usr/include/c++/11/memory:
 
+/usr/include/google/protobuf/map.h:
+
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
 
 /usr/include/c++/11/any:
@@ -2562,6 +2633,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/x86_64-linux-gnu/asm/types.h:
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
+
+/usr/include/c++/11/bits/this_thread_sleep.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
@@ -2602,6 +2675,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/asm-generic/bitsperlong.h:
 
 /usr/include/linux/posix_types.h:
+
+src/room.pb.h:
 
 /usr/include/gtest/gtest-message.h:
 

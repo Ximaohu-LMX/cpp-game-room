@@ -1292,6 +1292,9 @@ bot/CMakeFiles/game_bot.dir/bot_client.cpp.o: ../bot/bot_client.cpp \
   /usr/local/include/boost/asio/writable_pipe.hpp \
   /usr/local/include/boost/asio/write_at.hpp \
   /usr/local/include/boost/asio/impl/write_at.hpp \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/thread \
   /usr/include/c++/11/bits/this_thread_sleep.h \
   ../src/protocol/message_id.h \
@@ -1356,6 +1359,7 @@ bot/CMakeFiles/game_bot.dir/bot_client.cpp.o: ../bot/bot_client.cpp \
   /usr/include/c++/11/numeric \
   /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
+  ../src/util/time_util.h \
   src/game.pb.h \
   /usr/include/google/protobuf/generated_message_table_driven.h \
   /usr/include/google/protobuf/map.h \
@@ -2663,6 +2667,9 @@ bot/CMakeFiles/game_bot.dir/bot_main.cpp.o: ../bot/bot_main.cpp \
   /usr/local/include/boost/asio/writable_pipe.hpp \
   /usr/local/include/boost/asio/write_at.hpp \
   /usr/local/include/boost/asio/impl/write_at.hpp \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/thread \
   /usr/include/c++/11/bits/this_thread_sleep.h \
   /usr/include/c++/11/iostream
@@ -3959,8 +3966,12 @@ bot/CMakeFiles/game_bot.dir/bot_manager.cpp.o: ../bot/bot_manager.cpp \
   /usr/local/include/boost/asio/writable_pipe.hpp \
   /usr/local/include/boost/asio/write_at.hpp \
   /usr/local/include/boost/asio/impl/write_at.hpp \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/thread \
-  /usr/include/c++/11/bits/this_thread_sleep.h
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/c++/11/iostream
 
 
 ../bot/bot_manager.cpp:
@@ -3980,6 +3991,8 @@ src/room.pb.h:
 /usr/include/google/protobuf/map_entry_lite.h:
 
 src/game.pb.h:
+
+../src/util/time_util.h:
 
 /usr/include/c++/11/pstl/glue_numeric_defs.h:
 
@@ -4054,6 +4067,10 @@ src/game.pb.h:
 /usr/include/c++/11/bits/this_thread_sleep.h:
 
 /usr/include/c++/11/thread:
+
+/usr/include/c++/11/bits/stl_deque.h:
+
+/usr/include/c++/11/deque:
 
 /usr/local/include/boost/asio/write_at.hpp:
 
@@ -5130,6 +5147,8 @@ src/login.pb.h:
 /usr/local/include/boost/date_time/date_duration_types.hpp:
 
 /usr/local/include/boost/asio/detail/recycling_allocator.hpp:
+
+/usr/include/c++/11/bits/deque.tcc:
 
 /usr/local/include/boost/asio/impl/execution_context.hpp:
 

@@ -127,7 +127,27 @@ bool GameServer::Init() {
         [this](const SessionPtr& session, const Packet& packet) {
             dispatcher_->Dispatch(session, packet);
         },
-        ConfigManager::Instance().WorkerThreads());
+        ConfigManager::Instance().WorkerThreads(),
+        [this](const SessionPtr& session) {
+            if (!session || session->PlayerId() == 0) {
+                return;
+            }
+
+            if (auto current = connection_manager_->GetByPlayerId(session->PlayerId())) {
+                if (current->SessionId() != session->SessionId()) {
+                    return;
+                }
+            }
+
+            if (player_manager_) {
+                player_manager_->SetOffline(session->PlayerId());
+            }
+            if (room_manager_ && session->RoomId() != 0) {
+                if (auto room = room_manager_->GetRoom(session->RoomId())) {
+                    room->OnPlayerDisconnect(session->PlayerId());
+                }
+            }
+        });
 
     return true;
 }

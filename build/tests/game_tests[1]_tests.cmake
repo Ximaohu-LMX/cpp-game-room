@@ -1,5 +1,7 @@
 add_test( RoomStateTest.ReadyStartsGame /home/lmx/cpp-game-room/build/tests/game_tests [==[--gtest_filter=RoomStateTest.ReadyStartsGame]==] --gtest_also_run_disabled_tests)
 set_tests_properties( RoomStateTest.ReadyStartsGame PROPERTIES WORKING_DIRECTORY /home/lmx/cpp-game-room/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( RoomStateTest.PlayerStatusSyncsOnStartAndRemove /home/lmx/cpp-game-room/build/tests/game_tests [==[--gtest_filter=RoomStateTest.PlayerStatusSyncsOnStartAndRemove]==] --gtest_also_run_disabled_tests)
+set_tests_properties( RoomStateTest.PlayerStatusSyncsOnStartAndRemove PROPERTIES WORKING_DIRECTORY /home/lmx/cpp-game-room/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
 add_test( MatchQueueTest.PreventDuplicatePush /home/lmx/cpp-game-room/build/tests/game_tests [==[--gtest_filter=MatchQueueTest.PreventDuplicatePush]==] --gtest_also_run_disabled_tests)
 set_tests_properties( MatchQueueTest.PreventDuplicatePush PROPERTIES WORKING_DIRECTORY /home/lmx/cpp-game-room/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
 add_test( MatchQueueTest.RemoveAndPopN /home/lmx/cpp-game-room/build/tests/game_tests [==[--gtest_filter=MatchQueueTest.RemoveAndPopN]==] --gtest_also_run_disabled_tests)
@@ -16,4 +18,4 @@ add_test( SettlementTest.UpdateRankAfterSettle /home/lmx/cpp-game-room/build/tes
 set_tests_properties( SettlementTest.UpdateRankAfterSettle PROPERTIES WORKING_DIRECTORY /home/lmx/cpp-game-room/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
 add_test( RankServiceTest.GetTopNByScoreDesc /home/lmx/cpp-game-room/build/tests/game_tests [==[--gtest_filter=RankServiceTest.GetTopNByScoreDesc]==] --gtest_also_run_disabled_tests)
 set_tests_properties( RankServiceTest.GetTopNByScoreDesc PROPERTIES WORKING_DIRECTORY /home/lmx/cpp-game-room/build/tests SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-set( game_tests_TESTS RoomStateTest.ReadyStartsGame MatchQueueTest.PreventDuplicatePush MatchQueueTest.RemoveAndPopN ProtocolTest.EncodeDecodeOnePacket ProtocolTest.HalfPacketWaitsForMoreData SettlementTest.SettlementLogIsIdempotentByBattlePlayer SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer SettlementTest.UpdateRankAfterSettle RankServiceTest.GetTopNByScoreDesc)
+set( game_tests_TESTS RoomStateTest.ReadyStartsGame RoomStateTest.PlayerStatusSyncsOnStartAndRemove MatchQueueTest.PreventDuplicatePush MatchQueueTest.RemoveAndPopN ProtocolTest.EncodeDecodeOnePacket ProtocolTest.HalfPacketWaitsForMoreData SettlementTest.SettlementLogIsIdempotentByBattlePlayer SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer SettlementTest.UpdateRankAfterSettle RankServiceTest.GetTopNByScoreDesc)

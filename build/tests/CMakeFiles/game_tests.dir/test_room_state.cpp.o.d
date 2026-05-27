@@ -274,8 +274,32 @@ tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o: \
  /usr/include/google/protobuf/wire_format_lite.h \
  /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
  /usr/include/google/protobuf/stubs/callback.h \
- /usr/include/google/protobuf/stubs/stl_util.h /usr/include/gtest/gtest.h \
- /usr/include/gtest/internal/gtest-internal.h \
+ /usr/include/google/protobuf/stubs/stl_util.h \
+ /home/lmx/cpp-game-room/src/game/game_loop.h \
+ /home/lmx/cpp-game-room/src/game/game_room.h \
+ /home/lmx/cpp-game-room/src/game/game_state.h \
+ /home/lmx/cpp-game-room/src/game/input_buffer.h \
+ /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h \
+ /home/lmx/cpp-game-room/src/player/player_manager.h \
+ /home/lmx/cpp-game-room/src/player/player.h \
+ /home/lmx/cpp-game-room/src/protocol/message_id.h \
+ /home/lmx/cpp-game-room/src/protocol/proto_helper.h \
+ /home/lmx/cpp-game-room/src/room/room_manager.h \
+ /home/lmx/cpp-game-room/src/server/message_dispatcher.h \
+ /home/lmx/cpp-game-room/src/server/service_context.h \
+ /home/lmx/cpp-game-room/build/src/room.pb.h \
+ /usr/include/google/protobuf/generated_message_table_driven.h \
+ /usr/include/google/protobuf/map.h \
+ /usr/include/google/protobuf/map_type_handler.h \
+ /usr/include/google/protobuf/map_entry_lite.h \
+ /usr/include/google/protobuf/generated_message_util.h \
+ /usr/include/google/protobuf/any.h \
+ /usr/include/google/protobuf/has_bits.h \
+ /usr/include/google/protobuf/map_field_lite.h \
+ /usr/include/google/protobuf/inlined_string_field.h \
+ /usr/include/google/protobuf/extension_set.h /usr/include/c++/11/cassert \
+ /usr/include/gtest/gtest.h /usr/include/gtest/internal/gtest-internal.h \
  /usr/include/gtest/internal/gtest-port.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
@@ -318,6 +342,6 @@ tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o: \
  /usr/include/gtest/internal/custom/gtest-printers.h \
  /usr/include/gtest/gtest-param-test.h \
  /usr/include/gtest/internal/gtest-param-util.h \
- /usr/include/c++/11/cassert /usr/include/gtest/gtest-test-part.h \
- /usr/include/gtest/gtest_prod.h /usr/include/gtest/gtest-typed-test.h \
+ /usr/include/gtest/gtest-test-part.h /usr/include/gtest/gtest_prod.h \
+ /usr/include/gtest/gtest-typed-test.h \
  /usr/include/gtest/gtest_pred_impl.h

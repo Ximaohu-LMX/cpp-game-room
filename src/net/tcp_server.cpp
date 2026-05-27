@@ -7,10 +7,14 @@
 
 namespace game {
 
-TcpServer::TcpServer(ConnectionManager& connection_manager, MessageCallback message_callback, int worker_threads)
+TcpServer::TcpServer(ConnectionManager& connection_manager,
+                     MessageCallback message_callback,
+                     int worker_threads,
+                     SessionCloseCallback session_close_callback)
     : acceptor_(io_context_),
       connection_manager_(connection_manager),
       message_callback_(std::move(message_callback)),
+      session_close_callback_(std::move(session_close_callback)),
       worker_threads_(worker_threads > 0 ? worker_threads : 1) {}
 
 TcpServer::~TcpServer() {
@@ -76,7 +80,12 @@ void TcpServer::DoAccept() {
             auto session = std::make_shared<Session>(conn_id, conn);
             conn->SetSession(session);
             conn->SetMessageCallback(message_callback_);
-            conn->SetCloseCallback([this](uint64_t id) { connection_manager_.Remove(id); });
+            conn->SetCloseCallback([this, session](uint64_t id) {
+                connection_manager_.Remove(id);
+                if (session_close_callback_) {
+                    session_close_callback_(session);
+                }
+            });
             connection_manager_.Add(session);
             conn->Start();
             LOG_INFO("new connection {}", conn_id);

@@ -1219,7 +1219,9 @@ bot/CMakeFiles/game_bot.dir/bot_client.cpp.o: \
  /usr/local/include/boost/asio/writable_pipe.hpp \
  /usr/local/include/boost/asio/write_at.hpp \
  /usr/local/include/boost/asio/impl/write_at.hpp \
- /usr/include/c++/11/thread /usr/include/c++/11/bits/this_thread_sleep.h \
+ /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
+ /usr/include/c++/11/bits/deque.tcc /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/this_thread_sleep.h \
  /home/lmx/cpp-game-room/src/protocol/message_id.h \
  /home/lmx/cpp-game-room/src/protocol/proto_helper.h \
  /usr/include/google/protobuf/message.h \
@@ -1274,6 +1276,7 @@ bot/CMakeFiles/game_bot.dir/bot_client.cpp.o: \
  /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
  /usr/include/c++/11/bits/stl_numeric.h \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
+ /home/lmx/cpp-game-room/src/util/time_util.h \
  /home/lmx/cpp-game-room/build/src/game.pb.h \
  /usr/include/google/protobuf/generated_message_table_driven.h \
  /usr/include/google/protobuf/map.h \

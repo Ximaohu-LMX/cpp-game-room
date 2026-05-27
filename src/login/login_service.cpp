@@ -67,10 +67,23 @@ void LoginService::HandleLogin(const SessionPtr& session, const Packet& packet) 
                     ? context_->player_repository->LoadPlayer(player_id)
                     : PlayerData{player_id, "player_" + std::to_string(player_id), 1000};
 
+    PlayerPtr player;
     if (context_ && context_->player_manager) {
-        auto player = context_->player_manager->GetOrCreatePlayer(player_id, data.name);
+        player = context_->player_manager->GetOrCreatePlayer(player_id, data.name);
         player->SetScore(data.score);
         context_->player_manager->SetOnline(player_id, session);
+    }
+    if (context_ && context_->room_manager) {
+        auto room = context_->room_manager->GetPlayerRoom(player_id);
+        if (room) {
+            room->OnPlayerReconnect(player_id, session);
+            if (player) {
+                player->SetRoomId(room->RoomId());
+                player->SetStatus(room->State() == RoomState::Playing ? PlayerStatus::Playing : PlayerStatus::InRoom);
+            }
+        } else if (player) {
+            player->SetRoomId(0);
+        }
     }
 
     response.set_code(0);
@@ -117,14 +130,22 @@ void LoginService::HandleReconnect(const SessionPtr& session, const Packet& pack
     if (context_ && context_->connection_manager) {
         context_->connection_manager->BindPlayer(request.player_id(), session);
     }
+    PlayerPtr player;
     if (context_ && context_->player_manager) {
         context_->player_manager->SetOnline(request.player_id(), session);
+        player = context_->player_manager->GetOrCreatePlayer(request.player_id());
     }
     if (context_ && context_->room_manager) {
         auto room = context_->room_manager->GetPlayerRoom(request.player_id());
         if (room) {
             room->OnPlayerReconnect(request.player_id(), session);
+            if (player) {
+                player->SetRoomId(room->RoomId());
+                player->SetStatus(room->State() == RoomState::Playing ? PlayerStatus::Playing : PlayerStatus::InRoom);
+            }
             response.set_room_id(room->RoomId());
+        } else if (player) {
+            player->SetRoomId(0);
         }
     }
     response.set_code(0);

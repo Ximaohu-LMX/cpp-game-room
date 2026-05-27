@@ -287,6 +287,8 @@ src/CMakeFiles/game_core.dir/room/room_manager.cpp.o: \
  /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
  /usr/include/google/protobuf/stubs/callback.h \
  /usr/include/google/protobuf/stubs/stl_util.h \
+ /home/lmx/cpp-game-room/src/player/player_manager.h \
+ /home/lmx/cpp-game-room/src/player/player.h \
  /home/lmx/cpp-game-room/src/protocol/message_id.h \
  /home/lmx/cpp-game-room/src/protocol/proto_helper.h \
  /home/lmx/cpp-game-room/src/server/message_dispatcher.h \

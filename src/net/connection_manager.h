@@ -51,7 +51,11 @@ public:
         std::lock_guard<std::mutex> lock(mutex_);
         auto it = sessions_.find(session_id);
         if (it != sessions_.end() && it->second) {
-            player_sessions_.erase(it->second->PlayerId());
+            const auto player_id = it->second->PlayerId();
+            auto player_it = player_sessions_.find(player_id);
+            if (player_it != player_sessions_.end() && player_it->second == it->second) {
+                player_sessions_.erase(player_it);
+            }
         }
         sessions_.erase(session_id);
     }
