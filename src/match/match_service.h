@@ -3,6 +3,8 @@
 #include "match/match_queue.h"
 #include "net/session.h"
 
+#include <string>
+
 namespace game {
 
 class MessageDispatcher;
@@ -40,7 +42,19 @@ public:
      */
     void HandleCancelMatch(const SessionPtr& session, const Packet& packet);
 
+    /**
+     * @brief 将已离开 Waiting 房间的玩家重新放回匹配队列。
+     * @param player_id 玩家 ID。
+     * @return 入队成功返回 true。
+     */
+    bool RequeuePlayer(int64_t player_id);
+
 private:
+    /**
+     * @brief 执行加入匹配队列的共享逻辑。
+     */
+    bool StartMatching(int64_t player_id, const SessionPtr& session, const std::string& message);
+
     /**
      * @brief 尝试从匹配队列中取人并创建房间。
      */

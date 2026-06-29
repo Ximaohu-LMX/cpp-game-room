@@ -76,6 +76,23 @@ private:
     void HandleInput(const SessionPtr& session, const Packet& packet);
 
     /**
+     * @brief 处理玩家离开房间请求。
+     * @param session 当前会话。
+     * @param packet 离房请求包。
+     */
+    void HandleLeaveRoom(const SessionPtr& session, const Packet& packet);
+
+    /**
+     * @brief 处理 Waiting 阶段离房：离开者回大厅，其余在线玩家重新入队。
+     */
+    void HandleLeaveWaiting(const SessionPtr& session, const RoomPtr& room);
+
+    /**
+     * @brief 处理 Playing 阶段离房：按投降/死亡处理，等待正常结算清理。
+     */
+    void HandleLeavePlaying(const SessionPtr& session, const RoomPtr& room);
+
+    /**
      * @brief 创建 GameRoom 并加入 GameLoop。
      * @param room 业务房间。
      */

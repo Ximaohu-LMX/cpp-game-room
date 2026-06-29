@@ -33,11 +33,7 @@ void Room::SetReady(int64_t player_id, bool ready) {
             return;
         }
         it->second.ready = ready;
-        bool all_ready = !players_.empty();
-        for (const auto& [_, player] : players_) {
-            all_ready = all_ready && player.ready;
-        }
-        state_ = all_ready ? RoomState::Ready : RoomState::Waiting;
+        state_ = RoomState::Waiting;
     }
 
     proto::ReadyNotify notify;
@@ -76,12 +72,24 @@ bool Room::SetReadyAndTryStart(int64_t player_id, bool ready) {
 
 bool Room::CanStart() const {
     std::lock_guard<std::mutex> lock(mutex_);
-    return state_ == RoomState::Ready;
+    if (players_.empty() || state_ == RoomState::Playing || state_ == RoomState::Closed) {
+        return false;
+    }
+    for (const auto& [_, player] : players_) {
+        if (!player.ready) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void Room::StartGame() {
     std::lock_guard<std::mutex> lock(mutex_);
-    if (state_ == RoomState::Ready) {
+    bool all_ready = !players_.empty();
+    for (const auto& [_, player] : players_) {
+        all_ready = all_ready && player.ready;
+    }
+    if (all_ready && state_ != RoomState::Closed) {
         state_ = RoomState::Playing;
     }
 }

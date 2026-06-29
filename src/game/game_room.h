@@ -45,6 +45,12 @@ public:
     void HandleInput(const InputCommand& input);
 
     /**
+     * @brief 将玩家标记为失败/死亡，用于战斗中主动退出或投降。
+     * @param player_id 玩家 ID。
+     */
+    void EliminatePlayer(int64_t player_id);
+
+    /**
      * @brief 推进一帧游戏逻辑。
      * @help 会消费 InputBuffer 中的输入，并更新玩家位置、血量和存活状态。
      */

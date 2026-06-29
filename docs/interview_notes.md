@@ -18,7 +18,7 @@ MatchQueue 同时维护 deque 和 unordered_set。deque 保证匹配顺序，uno
 
 ## 5. 房间状态机怎么设计？
 
-状态是 Waiting -> Ready -> Playing -> Settlement -> Closed。只有所有玩家 ready 才能进入 Ready，只有 Ready 才能 StartGame，结算后关闭房间并清理 player_room_map。
+状态是 Waiting -> Playing -> Settlement -> Closed。所有玩家 ready 的瞬间直接进入 Playing，结算后关闭房间并清理 player_room_map。
 
 ## 6. 游戏 tick 怎么推进？
 
@@ -39,4 +39,3 @@ MySQL 是最终持久化来源，Redis 是实时查询加速。恢复时可以�
 ## 10. 后续怎么扩展成分布式？
 
 拆出网关服、匹配服、房间服、战斗服和存储服务。网关保持长连接，房间按 room_id hash 路由，结算通过幂等日志和消息队列保证可靠执行。
-

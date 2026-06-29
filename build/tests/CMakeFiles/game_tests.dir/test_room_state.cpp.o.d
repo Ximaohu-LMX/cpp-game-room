@@ -281,6 +281,10 @@ tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o: \
  /home/lmx/cpp-game-room/src/game/input_buffer.h \
  /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h \
+ /home/lmx/cpp-game-room/src/match/match_service.h \
+ /home/lmx/cpp-game-room/src/match/match_queue.h \
+ /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
+ /usr/include/c++/11/bits/deque.tcc \
  /home/lmx/cpp-game-room/src/player/player_manager.h \
  /home/lmx/cpp-game-room/src/player/player.h \
  /home/lmx/cpp-game-room/src/protocol/message_id.h \

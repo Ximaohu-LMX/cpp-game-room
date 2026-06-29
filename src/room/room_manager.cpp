@@ -1,6 +1,7 @@
 #include "room/room_manager.h"
 
 #include "game/input_buffer.h"
+#include "match/match_service.h"
 #include "player/player_manager.h"
 #include "protocol/message_id.h"
 #include "protocol/proto_helper.h"
@@ -23,6 +24,9 @@ void RoomManager::RegisterHandlers(MessageDispatcher& dispatcher) {
     });
     dispatcher.RegisterHandler(MSG_INPUT_REQ, [this](const SessionPtr& session, const Packet& packet) {
         HandleInput(session, packet);
+    });
+    dispatcher.RegisterHandler(MSG_LEAVE_ROOM_REQ, [this](const SessionPtr& session, const Packet& packet) {
+        HandleLeaveRoom(session, packet);
     });
 }
 
@@ -138,6 +142,103 @@ void RoomManager::HandleInput(const SessionPtr& session, const Packet& packet) {
     input.fire = request.input().fire();
     input.timestamp_ms = NowMs();
     game_room->HandleInput(input);
+}
+
+void RoomManager::HandleLeaveRoom(const SessionPtr& session, const Packet& packet) {
+    if (!session) {
+        return;
+    }
+    proto::LeaveRoomRequest request;
+    proto::LeaveRoomResponse response;
+    if (!ProtoHelper::Parse(packet, &request)) {
+        response.set_code(1);
+        response.set_message("bad request");
+        session->Send(MSG_LEAVE_ROOM_RESP, response);
+        return;
+    }
+
+    auto room = GetPlayerRoom(session->PlayerId());
+    if (!room || (request.room_id() != 0 && request.room_id() != room->RoomId())) {
+        response.set_code(2);
+        response.set_message("not in room");
+        session->Send(MSG_LEAVE_ROOM_RESP, response);
+        return;
+    }
+
+    if (room->State() == RoomState::Waiting) {
+        HandleLeaveWaiting(session, room);
+        return;
+    }
+    if (room->State() == RoomState::Playing) {
+        HandleLeavePlaying(session, room);
+        return;
+    }
+
+    response.set_code(3);
+    response.set_message("room closing");
+    session->Send(MSG_LEAVE_ROOM_RESP, response);
+}
+
+void RoomManager::HandleLeaveWaiting(const SessionPtr& session, const RoomPtr& room) {
+    const auto room_id = room->RoomId();
+    const auto leaver_id = session->PlayerId();
+    auto player_ids = room->PlayerIds();
+    std::vector<int64_t> requeue_players;
+    for (auto player_id : player_ids) {
+        if (player_id != leaver_id) {
+            requeue_players.push_back(player_id);
+        }
+    }
+
+    proto::PlayerLeaveRoomNotify notify;
+    notify.set_room_id(room_id);
+    notify.set_player_id(leaver_id);
+    notify.set_reason(1);
+    room->Broadcast(MSG_PLAYER_LEAVE_ROOM_NOTIFY, notify);
+
+    proto::LeaveRoomResponse response;
+    response.set_code(0);
+    response.set_message("left room");
+    session->Send(MSG_LEAVE_ROOM_RESP, response);
+
+    RemoveRoom(room_id);
+
+    if (!context_ || !context_->match_service) {
+        return;
+    }
+    for (auto player_id : requeue_players) {
+        context_->match_service->RequeuePlayer(player_id);
+    }
+}
+
+void RoomManager::HandleLeavePlaying(const SessionPtr& session, const RoomPtr& room) {
+    proto::LeaveRoomResponse response;
+    if (!context_ || !context_->game_loop) {
+        response.set_code(4);
+        response.set_message("game not running");
+        session->Send(MSG_LEAVE_ROOM_RESP, response);
+        return;
+    }
+
+    auto game_room = context_->game_loop->GetRoom(room->RoomId());
+    if (!game_room) {
+        response.set_code(4);
+        response.set_message("game not running");
+        session->Send(MSG_LEAVE_ROOM_RESP, response);
+        return;
+    }
+
+    game_room->EliminatePlayer(session->PlayerId());
+
+    proto::PlayerLeaveRoomNotify notify;
+    notify.set_room_id(room->RoomId());
+    notify.set_player_id(session->PlayerId());
+    notify.set_reason(2);
+    room->Broadcast(MSG_PLAYER_LEAVE_ROOM_NOTIFY, notify);
+
+    response.set_code(0);
+    response.set_message("surrendered");
+    session->Send(MSG_LEAVE_ROOM_RESP, response);
 }
 
 void RoomManager::StartGameRoom(const RoomPtr& room) {

@@ -23,6 +23,10 @@ class MatchCancelRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MatchCancelRequest> _instance;
 } _MatchCancelRequest_default_instance_;
+class MatchCancelResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MatchCancelResponse> _instance;
+} _MatchCancelResponse_default_instance_;
 class MatchResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MatchResponse> _instance;
@@ -45,6 +49,20 @@ static void InitDefaultsscc_info_MatchCancelRequest_match_2eproto() {
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_MatchCancelRequest_match_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_MatchCancelRequest_match_2eproto}, {}};
+
+static void InitDefaultsscc_info_MatchCancelResponse_match_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::proto::_MatchCancelResponse_default_instance_;
+    new (ptr) ::proto::MatchCancelResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::proto::MatchCancelResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_MatchCancelResponse_match_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_MatchCancelResponse_match_2eproto}, {}};
 
 static void InitDefaultsscc_info_MatchRequest_match_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -88,7 +106,7 @@ static void InitDefaultsscc_info_MatchSuccessNotify_match_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_MatchSuccessNotify_match_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_MatchSuccessNotify_match_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_match_2eproto[4];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_match_2eproto[5];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_match_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_match_2eproto = nullptr;
 
@@ -105,6 +123,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_match_2eproto::offsets[] PROTO
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::proto::MatchCancelRequest, player_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::proto::MatchCancelResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::proto::MatchCancelResponse, code_),
+  PROTOBUF_FIELD_OFFSET(::proto::MatchCancelResponse, message_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::proto::MatchResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -123,13 +148,15 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_match_2eproto::offsets[] PROTO
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::proto::MatchRequest)},
   { 6, -1, sizeof(::proto::MatchCancelRequest)},
-  { 12, -1, sizeof(::proto::MatchResponse)},
-  { 19, -1, sizeof(::proto::MatchSuccessNotify)},
+  { 12, -1, sizeof(::proto::MatchCancelResponse)},
+  { 19, -1, sizeof(::proto::MatchResponse)},
+  { 26, -1, sizeof(::proto::MatchSuccessNotify)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::proto::_MatchRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::proto::_MatchCancelRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::proto::_MatchCancelResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::proto::_MatchResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::proto::_MatchSuccessNotify_default_instance_),
 };
@@ -137,25 +164,27 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_match_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013match.proto\022\005proto\"!\n\014MatchRequest\022\021\n\t"
   "player_id\030\001 \001(\003\"\'\n\022MatchCancelRequest\022\021\n"
-  "\tplayer_id\030\001 \001(\003\".\n\rMatchResponse\022\014\n\004cod"
-  "e\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"9\n\022MatchSuccess"
-  "Notify\022\017\n\007room_id\030\001 \001(\003\022\022\n\nplayer_ids\030\002 "
-  "\003(\003b\006proto3"
+  "\tplayer_id\030\001 \001(\003\"4\n\023MatchCancelResponse\022"
+  "\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\".\n\rMatchR"
+  "esponse\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"9"
+  "\n\022MatchSuccessNotify\022\017\n\007room_id\030\001 \001(\003\022\022\n"
+  "\nplayer_ids\030\002 \003(\003b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_match_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_match_2eproto_sccs[4] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_match_2eproto_sccs[5] = {
   &scc_info_MatchCancelRequest_match_2eproto.base,
+  &scc_info_MatchCancelResponse_match_2eproto.base,
   &scc_info_MatchRequest_match_2eproto.base,
   &scc_info_MatchResponse_match_2eproto.base,
   &scc_info_MatchSuccessNotify_match_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_match_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_match_2eproto = {
-  false, false, descriptor_table_protodef_match_2eproto, "match.proto", 211,
-  &descriptor_table_match_2eproto_once, descriptor_table_match_2eproto_sccs, descriptor_table_match_2eproto_deps, 4, 0,
+  false, false, descriptor_table_protodef_match_2eproto, "match.proto", 265,
+  &descriptor_table_match_2eproto_once, descriptor_table_match_2eproto_sccs, descriptor_table_match_2eproto_deps, 5, 0,
   schemas, file_default_instances, TableStruct_match_2eproto::offsets,
-  file_level_metadata_match_2eproto, 4, file_level_enum_descriptors_match_2eproto, file_level_service_descriptors_match_2eproto,
+  file_level_metadata_match_2eproto, 5, file_level_enum_descriptors_match_2eproto, file_level_service_descriptors_match_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -552,6 +581,242 @@ void MatchCancelRequest::InternalSwap(MatchCancelRequest* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MatchCancelRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void MatchCancelResponse::InitAsDefaultInstance() {
+}
+class MatchCancelResponse::_Internal {
+ public:
+};
+
+MatchCancelResponse::MatchCancelResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:proto.MatchCancelResponse)
+}
+MatchCancelResponse::MatchCancelResponse(const MatchCancelResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_message().empty()) {
+    message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_message(),
+      GetArena());
+  }
+  code_ = from.code_;
+  // @@protoc_insertion_point(copy_constructor:proto.MatchCancelResponse)
+}
+
+void MatchCancelResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MatchCancelResponse_match_2eproto.base);
+  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  code_ = 0;
+}
+
+MatchCancelResponse::~MatchCancelResponse() {
+  // @@protoc_insertion_point(destructor:proto.MatchCancelResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void MatchCancelResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void MatchCancelResponse::ArenaDtor(void* object) {
+  MatchCancelResponse* _this = reinterpret_cast< MatchCancelResponse* >(object);
+  (void)_this;
+}
+void MatchCancelResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void MatchCancelResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const MatchCancelResponse& MatchCancelResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_MatchCancelResponse_match_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void MatchCancelResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:proto.MatchCancelResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  message_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  code_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* MatchCancelResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // int32 code = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string message = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_message();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "proto.MatchCancelResponse.message"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* MatchCancelResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:proto.MatchCancelResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 code = 1;
+  if (this->code() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_code(), target);
+  }
+
+  // string message = 2;
+  if (this->message().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "proto.MatchCancelResponse.message");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_message(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:proto.MatchCancelResponse)
+  return target;
+}
+
+size_t MatchCancelResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:proto.MatchCancelResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string message = 2;
+  if (this->message().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_message());
+  }
+
+  // int32 code = 1;
+  if (this->code() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_code());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MatchCancelResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:proto.MatchCancelResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MatchCancelResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MatchCancelResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:proto.MatchCancelResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:proto.MatchCancelResponse)
+    MergeFrom(*source);
+  }
+}
+
+void MatchCancelResponse::MergeFrom(const MatchCancelResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:proto.MatchCancelResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.message().size() > 0) {
+    _internal_set_message(from._internal_message());
+  }
+  if (from.code() != 0) {
+    _internal_set_code(from._internal_code());
+  }
+}
+
+void MatchCancelResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:proto.MatchCancelResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MatchCancelResponse::CopyFrom(const MatchCancelResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:proto.MatchCancelResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MatchCancelResponse::IsInitialized() const {
+  return true;
+}
+
+void MatchCancelResponse::InternalSwap(MatchCancelResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  message_.Swap(&other->message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(code_, other->code_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata MatchCancelResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -1036,6 +1301,9 @@ template<> PROTOBUF_NOINLINE ::proto::MatchRequest* Arena::CreateMaybeMessage< :
 }
 template<> PROTOBUF_NOINLINE ::proto::MatchCancelRequest* Arena::CreateMaybeMessage< ::proto::MatchCancelRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::proto::MatchCancelRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::proto::MatchCancelResponse* Arena::CreateMaybeMessage< ::proto::MatchCancelResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::proto::MatchCancelResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::proto::MatchResponse* Arena::CreateMaybeMessage< ::proto::MatchResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::proto::MatchResponse >(arena);

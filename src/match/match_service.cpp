@@ -39,27 +39,7 @@ void MatchService::HandleMatch(const SessionPtr& session, const Packet& packet) 
         return;
     }
 
-    if (!queue_.Push(player_id)) {
-        if (queue_.Contains(player_id) && context_ && context_->player_manager) {
-            auto player = context_->player_manager->GetOrCreatePlayer(player_id);
-            player->SetStatus(PlayerStatus::Matching);
-            player->SetRoomId(0);
-        }
-        response.set_code(2);
-        response.set_message("already matching");
-        session->Send(MSG_MATCH_RESP, response);
-        return;
-    }
-
-    if (context_ && context_->player_manager) {
-        auto player = context_->player_manager->GetOrCreatePlayer(player_id);
-        player->SetStatus(PlayerStatus::Matching);
-    }
-
-    response.set_code(0);
-    response.set_message("matching");
-    session->Send(MSG_MATCH_RESP, response);
-    TryCreateRoom();
+    StartMatching(player_id, session, "matching");
 }
 
 void MatchService::HandleCancelMatch(const SessionPtr& session, const Packet& packet) {
@@ -68,12 +48,70 @@ void MatchService::HandleCancelMatch(const SessionPtr& session, const Packet& pa
         return;
     }
     const int64_t player_id = request.player_id() == 0 ? session->PlayerId() : request.player_id();
-    if (queue_.Remove(player_id) && context_ && context_->player_manager) {
+    proto::MatchCancelResponse response;
+    if (queue_.Remove(player_id)) {
+        response.set_code(0);
+        response.set_message("cancelled");
+    } else {
+        response.set_code(2);
+        response.set_message("not matching");
+    }
+
+    if (response.code() == 0 && context_ && context_->player_manager) {
         auto player = context_->player_manager->GetOrCreatePlayer(player_id);
         player->SetStatus(PlayerStatus::Online);
         player->SetRoomId(0);
         session->SetRoomId(0);
     }
+    session->Send(MSG_MATCH_CANCEL_RESP, response);
+}
+
+bool MatchService::RequeuePlayer(int64_t player_id) {
+    if (!context_ || !context_->connection_manager) {
+        return false;
+    }
+    auto session = context_->connection_manager->GetByPlayerId(player_id);
+    if (!session) {
+        return false;
+    }
+    return StartMatching(player_id, session, "matching");
+}
+
+bool MatchService::StartMatching(int64_t player_id, const SessionPtr& session, const std::string& message) {
+    proto::MatchResponse response;
+    if (player_id == 0 || !session) {
+        if (session) {
+            response.set_code(1);
+            response.set_message("not login");
+            session->Send(MSG_MATCH_RESP, response);
+        }
+        return false;
+    }
+
+    if (!queue_.Push(player_id)) {
+        if (queue_.Contains(player_id) && context_ && context_->player_manager) {
+            auto player = context_->player_manager->GetOrCreatePlayer(player_id);
+            player->SetStatus(PlayerStatus::Matching);
+            player->SetRoomId(0);
+            session->SetRoomId(0);
+        }
+        response.set_code(2);
+        response.set_message("already matching");
+        session->Send(MSG_MATCH_RESP, response);
+        return false;
+    }
+
+    if (context_ && context_->player_manager) {
+        auto player = context_->player_manager->GetOrCreatePlayer(player_id);
+        player->SetStatus(PlayerStatus::Matching);
+        player->SetRoomId(0);
+    }
+    session->SetRoomId(0);
+
+    response.set_code(0);
+    response.set_message(message);
+    session->Send(MSG_MATCH_RESP, response);
+    TryCreateRoom();    return true;
 }
 
 void MatchService::TryCreateRoom() {

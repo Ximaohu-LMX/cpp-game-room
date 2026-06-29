@@ -1366,6 +1366,11 @@ tests/CMakeFiles/game_tests.dir/test_room_state.cpp.o: ../tests/test_room_state.
   /usr/include/c++/11/thread \
   /usr/include/c++/11/bits/std_thread.h \
   /usr/include/c++/11/bits/this_thread_sleep.h \
+  ../src/match/match_service.h \
+  ../src/match/match_queue.h \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   ../src/player/player_manager.h \
   ../src/player/player.h \
   ../src/protocol/message_id.h \
@@ -2435,6 +2440,8 @@ tests/CMakeFiles/game_tests.dir/test_settlement.cpp.o: ../tests/test_settlement.
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
 /usr/include/c++/11/bits/deque.tcc:
+
+../src/match/match_service.h:
 
 /usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
 

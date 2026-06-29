@@ -39,6 +39,20 @@ void GameRoom::HandleInput(const InputCommand& input) {
     input_buffer_.Push(input);
 }
 
+void GameRoom::EliminatePlayer(int64_t player_id) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (game_over_) {
+        return;
+    }
+    auto it = state_.players.find(player_id);
+    if (it == state_.players.end() || !it->second.alive) {
+        return;
+    }
+    it->second.hp = 0;
+    it->second.alive = false;
+    CheckGameOver();
+}
+
 void GameRoom::Tick() {
     auto inputs = input_buffer_.PopAll();
     {
@@ -117,4 +131,3 @@ void GameRoom::CheckGameOver() {
 }
 
 } // namespace game
-

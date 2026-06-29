@@ -10625,6 +10625,11 @@ src/CMakeFiles/game_core.dir/room/room_manager.cpp.o: ../src/room/room_manager.c
   /usr/include/google/protobuf/io/zero_copy_stream_impl_lite.h \
   /usr/include/google/protobuf/stubs/callback.h \
   /usr/include/google/protobuf/stubs/stl_util.h \
+  ../src/match/match_service.h \
+  ../src/match/match_queue.h \
+  /usr/include/c++/11/deque \
+  /usr/include/c++/11/bits/stl_deque.h \
+  /usr/include/c++/11/bits/deque.tcc \
   ../src/player/player_manager.h \
   ../src/player/player.h \
   ../src/protocol/message_id.h \

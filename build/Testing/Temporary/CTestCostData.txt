@@ -1,11 +1,13 @@
-RoomStateTest.ReadyStartsGame 11 0.000510854
-MatchQueueTest.PreventDuplicatePush 11 0.000470303
-MatchQueueTest.RemoveAndPopN 11 0.00046206
-ProtocolTest.EncodeDecodeOnePacket 11 0.000450019
-ProtocolTest.HalfPacketWaitsForMoreData 11 0.000506996
+RoomStateTest.ReadyStartsGame 12 0.000535503
+MatchQueueTest.PreventDuplicatePush 13 0.00040704
+MatchQueueTest.RemoveAndPopN 13 0.000339002
+ProtocolTest.EncodeDecodeOnePacket 13 0.000481485
+ProtocolTest.HalfPacketWaitsForMoreData 13 0.000394715
 SettlementTest.SettlementLogIsIdempotentByBattlePlayer 7 0
 SettlementTest.UpdateRankAfterSettle 6 0
 SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer 2 0
 RankServiceTest.GetTopNByScoreDesc 0 0
-RoomStateTest.PlayerStatusSyncsOnStartAndRemove 2 0.0027625
+RoomStateTest.PlayerStatusSyncsOnStartAndRemove 4 0.00159115
+RoomStateTest.LeaveWaitingRequeuesRemainingPlayers 2 0.0027585
+RoomStateTest.AllReadyStartsGame 1 0.00554739
 ---

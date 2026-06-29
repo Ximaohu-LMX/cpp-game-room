@@ -21,11 +21,13 @@
 2002 MSG_MATCH_RESP
 2003 MSG_MATCH_SUCCESS_NOTIFY
 2004 MSG_MATCH_CANCEL_REQ
+2005 MSG_MATCH_CANCEL_RESP
 3001 MSG_READY_REQ
 3002 MSG_READY_NOTIFY
-3003 MSG_ENTER_ROOM_REQ
-3004 MSG_ENTER_ROOM_RESP
 3005 MSG_ROOM_STATE_NOTIFY
+3006 MSG_LEAVE_ROOM_REQ
+3007 MSG_LEAVE_ROOM_RESP
+3008 MSG_PLAYER_LEAVE_ROOM_NOTIFY
 4001 MSG_INPUT_REQ
 4002 MSG_GAME_STATE_NOTIFY
 4003 MSG_GAME_OVER_NOTIFY
@@ -54,6 +56,24 @@ MatchRequest
   -> MatchSuccessNotify
 ```
 
+`MatchCancelRequest` only cancels players still in `MatchQueue`. After a room is created, use `LeaveRoomRequest`.
+
+## Room Flow
+
+```text
+ReadyRequest
+  -> Room.SetReadyAndTryStart
+  -> all ready means RoomState::Playing directly
+  -> RoomStateNotify
+```
+
+```text
+LeaveRoomRequest in Waiting
+  -> close the current room
+  -> leaver returns Online
+  -> remaining online players are requeued into MatchQueue
+```
+
 ## Game Sync Flow
 
 ```text
@@ -64,4 +84,3 @@ InputRequest
   -> GameRoom consumes all inputs
   -> StateSync builds GameStateNotify
 ```
-

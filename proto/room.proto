@@ -2,15 +2,6 @@ syntax = "proto3";
 
 package proto;
 
-message EnterRoomRequest {
-  int64 room_id = 1;
-}
-
-message EnterRoomResponse {
-  int32 code = 1;
-  int64 room_id = 2;
-}
-
 message ReadyRequest {
   bool ready = 1;
 }
@@ -26,3 +17,17 @@ message RoomStateNotify {
   repeated int64 player_ids = 3;
 }
 
+message LeaveRoomRequest {
+  int64 room_id = 1;
+}
+
+message LeaveRoomResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message PlayerLeaveRoomNotify {
+  int64 room_id = 1;
+  int64 player_id = 2;
+  int32 reason = 3;
+}

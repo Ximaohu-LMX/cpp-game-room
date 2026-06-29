@@ -1,4 +1,4 @@
-7:SettlementTest.SettlementLogIsIdempotentByBattlePlayer
-8:SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer
-9:SettlementTest.UpdateRankAfterSettle
-10:RankServiceTest.GetTopNByScoreDesc
+8:SettlementTest.SettlementLogIsIdempotentByBattlePlayer
+9:SettlementTest.BattleHasOneRowAndPlayerResultsArePerPlayer
+10:SettlementTest.UpdateRankAfterSettle
+11:RankServiceTest.GetTopNByScoreDesc

@@ -47,7 +47,7 @@ struct TableStruct_match_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -58,6 +58,9 @@ namespace proto {
 class MatchCancelRequest;
 class MatchCancelRequestDefaultTypeInternal;
 extern MatchCancelRequestDefaultTypeInternal _MatchCancelRequest_default_instance_;
+class MatchCancelResponse;
+class MatchCancelResponseDefaultTypeInternal;
+extern MatchCancelResponseDefaultTypeInternal _MatchCancelResponse_default_instance_;
 class MatchRequest;
 class MatchRequestDefaultTypeInternal;
 extern MatchRequestDefaultTypeInternal _MatchRequest_default_instance_;
@@ -70,6 +73,7 @@ extern MatchSuccessNotifyDefaultTypeInternal _MatchSuccessNotify_default_instanc
 }  // namespace proto
 PROTOBUF_NAMESPACE_OPEN
 template<> ::proto::MatchCancelRequest* Arena::CreateMaybeMessage<::proto::MatchCancelRequest>(Arena*);
+template<> ::proto::MatchCancelResponse* Arena::CreateMaybeMessage<::proto::MatchCancelResponse>(Arena*);
 template<> ::proto::MatchRequest* Arena::CreateMaybeMessage<::proto::MatchRequest>(Arena*);
 template<> ::proto::MatchResponse* Arena::CreateMaybeMessage<::proto::MatchResponse>(Arena*);
 template<> ::proto::MatchSuccessNotify* Arena::CreateMaybeMessage<::proto::MatchSuccessNotify>(Arena*);
@@ -352,6 +356,170 @@ class MatchCancelRequest PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class MatchCancelResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:proto.MatchCancelResponse) */ {
+ public:
+  inline MatchCancelResponse() : MatchCancelResponse(nullptr) {};
+  virtual ~MatchCancelResponse();
+
+  MatchCancelResponse(const MatchCancelResponse& from);
+  MatchCancelResponse(MatchCancelResponse&& from) noexcept
+    : MatchCancelResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline MatchCancelResponse& operator=(const MatchCancelResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MatchCancelResponse& operator=(MatchCancelResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const MatchCancelResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MatchCancelResponse* internal_default_instance() {
+    return reinterpret_cast<const MatchCancelResponse*>(
+               &_MatchCancelResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(MatchCancelResponse& a, MatchCancelResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MatchCancelResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MatchCancelResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MatchCancelResponse* New() const final {
+    return CreateMaybeMessage<MatchCancelResponse>(nullptr);
+  }
+
+  MatchCancelResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<MatchCancelResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const MatchCancelResponse& from);
+  void MergeFrom(const MatchCancelResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MatchCancelResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "proto.MatchCancelResponse";
+  }
+  protected:
+  explicit MatchCancelResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_match_2eproto);
+    return ::descriptor_table_match_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMessageFieldNumber = 2,
+    kCodeFieldNumber = 1,
+  };
+  // string message = 2;
+  void clear_message();
+  const std::string& message() const;
+  void set_message(const std::string& value);
+  void set_message(std::string&& value);
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  std::string* mutable_message();
+  std::string* release_message();
+  void set_allocated_message(std::string* message);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_message();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_message(
+      std::string* message);
+  private:
+  const std::string& _internal_message() const;
+  void _internal_set_message(const std::string& value);
+  std::string* _internal_mutable_message();
+  public:
+
+  // int32 code = 1;
+  void clear_code();
+  ::PROTOBUF_NAMESPACE_ID::int32 code() const;
+  void set_code(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_code() const;
+  void _internal_set_code(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:proto.MatchCancelResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
+  ::PROTOBUF_NAMESPACE_ID::int32 code_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_match_2eproto;
+};
+// -------------------------------------------------------------------
+
 class MatchResponse PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:proto.MatchResponse) */ {
  public:
@@ -394,7 +562,7 @@ class MatchResponse PROTOBUF_FINAL :
                &_MatchResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(MatchResponse& a, MatchResponse& b) {
     a.Swap(&b);
@@ -558,7 +726,7 @@ class MatchSuccessNotify PROTOBUF_FINAL :
                &_MatchSuccessNotify_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(MatchSuccessNotify& a, MatchSuccessNotify& b) {
     a.Swap(&b);
@@ -729,6 +897,111 @@ inline void MatchCancelRequest::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID:
 inline void MatchCancelRequest::set_player_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_player_id(value);
   // @@protoc_insertion_point(field_set:proto.MatchCancelRequest.player_id)
+}
+
+// -------------------------------------------------------------------
+
+// MatchCancelResponse
+
+// int32 code = 1;
+inline void MatchCancelResponse::clear_code() {
+  code_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 MatchCancelResponse::_internal_code() const {
+  return code_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 MatchCancelResponse::code() const {
+  // @@protoc_insertion_point(field_get:proto.MatchCancelResponse.code)
+  return _internal_code();
+}
+inline void MatchCancelResponse::_internal_set_code(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  code_ = value;
+}
+inline void MatchCancelResponse::set_code(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_code(value);
+  // @@protoc_insertion_point(field_set:proto.MatchCancelResponse.code)
+}
+
+// string message = 2;
+inline void MatchCancelResponse::clear_message() {
+  message_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& MatchCancelResponse::message() const {
+  // @@protoc_insertion_point(field_get:proto.MatchCancelResponse.message)
+  return _internal_message();
+}
+inline void MatchCancelResponse::set_message(const std::string& value) {
+  _internal_set_message(value);
+  // @@protoc_insertion_point(field_set:proto.MatchCancelResponse.message)
+}
+inline std::string* MatchCancelResponse::mutable_message() {
+  // @@protoc_insertion_point(field_mutable:proto.MatchCancelResponse.message)
+  return _internal_mutable_message();
+}
+inline const std::string& MatchCancelResponse::_internal_message() const {
+  return message_.Get();
+}
+inline void MatchCancelResponse::_internal_set_message(const std::string& value) {
+  
+  message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void MatchCancelResponse::set_message(std::string&& value) {
+  
+  message_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:proto.MatchCancelResponse.message)
+}
+inline void MatchCancelResponse::set_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:proto.MatchCancelResponse.message)
+}
+inline void MatchCancelResponse::set_message(const char* value,
+    size_t size) {
+  
+  message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:proto.MatchCancelResponse.message)
+}
+inline std::string* MatchCancelResponse::_internal_mutable_message() {
+  
+  return message_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* MatchCancelResponse::release_message() {
+  // @@protoc_insertion_point(field_release:proto.MatchCancelResponse.message)
+  return message_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void MatchCancelResponse::set_allocated_message(std::string* message) {
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), message,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:proto.MatchCancelResponse.message)
+}
+inline std::string* MatchCancelResponse::unsafe_arena_release_message() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:proto.MatchCancelResponse.message)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return message_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void MatchCancelResponse::unsafe_arena_set_allocated_message(
+    std::string* message) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      message, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:proto.MatchCancelResponse.message)
 }
 
 // -------------------------------------------------------------------
@@ -910,6 +1183,8 @@ MatchSuccessNotify::mutable_player_ids() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
