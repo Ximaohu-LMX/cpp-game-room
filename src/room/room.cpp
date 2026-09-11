@@ -29,7 +29,7 @@ void Room::SetReady(int64_t player_id, bool ready) {
     {
         std::lock_guard<std::mutex> lock(mutex_);
         auto it = players_.find(player_id);
-        if (it == players_.end() || state_ == RoomState::Playing || state_ == RoomState::Closed) {
+        if (it == players_.end() || state_ != RoomState::Waiting) {
             return;
         }
         it->second.ready = ready;
@@ -47,7 +47,7 @@ bool Room::SetReadyAndTryStart(int64_t player_id, bool ready) {
     {
         std::lock_guard<std::mutex> lock(mutex_);
         auto it = players_.find(player_id);
-        if (it == players_.end() || state_ == RoomState::Playing || state_ == RoomState::Closed) {
+        if (it == players_.end() || state_ != RoomState::Waiting) {
             return false;
         }
         it->second.ready = ready;
@@ -72,7 +72,7 @@ bool Room::SetReadyAndTryStart(int64_t player_id, bool ready) {
 
 bool Room::CanStart() const {
     std::lock_guard<std::mutex> lock(mutex_);
-    if (players_.empty() || state_ == RoomState::Playing || state_ == RoomState::Closed) {
+    if (players_.empty() || state_ != RoomState::Waiting) {
         return false;
     }
     for (const auto& [_, player] : players_) {
@@ -89,7 +89,7 @@ void Room::StartGame() {
     for (const auto& [_, player] : players_) {
         all_ready = all_ready && player.ready;
     }
-    if (all_ready && state_ != RoomState::Closed) {
+    if (all_ready && state_ == RoomState::Waiting) {
         state_ = RoomState::Playing;
     }
 }

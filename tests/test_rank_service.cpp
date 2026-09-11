@@ -1,6 +1,7 @@
 #include "config/config_manager.h"
 #include "rank/rank_service.h"
 #include "storage/redis_client.h"
+#include "test_config.h"
 
 #include <chrono>
 #include <string>
@@ -15,7 +16,7 @@ int64_t UniquePlayerId(int suffix) {
 }
 
 void LoadTestConfig() {
-    game::ConfigManager::Instance().Load(std::string(GAME_TEST_SOURCE_DIR) + "/config/server.yaml");
+    ASSERT_TRUE(LoadIntegrationTestConfig());
 }
 
 } // namespace

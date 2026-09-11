@@ -44,7 +44,7 @@ MessageDispatcher
 - Room 状态机：Waiting -> Ready -> Playing -> Settlement -> Closed。
 - GameLoop 以固定 50ms tick 推进 GameRoom，统一消费玩家输入并同步状态。
 - 简化战斗模型支持玩家移动、范围攻击、血量扣减、死亡判断和唯一胜者判定。
-- SettlementService 通过 settlement_log 思路保证战斗结算幂等。
+- SettlementService 复用固定 battle_id，通过 MySQL 事务、行锁和复合唯一键实现结算幂等；失败时保留房间重试。
 - RankService 使用 Redis Sorted Set 维护排行榜。
 - Bot 工具可批量模拟登录、匹配、准备和输入。
 
@@ -178,7 +178,7 @@ docker-compose mysql / redis
 ```text
 battle 记录保存房间和胜者
 battle_player_result 保存每名玩家胜负结果和积分变化
-settlement_log 通过唯一键保证同一玩家同一局只结算一次
+固定 battle_id + MySQL 事务 + 复合唯一键，保证重复结算不重复更新积分和胜负
 Redis Sorted Set 维护 rank:score 排行榜
 MySQL / Redis 均使用真实客户端薄封装
 ```
@@ -370,6 +370,8 @@ bot 示例：
 `battle` 表一局游戏一条记录，保存 `battle_id`、`room_id` 和最终 `winner_id`。`battle_player_result` 表一名参与玩家一条记录，保存该玩家在本局中的 `WIN` / `LOSE` 结果和积分变化。`settlement_log` 使用 `(battle_id, player_id)` 唯一键保证同一场战斗同一玩家只结算一次。
 
 当前源码的 MysqlClient / RedisClient 是真实数据库薄封装：MySQL 使用 MySQL/MariaDB C client，Redis 使用 hiredis。
+
+结算改造的事务边界、失败重试、已有数据库升级和测试说明见 [战斗结算幂等](docs/settlement_idempotency.md)。已有数据库必须执行 config/migrations/001_settlement_idempotency.sql 后再运行新代码。
 
 ## 压测结果
 

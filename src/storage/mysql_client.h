@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <functional>
 #include <string>
 #include <mutex>
 #include <unordered_map>
@@ -56,6 +57,15 @@ public:
      */
     int64_t ExecuteAffected(const std::string& sql);
 
+    /** @brief 执行自增 INSERT，返回生成的 ID；失败返回 0。 */
+    int64_t ExecuteInsert(const std::string& sql);
+
+    /**
+     * @brief 在同一连接、同一事务内执行回调；回调失败或抛异常时回滚。
+     * @help 整个事务持有连接锁，防止其他线程的 SQL 混入事务；不支持嵌套事务。
+     */
+    bool RunTransaction(const std::function<bool()>& operation);
+
     /**
      * @brief 执行查询 SQL。
      * @param sql SQL 语句。
@@ -77,8 +87,11 @@ public:
     bool IsConnected() const;
 
 private:
+    void ResetOnConnectionError();
+
     mutable std::recursive_mutex mutex_;
     MYSQL* conn_ = nullptr;
+    bool in_transaction_ = false;
 };
 
 } // namespace game
