@@ -34,6 +34,8 @@ void PrintUsage(const char* program) {
         << "  --action-jitter-ms N                default: 800\n"
         << "  --heartbeat-interval-ms N           default: 5000, <=0 disables heartbeat\n"
         << "  --input-interval-ms N               default: 50\n"
+        << "  --metrics-file PATH                 optional JSONL measurement output\n"
+        << "  --account-prefix PREFIX             default: bot_\n"
         << "  --verbose                           print per-bot disconnect traces\n";
 }
 
@@ -44,6 +46,7 @@ int main(int argc, char** argv) {
     uint16_t port = 9000;
     int count = 100;
     int duration_seconds = 0;
+    std::string metrics_path;
     game::BotOptions options;
 
     for (int i = 1; i < argc; ++i) {
@@ -81,6 +84,10 @@ int main(int argc, char** argv) {
             options.heartbeat_interval_ms = std::stoi(argv[++i]);
         } else if (arg == "--input-interval-ms" && i + 1 < argc) {
             options.input_interval_ms = std::stoi(argv[++i]);
+        } else if (arg == "--metrics-file" && i + 1 < argc) {
+            metrics_path = argv[++i];
+        } else if (arg == "--account-prefix" && i + 1 < argc) {
+            options.account_prefix = argv[++i];
         } else if (arg == "--verbose") {
             options.verbose = true;
         } else {
@@ -94,6 +101,11 @@ int main(int argc, char** argv) {
     std::signal(SIGTERM, OnSignal);
 
     game::BotManager manager(host, port, options);
+    game::MetricsReporter metrics;
+    if (!metrics_path.empty() && !metrics.Start(metrics_path, [&manager]() { return manager.MeasurementGauges(); })) {
+        std::cerr << "failed to open metrics output\n";
+        return 1;
+    }
     manager.Start(count);
     std::cout << "started " << count << " bots on " << host << ":" << port << "\n";
 
@@ -106,5 +118,6 @@ int main(int argc, char** argv) {
 
     manager.Stop();
     manager.PrintStats(elapsed);
+    metrics.Stop();
     return 0;
 }

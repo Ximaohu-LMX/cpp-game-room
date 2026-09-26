@@ -60,6 +60,8 @@ public:
      */
     RoomPtr GetPlayerRoom(int64_t player_id);
 
+    std::map<std::string, int64_t> MeasurementGauges();
+
 private:
     /**
      * @brief 处理玩家准备请求。

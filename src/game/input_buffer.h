@@ -16,6 +16,7 @@ struct InputCommand {
     float move_x = 0;         ///< x 方向移动输入，通常在 [-1, 1]。
     float move_y = 0;         ///< y 方向移动输入，通常在 [-1, 1]。
     bool fire = false;        ///< 是否开火。
+    uint64_t received_steady_us = 0; ///< Measurement only; monotonic receive time.
     int64_t timestamp_ms = 0; ///< 服务端收到输入的时间戳。
 };
 

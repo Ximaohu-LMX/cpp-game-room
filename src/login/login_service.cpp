@@ -94,14 +94,14 @@ void LoginService::HandleLogin(const SessionPtr& session, const Packet& packet) 
     LOG_INFO("player {} login", player_id);
 }
 
-void LoginService::HandleHeartbeat(const SessionPtr& session, const Packet&) {
+void LoginService::HandleHeartbeat(const SessionPtr& session, const Packet& packet) {
     if (!session) {
         return;
     }
     session->UpdateHeartbeatTime();
     proto::HeartbeatResponse response;
     response.set_server_time_ms(NowMs());
-    session->Send(MSG_HEARTBEAT_RESP, response);
+    session->SendPacket(ProtoHelper::Build(MSG_HEARTBEAT_RESP, response, packet.seq));
 }
 
 void LoginService::HandleReconnect(const SessionPtr& session, const Packet& packet) {

@@ -9,6 +9,7 @@ add_executable(game_tests
     test_room_state.cpp
     test_match_queue.cpp
     test_protocol.cpp
+    test_metrics.cpp
     test_settlement.cpp
     test_rank_service.cpp
 )
