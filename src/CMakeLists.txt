@@ -38,6 +38,7 @@ set(GAME_CORE_SOURCES
     rank/rank_service.cpp
     timer/timer_manager.cpp
     util/logger.cpp
+    util/metrics.cpp
     config/config_manager.cpp
 )
 

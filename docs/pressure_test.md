@@ -143,3 +143,7 @@ Settlement count:
 - Add async settlement queue.
 - Add MySQL connection pool.
 - Use time wheel for massive heartbeat and timeout tasks.
+
+## Measurement and current baseline
+
+For measured results and precise counter/latency definitions, see [measurement.md](measurement.md) and [目前的性能测试报告.md](目前的性能测试报告.md). The stdout labels now use `live`, `connect_total`, `match_notifications`, `playing_notifications`, `input_enqueued`, and `over_notifications`; cumulative notifications are not current room/player counts. The historical result templates above have not been filled with estimates.

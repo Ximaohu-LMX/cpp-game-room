@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="(empty)"
+	tests="23"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname=""
+	time="0"
+	timestamp="2026-09-26T05:42:34"
+	>
+	<testcase name="RoomStateTest.AllReadyStartsGame" classname="RoomStateTest.AllReadyStartsGame" time="0.0134361" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RoomStateTest.AllReadyStartsGame
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RoomStateTest
+[ RUN      ] RoomStateTest.AllReadyStartsGame
+[       OK ] RoomStateTest.AllReadyStartsGame (0 ms)
+[----------] 1 test from RoomStateTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="RoomStateTest.PlayerStatusSyncsOnStartAndRemove" classname="RoomStateTest.PlayerStatusSyncsOnStartAndRemove" time="0.0129761" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RoomStateTest.PlayerStatusSyncsOnStartAndRemove
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RoomStateTest
+[ RUN      ] RoomStateTest.PlayerStatusSyncsOnStartAndRemove
+[2026-09-26 05:42:34.330] [info] created room 1000
+[2026-09-26 05:42:34.330] [info] room 1000 started game
+[       OK ] RoomStateTest.PlayerStatusSyncsOnStartAndRemove (0 ms)
+[----------] 1 test from RoomStateTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="RoomStateTest.LeaveWaitingRequeuesRemainingPlayers" classname="RoomStateTest.LeaveWaitingRequeuesRemainingPlayers" time="0.0139787" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RoomStateTest.LeaveWaitingRequeuesRemainingPlayers
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RoomStateTest
+[ RUN      ] RoomStateTest.LeaveWaitingRequeuesRemainingPlayers
+[2026-09-26 05:42:34.345] [info] created room 1000
+[       OK ] RoomStateTest.LeaveWaitingRequeuesRemainingPlayers (0 ms)
+[----------] 1 test from RoomStateTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="RoomStateTest.SettlementCannotBeRestartedByReadyRequests" classname="RoomStateTest.SettlementCannotBeRestartedByReadyRequests" time="0.0120384" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RoomStateTest.SettlementCannotBeRestartedByReadyRequests
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RoomStateTest
+[ RUN      ] RoomStateTest.SettlementCannotBeRestartedByReadyRequests
+[       OK ] RoomStateTest.SettlementCannotBeRestartedByReadyRequests (0 ms)
+[----------] 1 test from RoomStateTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="MatchQueueTest.PreventDuplicatePush" classname="MatchQueueTest.PreventDuplicatePush" time="0.0117144" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = MatchQueueTest.PreventDuplicatePush
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatchQueueTest
+[ RUN      ] MatchQueueTest.PreventDuplicatePush
+[       OK ] MatchQueueTest.PreventDuplicatePush (0 ms)
+[----------] 1 test from MatchQueueTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="MatchQueueTest.RemoveAndPopN" classname="MatchQueueTest.RemoveAndPopN" time="0.0114255" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = MatchQueueTest.RemoveAndPopN
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MatchQueueTest
+[ RUN      ] MatchQueueTest.RemoveAndPopN
+[       OK ] MatchQueueTest.RemoveAndPopN (0 ms)
+[----------] 1 test from MatchQueueTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="ProtocolTest.EncodeDecodeOnePacket" classname="ProtocolTest.EncodeDecodeOnePacket" time="0.0113423" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = ProtocolTest.EncodeDecodeOnePacket
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ProtocolTest
+[ RUN      ] ProtocolTest.EncodeDecodeOnePacket
+[       OK ] ProtocolTest.EncodeDecodeOnePacket (0 ms)
+[----------] 1 test from ProtocolTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="ProtocolTest.HalfPacketWaitsForMoreData" classname="ProtocolTest.HalfPacketWaitsForMoreData" time="0.0115194" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = ProtocolTest.HalfPacketWaitsForMoreData
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ProtocolTest
+[ RUN      ] ProtocolTest.HalfPacketWaitsForMoreData
+[       OK ] ProtocolTest.HalfPacketWaitsForMoreData (0 ms)
+[----------] 1 test from ProtocolTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="MetricsTest.HistogramBoundsAndDrain" classname="MetricsTest.HistogramBoundsAndDrain" time="0.0098028" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = MetricsTest.HistogramBoundsAndDrain
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MetricsTest
+[ RUN      ] MetricsTest.HistogramBoundsAndDrain
+[       OK ] MetricsTest.HistogramBoundsAndDrain (0 ms)
+[----------] 1 test from MetricsTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="MetricsTest.ConcurrentExportLosesNoSamples" classname="MetricsTest.ConcurrentExportLosesNoSamples" time="0.0249793" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = MetricsTest.ConcurrentExportLosesNoSamples
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MetricsTest
+[ RUN      ] MetricsTest.ConcurrentExportLosesNoSamples
+[       OK ] MetricsTest.ConcurrentExportLosesNoSamples (13 ms)
+[----------] 1 test from MetricsTest (13 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (13 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="MetricsTest.ConnectionGaugeCountsSessionsAndUniquePlayers" classname="MetricsTest.ConnectionGaugeCountsSessionsAndUniquePlayers" time="0.0114476" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = MetricsTest.ConnectionGaugeCountsSessionsAndUniquePlayers
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MetricsTest
+[ RUN      ] MetricsTest.ConnectionGaugeCountsSessionsAndUniquePlayers
+[       OK ] MetricsTest.ConnectionGaugeCountsSessionsAndUniquePlayers (0 ms)
+[----------] 1 test from MetricsTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="MetricsTest.CompletedBattleDurationRecordedOnlyOnce" classname="MetricsTest.CompletedBattleDurationRecordedOnlyOnce" time="0.0092545" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = MetricsTest.CompletedBattleDurationRecordedOnlyOnce
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from MetricsTest
+[ RUN      ] MetricsTest.CompletedBattleDurationRecordedOnlyOnce
+[       OK ] MetricsTest.CompletedBattleDurationRecordedOnlyOnce (0 ms)
+[----------] 1 test from MetricsTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.LogAndPlayerResultAreUniqueByBattlePlayer" classname="SettlementTest.LogAndPlayerResultAreUniqueByBattlePlayer" time="0.07261" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.LogAndPlayerResultAreUniqueByBattlePlayer
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.LogAndPlayerResultAreUniqueByBattlePlayer
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.494] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.520] [error] mysql execute failed: Duplicate entry '1-1790419354494286' for key 'settlement_log.uniq_battle_player', sql=INSERT INTO settlement_log(battle_id, player_id, score_delta) VALUES(1, 1790419354494286, 20)
+[2026-09-26 05:42:34.523] [error] mysql execute failed: Duplicate entry '1-1790419354494286' for key 'battle_player_result.uniq_battle_player_result', sql=INSERT INTO battle_player_result(battle_id, player_id, result, score_delta) VALUES...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.RepeatedSettlementUpdatesScoresAndStatsOnce" classname="SettlementTest.RepeatedSettlementUpdatesScoresAndStatsOnce" time="0.057753" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.RepeatedSettlementUpdatesScoresAndStatsOnce
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.RepeatedSettlementUpdatesScoresAndStatsOnce
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.568] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.578] [info] settlement complete, battle 2, room 1790419354569176, winner 1790419354569177
+[2026-09-26 05:42:34.579] [info] settlement complete, battle 2, room 1790419354569176, winner 1790419354569177
+[2026-09-26 05:42:34.580] [info] settlement complete, battle 2, room 1790419354569176, winner 1790419354569177
+[2026-09-26 05:42:34.581] [info] settlement complete, battle 2, room 1790419354569176, winner 1790419354569177
+[       OK ] SettlementTe...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.ConcurrentConnectionsSettleOnlyOnce" classname="SettlementTest.ConcurrentConnectionsSettleOnlyOnce" time="0.0655245" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.ConcurrentConnectionsSettleOnlyOnce
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.ConcurrentConnectionsSettleOnlyOnce
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.626] [info] mysql connected to 127.0.0.1:33316/game
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.642] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.645] [info] mysql connected to 127.0.0.1:33316/game
+[20...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.FailureRollsBackAllPlayersAndRetrySucceeds" classname="SettlementTest.FailureRollsBackAllPlayersAndRetrySucceeds" time="0.0516205" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.FailureRollsBackAllPlayersAndRetrySucceeds
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.FailureRollsBackAllPlayersAndRetrySucceeds
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.689] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.695] [error] mysql execute failed: Out of range value for column 'score' at row 1, sql=INSERT INTO player(player_id, name, score, win_count, lose_count) VALUES(1790419354689766, 'player_1790419354689766', 990, 0, 1) ON DUPLICATE KEY UPDATE score = score + (-10), win_count = win_count + 0, lose_count = lose_count + 1
+[2026-09-26 05:42:34.695] [error] settlement failed or conflicted, battle 4, room 1790419354689764
+[2026-09-26 05:42:34.700] [info] ...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.ConflictingReplayIsRejected" classname="SettlementTest.ConflictingReplayIsRejected" time="0.0431986" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.ConflictingReplayIsRejected
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.ConflictingReplayIsRejected
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.735] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.743] [info] settlement complete, battle 5, room 1790419354735944, winner 1790419354735945
+[2026-09-26 05:42:34.744] [error] conflicting settlement for battle 5
+[2026-09-26 05:42:34.744] [error] settlement failed or conflicted, battle 5, room 1790419354735944
+[2026-09-26 05:42:34.744] [error] settlement failed or conflicted, battle 5, room 1790419354735945
+[2026-09-26 05:42:34.745] [error] settlement failed or conflicted, battle 5, room 1790419354735944
+[       OK ] Settlement...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.NewBattleInSameRoomUsesDifferentId" classname="SettlementTest.NewBattleInSameRoomUsesDifferentId" time="0.0738705" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.NewBattleInSameRoomUsesDifferentId
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.NewBattleInSameRoomUsesDifferentId
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.788] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.796] [info] settlement complete, battle 6, room 1790419354788481, winner 1790419354788482
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.810] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.816] [info] settlement complete, battle 7, room 1790419354788481, winner 1790419354788482
+[       OK ] SettlementTest.NewBattleInSameRoomUsesDifferentId (58 ms)
+[----------] 1 test from SettlementTe...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.LostConnectionBeforeIdAllocationCanRetry" classname="SettlementTest.LostConnectionBeforeIdAllocationCanRetry" time="0.0855829" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.LostConnectionBeforeIdAllocationCanRetry
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.LostConnectionBeforeIdAllocationCanRetry
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.861] [info] mysql connected to 127.0.0.1:33316/game
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.880] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.881] [error] mysql execute failed: Lost connection to MySQL server during query, sql=INSERT INTO battle(room_id, winner_id, result_json) VALUES(1790419354861851, 0, '{}')
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.897] [info] mysql con...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.TransactionExceptionRollsBackAndReleasesConnection" classname="SettlementTest.TransactionExceptionRollsBackAndReleasesConnection" time="0.053891" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.TransactionExceptionRollsBackAndReleasesConnection
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.TransactionExceptionRollsBackAndReleasesConnection
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.950] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.960] [info] settlement complete, battle 10, room 1790419354950325, winner 1790419354950326
+[       OK ] SettlementTest.TransactionExceptionRollsBackAndReleasesConnection (38 ms)
+[----------] 1 test from SettlementTest (38 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (38 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.RankFailureCanRetryWithoutDoubleSettlement" classname="SettlementTest.RankFailureCanRetryWithoutDoubleSettlement" time="0.045284" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.RankFailureCanRetryWithoutDoubleSettlement
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.RankFailureCanRetryWithoutDoubleSettlement
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:34.995] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:34.998] [info] redis connected to 127.0.0.1:16390
+[2026-09-26 05:42:35.002] [warning] rank sync pending, battle 11, player 1790419354995732
+[2026-09-26 05:42:35.005] [info] settlement complete, battle 11, room 1790419354995731, winner 1790419354995732
+[       OK ] SettlementTest.RankFailureCanRetryWithoutDoubleSettlement (34 ms)
+[----------] 1 test from SettlementTest (34 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test ...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="SettlementTest.OldReplayRefreshesRankFromLatestDatabaseScore" classname="SettlementTest.OldReplayRefreshesRankFromLatestDatabaseScore" time="0.0530225" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = SettlementTest.OldReplayRefreshesRankFromLatestDatabaseScore
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SettlementTest
+[ RUN      ] SettlementTest.OldReplayRefreshesRankFromLatestDatabaseScore
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-26 05:42:35.042] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-26 05:42:35.046] [info] redis connected to 127.0.0.1:16390
+[2026-09-26 05:42:35.050] [info] settlement complete, battle 12, room 1790419355042766, winner 1790419355042767
+[2026-09-26 05:42:35.054] [info] settlement complete, battle 13, room 1790419355042766, winner 1790419355042768
+[2026-09-26 05:42:35.056] [info] settlement complete, battle 12, room 1790419355042766, winner 1790419355042767
+[       OK ] SettlementTest.OldReplayRefreshesRankFromLatestD...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+	<testcase name="RankServiceTest.GetTopNByScoreDesc" classname="RankServiceTest.GetTopNByScoreDesc" time="0.012039" status="run">
+		<properties/>
+		<system-out>Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+Note: Google Test filter = RankServiceTest.GetTopNByScoreDesc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RankServiceTest
+[ RUN      ] RankServiceTest.GetTopNByScoreDesc
+[2026-09-26 05:42:35.078] [info] redis connected to 127.0.0.1:16390
+[       OK ] RankServiceTest.GetTopNByScoreDesc (0 ms)
+[----------] 1 test from RankServiceTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+</system-out>
+	</testcase>
+</testsuite>

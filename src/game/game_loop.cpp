@@ -1,4 +1,5 @@
 #include "game/game_loop.h"
+#include "util/metrics.h"
 
 #include <chrono>
 #include <utility>
@@ -61,7 +62,12 @@ void GameLoop::SetTickCallback(TickCallback callback) {
 }
 
 void GameLoop::Loop() {
+    uint64_t previous_start = 0;
     while (running_) {
+        auto& metrics = Metrics::Instance();
+        const auto start = metrics.Enabled() ? Metrics::SteadyUs() : 0;
+        if (start && previous_start) metrics.Observe(Distribution::LoopInterval, start - previous_start);
+        previous_start = start;
         std::vector<std::shared_ptr<GameRoom>> rooms;
         TickCallback callback;
         {
@@ -77,13 +83,24 @@ void GameLoop::Loop() {
 
         for (auto& room : rooms) {
             // GameRoom::Tick 会消费输入、推进玩家位置/血量/存活状态，并判断是否结束。
-            room->Tick();
+            {
+                ScopedMetric room_time(Distribution::RoomTick);
+                room->Tick();
+            }
             if (callback) {
                 // GameLoop 不直接做网络广播和结算，只把当前房间状态交给回调处理。
+                ScopedMetric callback_time(Distribution::TickCallback);
                 callback(room->RoomId(), room->State(), room->IsGameOver(), room->WinnerId());
             }
         }
 
+        if (start) {
+            const auto work_us = Metrics::SteadyUs() - start;
+            metrics.Observe(Distribution::LoopWork, work_us);
+            metrics.Increment(Counter::LoopIterations);
+            if (work_us > static_cast<uint64_t>(tick_interval_ms_) * 1000)
+                metrics.Increment(Counter::TickOverBudget);
+        }
         // 简化实现：每轮处理完所有房间后 sleep 固定间隔。
         // 生产环境可改为基于 steady_clock 的下一帧时间，减少 tick 漂移。
         std::this_thread::sleep_for(std::chrono::milliseconds(tick_interval_ms_));

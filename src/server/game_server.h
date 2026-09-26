@@ -46,6 +46,8 @@ public:
      */
     void Stop();
 
+    std::map<std::string, int64_t> MeasurementGauges();
+
 private:
     struct PendingSettlement {
         int64_t battle_id = 0;

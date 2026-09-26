@@ -1,4 +1,5 @@
 #include "game/game_room.h"
+#include "util/metrics.h"
 
 #include <algorithm>
 #include <cmath>
@@ -13,6 +14,8 @@ int64_t GameRoom::RoomId() const {
 
 void GameRoom::Start(const std::vector<int64_t>& player_ids) {
     std::lock_guard<std::mutex> lock(mutex_);
+    started_steady_us_ = Metrics::Instance().Enabled() ? Metrics::SteadyUs() : 0;
+    Metrics::Instance().Increment(Counter::BattlesStarted);
     state_.frame_id = 0;
     state_.players.clear();
     float spawn_x = 0.0f;
@@ -36,6 +39,7 @@ void GameRoom::Stop() {
 }
 
 void GameRoom::HandleInput(const InputCommand& input) {
+    Metrics::Instance().Increment(Counter::InputsReceived);
     input_buffer_.Push(input);
 }
 
@@ -58,11 +62,14 @@ void GameRoom::Tick() {
     {
         std::lock_guard<std::mutex> lock(mutex_);
         if (game_over_) {
+            Metrics::Instance().Increment(Counter::InputsIgnored, inputs.size());
             return;
         }
 
         ++state_.frame_id;
         for (const auto& input : inputs) {
+            if (input.received_steady_us)
+                Metrics::Instance().Observe(Distribution::InputQueueWait, Metrics::SteadyUs() - input.received_steady_us);
             ApplyInput(input);
         }
         CheckGameOver();
@@ -87,8 +94,10 @@ GameState GameRoom::State() const {
 void GameRoom::ApplyInput(const InputCommand& input) {
     auto it = state_.players.find(input.player_id);
     if (it == state_.players.end() || !it->second.alive) {
+        Metrics::Instance().Increment(Counter::InputsIgnored);
         return;
     }
+    Metrics::Instance().Increment(Counter::InputsConsumed);
 
     const float max_axis = 1.0f;
     const float dx = std::clamp(input.move_x, -max_axis, max_axis);
@@ -125,6 +134,11 @@ void GameRoom::CheckGameOver() {
         }
     }
     if (alive_count <= 1 && !state_.players.empty()) {
+        if (!game_over_) {
+            Metrics::Instance().Increment(Counter::BattlesFinished);
+            if (started_steady_us_)
+                Metrics::Instance().Observe(Distribution::BattleDuration, Metrics::SteadyUs() - started_steady_us_);
+        }
         game_over_ = true;
         winner_id_ = alive_player;
     }

@@ -1,6 +1,7 @@
 #include "net/tcp_connection.h"
 
 #include "util/logger.h"
+#include "util/metrics.h"
 
 #include <utility>
 
@@ -65,6 +66,7 @@ void TcpConnection::DoRead() {
         boost::asio::buffer(read_temp_),
         [this, self](const boost::system::error_code& ec, std::size_t bytes) {
             if (ec) {
+                Metrics::Instance().Increment(Counter::ReadErrors);
                 LOG_WARN("connection {} read failed: {}", conn_id_, ec.message());
                 if (close_callback_) {
                     close_callback_(conn_id_);
@@ -72,6 +74,7 @@ void TcpConnection::DoRead() {
                 return;
             }
 
+            Metrics::Instance().Increment(Counter::ReceivedBytes, bytes);
             read_buffer_.insert(read_buffer_.end(), read_temp_.data(), read_temp_.data() + bytes);
             try {
                 auto packets = codec_.Decode(read_buffer_);
@@ -99,8 +102,9 @@ void TcpConnection::DoWrite() {
     boost::asio::async_write(
         socket_,
         boost::asio::buffer(write_queue_.front()),
-        [this, self](const boost::system::error_code& ec, std::size_t) {
+        [this, self](const boost::system::error_code& ec, std::size_t bytes) {
             if (ec) {
+                Metrics::Instance().Increment(Counter::WriteErrors);
                 LOG_WARN("connection {} write failed: {}", conn_id_, ec.message());
                 if (close_callback_) {
                     close_callback_(conn_id_);
@@ -108,6 +112,8 @@ void TcpConnection::DoWrite() {
                 return;
             }
 
+            Metrics::Instance().Increment(Counter::SentBytes, bytes);
+            Metrics::Instance().Increment(Counter::SentPackets);
             write_queue_.pop_front();
             if (!write_queue_.empty()) {
                 DoWrite();

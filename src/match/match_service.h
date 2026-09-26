@@ -49,6 +49,8 @@ public:
      */
     bool RequeuePlayer(int64_t player_id);
 
+    size_t QueueSize() const { return queue_.Size(); }
+
 private:
     /**
      * @brief 执行加入匹配队列的共享逻辑。

@@ -1,0 +1,6955 @@
+[
+  {
+    "bots": 50,
+    "run": "01-50-bots",
+    "server": {
+      "actual_seconds": 59.024167,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 50759,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 1566992,
+        "sent_bytes": 2624662,
+        "sent_packets": 50333,
+        "inputs_received": 49427,
+        "inputs_consumed": 49285,
+        "inputs_ignored": 83,
+        "rooms_created": 152,
+        "rooms_removed": 153,
+        "battles_started": 152,
+        "battles_finished": 153,
+        "settlement_attempts": 153,
+        "settlement_failures": 0,
+        "settlement_success": 153,
+        "loop_iterations": 1143,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 859.9697815303349,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 26548.31198210726,
+        "sent_bytes": 44467.582236272814,
+        "sent_packets": 852.7523988606226,
+        "inputs_received": 837.4027540278544,
+        "inputs_consumed": 834.996959804617,
+        "inputs_ignored": 1.4062036656951042,
+        "rooms_created": 2.5752163516344075,
+        "rooms_removed": 2.592158564474108,
+        "battles_started": 2.5752163516344075,
+        "battles_finished": 2.592158564474108,
+        "settlement_attempts": 2.592158564474108,
+        "settlement_failures": 0.0,
+        "settlement_success": 2.592158564474108,
+        "loop_iterations": 19.364949275777157,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connections": {
+          "min": 50,
+          "max": 50,
+          "mean": 50.0,
+          "first": 50,
+          "last": 50,
+          "delta": 0
+        },
+        "logged_in_players": {
+          "min": 50,
+          "max": 50,
+          "mean": 50.0,
+          "first": 50,
+          "last": 50,
+          "delta": 0
+        },
+        "match_queue": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.48333333333333334,
+          "first": 1,
+          "last": 0,
+          "delta": -1
+        },
+        "rooms": {
+          "min": 19,
+          "max": 25,
+          "mean": 22.366666666666667,
+          "first": 22,
+          "last": 21,
+          "delta": -1
+        },
+        "rooms_closed": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_playing": {
+          "min": 17,
+          "max": 25,
+          "mean": 20.95,
+          "first": 20,
+          "last": 19,
+          "delta": -1
+        },
+        "rooms_settlement": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.016666666666666666,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_waiting": {
+          "min": 0,
+          "max": 4,
+          "mean": 1.4,
+          "first": 2,
+          "last": 2,
+          "delta": 0
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 1143,
+          "mean_us": 1474.6955380577429,
+          "max_us": 16991,
+          "p50_us": 405.26506222962956,
+          "p95_us": 9412.343651268613,
+          "p99_us": 10353.578016395475
+        },
+        "loop_interval_us": {
+          "count": 1143,
+          "mean_us": 51622.024496937884,
+          "max_us": 67142,
+          "p50_us": 52331.852427227124,
+          "p95_us": 63321.54143694483,
+          "p99_us": 63321.54143694483
+        },
+        "room_tick_us": {
+          "count": 23978,
+          "mean_us": 1.5924180498790559,
+          "max_us": 36,
+          "p50_us": 1.0,
+          "p95_us": 3.138428376721003,
+          "p99_us": 3.138428376721003
+        },
+        "tick_callback_us": {
+          "count": 23978,
+          "mean_us": 67.7554424889482,
+          "max_us": 10189,
+          "p50_us": 9.84973267580763,
+          "p95_us": 41.144777789250995,
+          "p99_us": 156.24722518287513
+        },
+        "message_handler_us": {
+          "count": 50759,
+          "mean_us": 6.56003861384188,
+          "max_us": 194,
+          "p50_us": 7.400249944258173,
+          "p95_us": 9.84973267580763,
+          "p99_us": 28.10243684806433
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 49368,
+          "mean_us": 25732.053496191864,
+          "max_us": 67370,
+          "p50_us": 26854.514915082902,
+          "p95_us": 52331.852427227124,
+          "p99_us": 57565.037669949845
+        },
+        "battle_duration_us": {
+          "count": 153,
+          "mean_us": 3133449.163398693,
+          "max_us": 52571646,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 9893815.143825078,
+          "p99_us": 41328921.198080204
+        },
+        "settlement_us": {
+          "count": 153,
+          "mean_us": 8245.274509803921,
+          "max_us": 10175,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 9412.343651268613
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419493475,
+        "elapsed_s": 83.033867,
+        "interval_s": 1.000399,
+        "gauges": {
+          "connections": 0,
+          "logged_in_players": 0,
+          "match_queue": 0,
+          "rooms": 25,
+          "rooms_closed": 0,
+          "rooms_playing": 23,
+          "rooms_settlement": 0,
+          "rooms_waiting": 2
+        },
+        "counters": {
+          "connections_accepted": 51,
+          "connections_removed": 51,
+          "messages_received": 66937,
+          "unknown_messages": 0,
+          "read_errors": 51,
+          "write_errors": 0,
+          "received_bytes": 2055072,
+          "sent_bytes": 3441410,
+          "sent_packets": 66642,
+          "inputs_received": 64723,
+          "inputs_consumed": 64518,
+          "inputs_ignored": 139,
+          "rooms_created": 271,
+          "rooms_removed": 246,
+          "battles_started": 269,
+          "battles_finished": 246,
+          "settlement_attempts": 246,
+          "settlement_failures": 0,
+          "settlement_success": 246,
+          "loop_iterations": 1605,
+          "tick_over_budget": 0
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 20,
+            "sum_us": 1423,
+            "max_us": 96,
+            "p50_us": 72.8904836851,
+            "p95_us": 72.8904836851,
+            "p99_us": 96,
+            "buckets": [
+              [
+                45,
+                19
+              ],
+              [
+                48,
+                1
+              ]
+            ]
+          },
+          "loop_interval_us": {
+            "count": 20,
+            "sum_us": 1004623,
+            "max_us": 50260,
+            "p50_us": 50260,
+            "p95_us": 50260,
+            "p99_us": 50260,
+            "buckets": [
+              [
+                114,
+                20
+              ]
+            ]
+          },
+          "room_tick_us": {
+            "count": 460,
+            "sum_us": 204,
+            "max_us": 1,
+            "p50_us": 1,
+            "p95_us": 1,
+            "p99_us": 1,
+            "buckets": [
+              [
+                0,
+                460
+              ]
+            ]
+          },
+          "tick_callback_us": {
+            "count": 460,
+            "sum_us": 907,
+            "max_us": 28,
+            "p50_us": 2.14358881,
+            "p95_us": 2.14358881,
+            "p99_us": 7.40024994426,
+            "buckets": [
+              [
+                0,
+                132
+              ],
+              [
+                8,
+                307
+              ],
+              [
+                19,
+                7
+              ],
+              [
+                21,
+                13
+              ],
+              [
+                35,
+                1
+              ]
+            ]
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 1605,
+          "mean_us": 1603.6535825545172,
+          "max_us": 24221,
+          "p50_us": 405.26506222962956,
+          "p95_us": 9412.343651268613,
+          "p99_us": 16674.540931185085
+        },
+        "loop_interval_us": {
+          "count": 1604,
+          "mean_us": 51751.84600997506,
+          "max_us": 74375,
+          "p50_us": 52331.852427227124,
+          "p95_us": 63321.54143694483,
+          "p99_us": 69653.69558063932
+        },
+        "room_tick_us": {
+          "count": 32174,
+          "mean_us": 1.5612606452414994,
+          "max_us": 36,
+          "p50_us": 1.0,
+          "p95_us": 3.138428376721003,
+          "p99_us": 3.138428376721003
+        },
+        "tick_callback_us": {
+          "count": 32174,
+          "mean_us": 77.47815005905389,
+          "max_us": 15950,
+          "p50_us": 9.84973267580763,
+          "p95_us": 45.2592555681761,
+          "p99_us": 156.24722518287513
+        },
+        "message_handler_us": {
+          "count": 66937,
+          "mean_us": 9.403379296950865,
+          "max_us": 13056,
+          "p50_us": 7.400249944258173,
+          "p95_us": 9.84973267580763,
+          "p99_us": 49.78518112499371
+        },
+        "login_handler_us": {
+          "count": 50,
+          "mean_us": 3460.74,
+          "max_us": 13055,
+          "p50_us": 2253.2402360440274,
+          "p95_us": 11388.935818035025,
+          "p99_us": 13055
+        },
+        "input_queue_wait_us": {
+          "count": 64657,
+          "mean_us": 25949.95084832269,
+          "max_us": 71281,
+          "p50_us": 26854.514915082902,
+          "p95_us": 52331.852427227124,
+          "p99_us": 57565.037669949845
+        },
+        "battle_duration_us": {
+          "count": 246,
+          "mean_us": 2728135.1219512196,
+          "max_us": 52571646,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 6757608.868127229,
+          "p99_us": 37571746.54370927
+        },
+        "settlement_us": {
+          "count": 246,
+          "mean_us": 8168.4796747967475,
+          "max_us": 15934,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 9412.343651268613
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      }
+    },
+    "bot": {
+      "actual_seconds": 59.019977999999995,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 0,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 0,
+        "sent_bytes": 0,
+        "sent_packets": 0,
+        "inputs_received": 0,
+        "inputs_consumed": 0,
+        "inputs_ignored": 0,
+        "rooms_created": 0,
+        "rooms_removed": 0,
+        "battles_started": 0,
+        "battles_finished": 0,
+        "settlement_attempts": 0,
+        "settlement_failures": 0,
+        "settlement_success": 0,
+        "loop_iterations": 0,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 0.0,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 0.0,
+        "sent_bytes": 0.0,
+        "sent_packets": 0.0,
+        "inputs_received": 0.0,
+        "inputs_consumed": 0.0,
+        "inputs_ignored": 0.0,
+        "rooms_created": 0.0,
+        "rooms_removed": 0.0,
+        "battles_started": 0.0,
+        "battles_finished": 0.0,
+        "settlement_attempts": 0.0,
+        "settlement_failures": 0.0,
+        "settlement_success": 0.0,
+        "loop_iterations": 0.0,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "connect_ok_total": {
+          "min": 50,
+          "max": 50,
+          "mean": 50.0,
+          "first": 50,
+          "last": 50,
+          "delta": 0
+        },
+        "connections_live": {
+          "min": 50,
+          "max": 50,
+          "mean": 50.0,
+          "first": 50,
+          "last": 50,
+          "delta": 0
+        },
+        "game_over_notifications_total": {
+          "min": 182,
+          "max": 486,
+          "mean": 336.3666666666667,
+          "first": 182,
+          "last": 486,
+          "delta": 304
+        },
+        "heartbeat_cancelled_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_pending": {
+          "min": 0,
+          "max": 7,
+          "mean": 0.38333333333333336,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_responses_total": {
+          "min": 150,
+          "max": 750,
+          "mean": 466.01666666666665,
+          "first": 150,
+          "last": 750,
+          "delta": 600
+        },
+        "heartbeat_sent_total": {
+          "min": 150,
+          "max": 750,
+          "mean": 466.4,
+          "first": 150,
+          "last": 750,
+          "delta": 600
+        },
+        "heartbeat_timeouts_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "input_enqueued_total": {
+          "min": 13844,
+          "max": 63336,
+          "mean": 38399.25,
+          "first": 13844,
+          "last": 63336,
+          "delta": 49492
+        },
+        "input_written_total": {
+          "min": 13844,
+          "max": 63336,
+          "mean": 38399.21666666667,
+          "first": 13844,
+          "last": 63336,
+          "delta": 49492
+        },
+        "login_attempts_total": {
+          "min": 50,
+          "max": 50,
+          "mean": 50.0,
+          "first": 50,
+          "last": 50,
+          "delta": 0
+        },
+        "login_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "login_ok_total": {
+          "min": 50,
+          "max": 50,
+          "mean": 50.0,
+          "first": 50,
+          "last": 50,
+          "delta": 0
+        },
+        "match_notifications_total": {
+          "min": 222,
+          "max": 530,
+          "mean": 381.3333333333333,
+          "first": 222,
+          "last": 530,
+          "delta": 308
+        },
+        "packets_written_total": {
+          "min": 14484,
+          "max": 65196,
+          "mean": 39676.51666666667,
+          "first": 14484,
+          "last": 65196,
+          "delta": 50712
+        },
+        "playing_notifications_total": {
+          "min": 214,
+          "max": 530,
+          "mean": 378.3666666666667,
+          "first": 214,
+          "last": 530,
+          "delta": 316
+        },
+        "reconnect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "reconnect_ok_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "simulated_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "state_notifications_total": {
+          "min": 13106,
+          "max": 60958,
+          "mean": 36841.1,
+          "first": 13106,
+          "last": 60958,
+          "delta": 47852
+        },
+        "unexpected_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 600,
+          "mean_us": 4352.105,
+          "max_us": 47046,
+          "p50_us": 304.48163954141955,
+          "p95_us": 26854.514915082902,
+          "p99_us": 39317.695287172886
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419491583,
+        "elapsed_s": 81.058345,
+        "interval_s": 0.031232,
+        "gauges": {
+          "connect_failed_total": 0,
+          "connect_ok_total": 50,
+          "connections_live": 0,
+          "game_over_notifications_total": 492,
+          "heartbeat_cancelled_total": 0,
+          "heartbeat_pending": 0,
+          "heartbeat_responses_total": 800,
+          "heartbeat_sent_total": 800,
+          "heartbeat_timeouts_total": 0,
+          "input_enqueued_total": 65006,
+          "input_written_total": 65006,
+          "login_attempts_total": 50,
+          "login_failed_total": 0,
+          "login_ok_total": 50,
+          "match_notifications_total": 542,
+          "packets_written_total": 66937,
+          "playing_notifications_total": 538,
+          "reconnect_failed_total": 0,
+          "reconnect_ok_total": 0,
+          "simulated_disconnects_total": 0,
+          "state_notifications_total": 62600,
+          "unexpected_disconnects_total": 0
+        },
+        "counters": {
+          "connections_accepted": 0,
+          "connections_removed": 0,
+          "messages_received": 0,
+          "unknown_messages": 0,
+          "read_errors": 0,
+          "write_errors": 0,
+          "received_bytes": 0,
+          "sent_bytes": 0,
+          "sent_packets": 0,
+          "inputs_received": 0,
+          "inputs_consumed": 0,
+          "inputs_ignored": 0,
+          "rooms_created": 0,
+          "rooms_removed": 0,
+          "battles_started": 0,
+          "battles_finished": 0,
+          "settlement_attempts": 0,
+          "settlement_failures": 0,
+          "settlement_success": 0,
+          "loop_iterations": 0,
+          "tick_over_budget": 0
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "loop_interval_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "room_tick_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "tick_callback_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 50,
+          "mean_us": 8650.82,
+          "max_us": 22095,
+          "p50_us": 8556.67604660783,
+          "p95_us": 22095,
+          "p99_us": 22095
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 800,
+          "mean_us": 4284.67,
+          "max_us": 47046,
+          "p50_us": 304.48163954141955,
+          "p95_us": 26854.514915082902,
+          "p99_us": 35743.35935197535
+        }
+      }
+    },
+    "resources": {
+      "server": {
+        "cpu_percent": {
+          "mean": 12.450681857316535,
+          "max": 13.928067840522015
+        },
+        "rss_kib": {
+          "mean": 19506.4,
+          "max": 19508
+        },
+        "threads": {
+          "mean": 8.0,
+          "max": 8
+        },
+        "fds": {
+          "mean": 60.0,
+          "max": 60
+        }
+      },
+      "bot": {
+        "cpu_percent": {
+          "mean": 16.031709011032515,
+          "max": 18.90237778356559
+        },
+        "rss_kib": {
+          "mean": 10292.0,
+          "max": 10292
+        },
+        "threads": {
+          "mean": 52.0,
+          "max": 52
+        },
+        "fds": {
+          "mean": 204.0,
+          "max": 204
+        }
+      },
+      "mysql": {
+        "cpu_percent": {
+          "mean": 3.8960459869789736,
+          "max": 6.963268987100886
+        },
+        "rss_kib": {
+          "mean": 503857.4,
+          "max": 504292
+        },
+        "threads": {
+          "mean": 55.0,
+          "max": 55
+        },
+        "fds": {
+          "mean": 42.0,
+          "max": 42
+        }
+      },
+      "redis": {
+        "cpu_percent": {
+          "mean": 0.2652631221437618,
+          "max": 0.9948907991181678
+        },
+        "rss_kib": {
+          "mean": 14340.0,
+          "max": 14340
+        },
+        "threads": {
+          "mean": 6.0,
+          "max": 6
+        },
+        "fds": {
+          "mean": 9.0,
+          "max": 9
+        }
+      }
+    }
+  },
+  {
+    "bots": 100,
+    "run": "02-100-bots",
+    "server": {
+      "actual_seconds": 59.025097,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 97681,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 2999178,
+        "sent_bytes": 4859954,
+        "sent_packets": 94219,
+        "inputs_received": 94566,
+        "inputs_consumed": 94225,
+        "inputs_ignored": 215,
+        "rooms_created": 390,
+        "rooms_removed": 388,
+        "battles_started": 393,
+        "battles_finished": 388,
+        "settlement_attempts": 388,
+        "settlement_failures": 0,
+        "settlement_success": 388,
+        "loop_iterations": 1101,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 1654.9062172655133,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 50811.9114145632,
+        "sent_bytes": 82337.07773491672,
+        "sent_packets": 1596.2532005665319,
+        "inputs_received": 1602.1320557931483,
+        "inputs_consumed": 1596.35485224192,
+        "inputs_ignored": 3.6425183680765487,
+        "rooms_created": 6.607358900231879,
+        "rooms_removed": 6.5734750084358184,
+        "battles_started": 6.65818473792597,
+        "battles_finished": 6.5734750084358184,
+        "settlement_attempts": 6.5734750084358184,
+        "settlement_failures": 0.0,
+        "settlement_success": 6.5734750084358184,
+        "loop_iterations": 18.653082433731537,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connections": {
+          "min": 100,
+          "max": 100,
+          "mean": 100.0,
+          "first": 100,
+          "last": 100,
+          "delta": 0
+        },
+        "logged_in_players": {
+          "min": 100,
+          "max": 100,
+          "mean": 100.0,
+          "first": 100,
+          "last": 100,
+          "delta": 0
+        },
+        "match_queue": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.5166666666666667,
+          "first": 1,
+          "last": 0,
+          "delta": -1
+        },
+        "rooms": {
+          "min": 36,
+          "max": 48,
+          "mean": 43.81666666666667,
+          "first": 45,
+          "last": 47,
+          "delta": 2
+        },
+        "rooms_closed": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_playing": {
+          "min": 29,
+          "max": 46,
+          "mean": 39.983333333333334,
+          "first": 39,
+          "last": 44,
+          "delta": 5
+        },
+        "rooms_settlement": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.016666666666666666,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_waiting": {
+          "min": 0,
+          "max": 8,
+          "mean": 3.816666666666667,
+          "first": 6,
+          "last": 3,
+          "delta": -3
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 1101,
+          "mean_us": 3458.215258855586,
+          "max_us": 31222,
+          "p50_us": 717.9517789085851,
+          "p95_us": 11388.935818035025,
+          "p99_us": 18341.995024303593
+        },
+        "loop_interval_us": {
+          "count": 1101,
+          "mean_us": 53601.79473206176,
+          "max_us": 81375,
+          "p50_us": 52331.852427227124,
+          "p95_us": 63321.54143694483,
+          "p99_us": 69653.69558063932
+        },
+        "room_tick_us": {
+          "count": 44215,
+          "mean_us": 1.6025556937690828,
+          "max_us": 77,
+          "p50_us": 1.0,
+          "p95_us": 3.138428376721003,
+          "p99_us": 3.138428376721003
+        },
+        "tick_callback_us": {
+          "count": 44215,
+          "mean_us": 83.70519054619473,
+          "max_us": 10817,
+          "p50_us": 9.84973267580763,
+          "p95_us": 34.00394858615784,
+          "p99_us": 156.24722518287513
+        },
+        "message_handler_us": {
+          "count": 97681,
+          "mean_us": 6.162590473070505,
+          "max_us": 238,
+          "p50_us": 5.054470284992945,
+          "p95_us": 9.84973267580763,
+          "p99_us": 30.912680532870763
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 94440,
+          "mean_us": 27014.37323168149,
+          "max_us": 79819,
+          "p50_us": 26854.514915082902,
+          "p95_us": 52331.852427227124,
+          "p99_us": 63321.54143694483
+        },
+        "battle_duration_us": {
+          "count": 388,
+          "mean_us": 2989887.2783505153,
+          "max_us": 72944113,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 8994377.403477343,
+          "p99_us": 37571746.54370927
+        },
+        "settlement_us": {
+          "count": 388,
+          "mean_us": 8030.23969072165,
+          "max_us": 10801,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 10353.578016395475
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419576935,
+        "elapsed_s": 83.035025,
+        "interval_s": 1.00042,
+        "gauges": {
+          "connections": 0,
+          "logged_in_players": 0,
+          "match_queue": 0,
+          "rooms": 44,
+          "rooms_closed": 0,
+          "rooms_playing": 41,
+          "rooms_settlement": 0,
+          "rooms_waiting": 3
+        },
+        "counters": {
+          "connections_accepted": 101,
+          "connections_removed": 101,
+          "messages_received": 128764,
+          "unknown_messages": 0,
+          "read_errors": 101,
+          "write_errors": 0,
+          "received_bytes": 3932186,
+          "sent_bytes": 6351808,
+          "sent_packets": 124378,
+          "inputs_received": 123814,
+          "inputs_consumed": 123287,
+          "inputs_ignored": 360,
+          "rooms_created": 648,
+          "rooms_removed": 604,
+          "battles_started": 645,
+          "battles_finished": 604,
+          "settlement_attempts": 604,
+          "settlement_failures": 0,
+          "settlement_success": 604,
+          "loop_iterations": 1542,
+          "tick_over_budget": 0
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 20,
+            "sum_us": 2359,
+            "max_us": 143,
+            "p50_us": 117.39085288,
+            "p95_us": 142.042931984,
+            "p99_us": 143,
+            "buckets": [
+              [
+                50,
+                16
+              ],
+              [
+                51,
+                2
+              ],
+              [
+                52,
+                1
+              ],
+              [
+                53,
+                1
+              ]
+            ]
+          },
+          "loop_interval_us": {
+            "count": 20,
+            "sum_us": 1005554,
+            "max_us": 50317,
+            "p50_us": 50317,
+            "p95_us": 50317,
+            "p99_us": 50317,
+            "buckets": [
+              [
+                114,
+                20
+              ]
+            ]
+          },
+          "room_tick_us": {
+            "count": 820,
+            "sum_us": 390,
+            "max_us": 27,
+            "p50_us": 1,
+            "p95_us": 1,
+            "p99_us": 1,
+            "buckets": [
+              [
+                0,
+                819
+              ],
+              [
+                35,
+                1
+              ]
+            ]
+          },
+          "tick_callback_us": {
+            "count": 820,
+            "sum_us": 1439,
+            "max_us": 7,
+            "p50_us": 2.14358881,
+            "p95_us": 2.14358881,
+            "p99_us": 7,
+            "buckets": [
+              [
+                0,
+                298
+              ],
+              [
+                8,
+                501
+              ],
+              [
+                12,
+                1
+              ],
+              [
+                19,
+                4
+              ],
+              [
+                21,
+                16
+              ]
+            ]
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 1542,
+          "mean_us": 3710.385214007782,
+          "max_us": 31222,
+          "p50_us": 652.683435371441,
+          "p95_us": 16674.540931185085,
+          "p99_us": 24413.19537734809
+        },
+        "loop_interval_us": {
+          "count": 1541,
+          "mean_us": 53857.27839065542,
+          "max_us": 81375,
+          "p50_us": 52331.852427227124,
+          "p95_us": 69653.69558063932,
+          "p99_us": 76619.06513870326
+        },
+        "room_tick_us": {
+          "count": 59022,
+          "mean_us": 1.5852224594219104,
+          "max_us": 77,
+          "p50_us": 1.0,
+          "p95_us": 3.138428376721003,
+          "p99_us": 3.138428376721003
+        },
+        "tick_callback_us": {
+          "count": 59022,
+          "mean_us": 94.53813832130392,
+          "max_us": 14403,
+          "p50_us": 9.84973267580763,
+          "p95_us": 37.40434344477363,
+          "p99_us": 7071.633096370106
+        },
+        "message_handler_us": {
+          "count": 128764,
+          "mean_us": 8.902309651766021,
+          "max_us": 19172,
+          "p50_us": 5.054470284992945,
+          "p95_us": 9.84973267580763,
+          "p99_us": 72.89048368510332
+        },
+        "login_handler_us": {
+          "count": 100,
+          "mean_us": 3224.43,
+          "max_us": 19171,
+          "p50_us": 2253.2402360440274,
+          "p95_us": 8556.67604660783,
+          "p99_us": 16674.540931185085
+        },
+        "input_queue_wait_us": {
+          "count": 123647,
+          "mean_us": 27201.302813655002,
+          "max_us": 79819,
+          "p50_us": 26854.514915082902,
+          "p95_us": 52331.852427227124,
+          "p99_us": 63321.54143694483
+        },
+        "battle_duration_us": {
+          "count": 604,
+          "mean_us": 2807230.7119205296,
+          "max_us": 72944113,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 7433369.754939952,
+          "p99_us": 25662008.430919513
+        },
+        "settlement_us": {
+          "count": 604,
+          "mean_us": 7960.740066225166,
+          "max_us": 14386,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 10353.578016395475
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      }
+    },
+    "bot": {
+      "actual_seconds": 59.019663,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 0,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 0,
+        "sent_bytes": 0,
+        "sent_packets": 0,
+        "inputs_received": 0,
+        "inputs_consumed": 0,
+        "inputs_ignored": 0,
+        "rooms_created": 0,
+        "rooms_removed": 0,
+        "battles_started": 0,
+        "battles_finished": 0,
+        "settlement_attempts": 0,
+        "settlement_failures": 0,
+        "settlement_success": 0,
+        "loop_iterations": 0,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 0.0,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 0.0,
+        "sent_bytes": 0.0,
+        "sent_packets": 0.0,
+        "inputs_received": 0.0,
+        "inputs_consumed": 0.0,
+        "inputs_ignored": 0.0,
+        "rooms_created": 0.0,
+        "rooms_removed": 0.0,
+        "battles_started": 0.0,
+        "battles_finished": 0.0,
+        "settlement_attempts": 0.0,
+        "settlement_failures": 0.0,
+        "settlement_success": 0.0,
+        "loop_iterations": 0.0,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "connect_ok_total": {
+          "min": 100,
+          "max": 100,
+          "mean": 100.0,
+          "first": 100,
+          "last": 100,
+          "delta": 0
+        },
+        "connections_live": {
+          "min": 100,
+          "max": 100,
+          "mean": 100.0,
+          "first": 100,
+          "last": 100,
+          "delta": 0
+        },
+        "game_over_notifications_total": {
+          "min": 408,
+          "max": 1186,
+          "mean": 841.9333333333333,
+          "first": 408,
+          "last": 1186,
+          "delta": 778
+        },
+        "heartbeat_cancelled_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_pending": {
+          "min": 0,
+          "max": 9,
+          "mean": 0.5166666666666667,
+          "first": 1,
+          "last": 0,
+          "delta": -1
+        },
+        "heartbeat_responses_total": {
+          "min": 300,
+          "max": 1500,
+          "mean": 931.5166666666667,
+          "first": 300,
+          "last": 1500,
+          "delta": 1200
+        },
+        "heartbeat_sent_total": {
+          "min": 301,
+          "max": 1500,
+          "mean": 932.0333333333333,
+          "first": 301,
+          "last": 1500,
+          "delta": 1199
+        },
+        "heartbeat_timeouts_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "input_enqueued_total": {
+          "min": 26229,
+          "max": 120913,
+          "mean": 72208.13333333333,
+          "first": 26229,
+          "last": 120913,
+          "delta": 94684
+        },
+        "input_written_total": {
+          "min": 26229,
+          "max": 120913,
+          "mean": 72208.08333333333,
+          "first": 26229,
+          "last": 120913,
+          "delta": 94684
+        },
+        "login_attempts_total": {
+          "min": 100,
+          "max": 100,
+          "mean": 100.0,
+          "first": 100,
+          "last": 100,
+          "delta": 0
+        },
+        "login_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "login_ok_total": {
+          "min": 100,
+          "max": 100,
+          "mean": 100.0,
+          "first": 100,
+          "last": 100,
+          "delta": 0
+        },
+        "match_notifications_total": {
+          "min": 486,
+          "max": 1280,
+          "mean": 929.4666666666667,
+          "first": 486,
+          "last": 1280,
+          "delta": 794
+        },
+        "packets_written_total": {
+          "min": 27591,
+          "max": 125065,
+          "mean": 75093.85,
+          "first": 27591,
+          "last": 125065,
+          "delta": 97474
+        },
+        "playing_notifications_total": {
+          "min": 474,
+          "max": 1270,
+          "mean": 922.1166666666667,
+          "first": 474,
+          "last": 1270,
+          "delta": 796
+        },
+        "reconnect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "reconnect_ok_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "simulated_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "state_notifications_total": {
+          "min": 23506,
+          "max": 111628,
+          "mean": 66019.18333333333,
+          "first": 23506,
+          "last": 111628,
+          "delta": 88122
+        },
+        "unexpected_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 1200,
+          "mean_us": 4868.721666666666,
+          "max_us": 43613,
+          "p50_us": 304.48163954141955,
+          "p95_us": 29539.966406591193,
+          "p99_us": 39317.695287172886
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419575061,
+        "elapsed_s": 81.085837,
+        "interval_s": 0.058849,
+        "gauges": {
+          "connect_failed_total": 0,
+          "connect_ok_total": 100,
+          "connections_live": 0,
+          "game_over_notifications_total": 1206,
+          "heartbeat_cancelled_total": 0,
+          "heartbeat_pending": 0,
+          "heartbeat_responses_total": 1600,
+          "heartbeat_sent_total": 1600,
+          "heartbeat_timeouts_total": 0,
+          "input_enqueued_total": 124477,
+          "input_written_total": 124477,
+          "login_attempts_total": 100,
+          "login_failed_total": 0,
+          "login_ok_total": 100,
+          "match_notifications_total": 1296,
+          "packets_written_total": 128764,
+          "playing_notifications_total": 1290,
+          "reconnect_failed_total": 0,
+          "reconnect_ok_total": 0,
+          "simulated_disconnects_total": 0,
+          "state_notifications_total": 115008,
+          "unexpected_disconnects_total": 0
+        },
+        "counters": {
+          "connections_accepted": 0,
+          "connections_removed": 0,
+          "messages_received": 0,
+          "unknown_messages": 0,
+          "read_errors": 0,
+          "write_errors": 0,
+          "received_bytes": 0,
+          "sent_bytes": 0,
+          "sent_packets": 0,
+          "inputs_received": 0,
+          "inputs_consumed": 0,
+          "inputs_ignored": 0,
+          "rooms_created": 0,
+          "rooms_removed": 0,
+          "battles_started": 0,
+          "battles_finished": 0,
+          "settlement_attempts": 0,
+          "settlement_failures": 0,
+          "settlement_success": 0,
+          "loop_iterations": 0,
+          "tick_over_budget": 0
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "loop_interval_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "room_tick_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "tick_callback_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 100,
+          "mean_us": 17718.25,
+          "max_us": 41099,
+          "p50_us": 15158.67357380462,
+          "p95_us": 39317.695287172886,
+          "p99_us": 41099
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 1600,
+          "mean_us": 4671.67,
+          "max_us": 43613,
+          "p50_us": 304.48163954141955,
+          "p95_us": 29539.966406591193,
+          "p99_us": 39317.695287172886
+        }
+      }
+    },
+    "resources": {
+      "server": {
+        "cpu_percent": {
+          "mean": 21.224592319320724,
+          "max": 23.824923091705152
+        },
+        "rss_kib": {
+          "mean": 19809.8,
+          "max": 19828
+        },
+        "threads": {
+          "mean": 8.0,
+          "max": 8
+        },
+        "fds": {
+          "mean": 110.0,
+          "max": 110
+        }
+      },
+      "bot": {
+        "cpu_percent": {
+          "mean": 28.338029752085184,
+          "max": 31.89435206159658
+        },
+        "rss_kib": {
+          "mean": 12316.0,
+          "max": 12316
+        },
+        "threads": {
+          "mean": 102.0,
+          "max": 102
+        },
+        "fds": {
+          "mean": 404.0,
+          "max": 404
+        }
+      },
+      "mysql": {
+        "cpu_percent": {
+          "mean": 7.5104038367188855,
+          "max": 14.891651485264571
+        },
+        "rss_kib": {
+          "mean": 507244.8,
+          "max": 507428
+        },
+        "threads": {
+          "mean": 55.0,
+          "max": 55
+        },
+        "fds": {
+          "mean": 46.0,
+          "max": 46
+        }
+      },
+      "redis": {
+        "cpu_percent": {
+          "mean": 0.38046105634297683,
+          "max": 1.9855535313686095
+        },
+        "rss_kib": {
+          "mean": 14344.733333333334,
+          "max": 14348
+        },
+        "threads": {
+          "mean": 6.0,
+          "max": 6
+        },
+        "fds": {
+          "mean": 9.0,
+          "max": 9
+        }
+      }
+    }
+  },
+  {
+    "bots": 200,
+    "run": "03-200-bots",
+    "server": {
+      "actual_seconds": 59.026329000000004,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 202482,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 6242386,
+        "sent_bytes": 9623533,
+        "sent_packets": 185505,
+        "inputs_received": 197004,
+        "inputs_consumed": 196368,
+        "inputs_ignored": 405,
+        "rooms_created": 655,
+        "rooms_removed": 642,
+        "battles_started": 660,
+        "battles_finished": 641,
+        "settlement_attempts": 641,
+        "settlement_failures": 0,
+        "settlement_success": 642,
+        "loop_iterations": 1048,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 3430.3674890572984,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 105755.95849777477,
+        "sent_bytes": 163037.97242752466,
+        "sent_packets": 3142.750076834356,
+        "inputs_received": 3337.561446519908,
+        "inputs_consumed": 3326.786593826629,
+        "inputs_ignored": 6.861344875436857,
+        "rooms_created": 11.096742946694176,
+        "rooms_removed": 10.876502246988796,
+        "battles_started": 11.181450908119324,
+        "battles_finished": 10.859560654703767,
+        "settlement_attempts": 10.859560654703767,
+        "settlement_failures": 0.0,
+        "settlement_success": 10.876502246988796,
+        "loop_iterations": 17.754788714710685,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connections": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "logged_in_players": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "match_queue": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.5166666666666667,
+          "first": 1,
+          "last": 1,
+          "delta": 0
+        },
+        "rooms": {
+          "min": 81,
+          "max": 98,
+          "mean": 89.6,
+          "first": 83,
+          "last": 96,
+          "delta": 13
+        },
+        "rooms_closed": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_playing": {
+          "min": 71,
+          "max": 95,
+          "mean": 83.15,
+          "first": 75,
+          "last": 94,
+          "delta": 19
+        },
+        "rooms_settlement": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.06666666666666667,
+          "first": 1,
+          "last": 0,
+          "delta": -1
+        },
+        "rooms_waiting": {
+          "min": 1,
+          "max": 14,
+          "mean": 6.383333333333334,
+          "first": 7,
+          "last": 2,
+          "delta": -5
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 1048,
+          "mean_us": 6184.788167938931,
+          "max_us": 41438,
+          "p50_us": 1538.9933993880381,
+          "p95_us": 18341.995024303593,
+          "p99_us": 29539.966406591193
+        },
+        "loop_interval_us": {
+          "count": 1048,
+          "mean_us": 56324.79961832061,
+          "max_us": 91610,
+          "p50_us": 52331.852427227124,
+          "p95_us": 69653.69558063932,
+          "p99_us": 84280.9716525736
+        },
+        "room_tick_us": {
+          "count": 87736,
+          "mean_us": 1.7021747059359897,
+          "max_us": 78,
+          "p50_us": 2.1435888100000016,
+          "p95_us": 3.138428376721003,
+          "p99_us": 4.177248169415656
+        },
+        "tick_callback_us": {
+          "count": 87737,
+          "mean_us": 71.15854200622314,
+          "max_us": 10268,
+          "p50_us": 11.918176537727234,
+          "p95_us": 28.10243684806433,
+          "p99_us": 129.1299381676654
+        },
+        "message_handler_us": {
+          "count": 202483,
+          "mean_us": 5.427191418538841,
+          "max_us": 306,
+          "p50_us": 4.177248169415656,
+          "p95_us": 9.84973267580763,
+          "p99_us": 25.54766986187666
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 196790,
+          "mean_us": 28631.954545454544,
+          "max_us": 97628,
+          "p50_us": 29539.966406591193,
+          "p95_us": 57565.037669949845,
+          "p99_us": 69653.69558063932
+        },
+        "battle_duration_us": {
+          "count": 641,
+          "mean_us": 2773763.867394696,
+          "max_us": 71618969,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 6757608.868127229,
+          "p99_us": 28228209.274011467
+        },
+        "settlement_us": {
+          "count": 642,
+          "mean_us": 7946.143302180685,
+          "max_us": 10219,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 10219
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419660404,
+        "elapsed_s": 83.036577,
+        "interval_s": 1.000433,
+        "gauges": {
+          "connections": 0,
+          "logged_in_players": 0,
+          "match_queue": 0,
+          "rooms": 95,
+          "rooms_closed": 0,
+          "rooms_playing": 91,
+          "rooms_settlement": 0,
+          "rooms_waiting": 4
+        },
+        "counters": {
+          "connections_accepted": 201,
+          "connections_removed": 201,
+          "messages_received": 265657,
+          "unknown_messages": 0,
+          "read_errors": 201,
+          "write_errors": 0,
+          "received_bytes": 8143951,
+          "sent_bytes": 12422790,
+          "sent_packets": 242196,
+          "inputs_received": 256600,
+          "inputs_consumed": 255576,
+          "inputs_ignored": 712,
+          "rooms_created": 1151,
+          "rooms_removed": 1056,
+          "battles_started": 1147,
+          "battles_finished": 1056,
+          "settlement_attempts": 1056,
+          "settlement_failures": 0,
+          "settlement_success": 1056,
+          "loop_iterations": 1456,
+          "tick_over_budget": 5
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 20,
+            "sum_us": 4984,
+            "max_us": 277,
+            "p50_us": 251.637718629,
+            "p95_us": 276.801490492,
+            "p99_us": 277,
+            "buckets": [
+              [
+                58,
+                16
+              ],
+              [
+                59,
+                3
+              ],
+              [
+                60,
+                1
+              ]
+            ]
+          },
+          "loop_interval_us": {
+            "count": 20,
+            "sum_us": 1008184,
+            "max_us": 50453,
+            "p50_us": 50453,
+            "p95_us": 50453,
+            "p99_us": 50453,
+            "buckets": [
+              [
+                114,
+                20
+              ]
+            ]
+          },
+          "room_tick_us": {
+            "count": 1820,
+            "sum_us": 755,
+            "max_us": 1,
+            "p50_us": 1,
+            "p95_us": 1,
+            "p99_us": 1,
+            "buckets": [
+              [
+                0,
+                1820
+              ]
+            ]
+          },
+          "tick_callback_us": {
+            "count": 1820,
+            "sum_us": 3216,
+            "max_us": 34,
+            "p50_us": 2.14358881,
+            "p95_us": 2.14358881,
+            "p99_us": 7.40024994426,
+            "buckets": [
+              [
+                0,
+                643
+              ],
+              [
+                8,
+                1152
+              ],
+              [
+                12,
+                1
+              ],
+              [
+                19,
+                4
+              ],
+              [
+                21,
+                16
+              ],
+              [
+                36,
+                1
+              ],
+              [
+                37,
+                3
+              ]
+            ]
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 1456,
+          "mean_us": 6920.465659340659,
+          "max_us": 73935,
+          "p50_us": 1538.9933993880381,
+          "p95_us": 24413.19537734809,
+          "p99_us": 39317.695287172886
+        },
+        "loop_interval_us": {
+          "count": 1455,
+          "mean_us": 57067.776632302404,
+          "max_us": 124124,
+          "p50_us": 52331.852427227124,
+          "p95_us": 76619.06513870326,
+          "p99_us": 92709.06881783096
+        },
+        "room_tick_us": {
+          "count": 115965,
+          "mean_us": 1.6749191566420902,
+          "max_us": 78,
+          "p50_us": 2.1435888100000016,
+          "p95_us": 3.138428376721003,
+          "p99_us": 4.177248169415656
+        },
+        "tick_callback_us": {
+          "count": 115965,
+          "mean_us": 84.21903160436338,
+          "max_us": 14011,
+          "p50_us": 10.834705943388395,
+          "p95_us": 30.912680532870763,
+          "p99_us": 156.24722518287513
+        },
+        "message_handler_us": {
+          "count": 265657,
+          "mean_us": 8.304049959157862,
+          "max_us": 27461,
+          "p50_us": 4.177248169415656,
+          "p95_us": 9.84973267580763,
+          "p99_us": 60.2400691612424
+        },
+        "login_handler_us": {
+          "count": 200,
+          "mean_us": 3478.65,
+          "max_us": 27460,
+          "p50_us": 2999.0627541746007,
+          "p95_us": 8556.67604660783,
+          "p99_us": 22193.813979407354
+        },
+        "input_queue_wait_us": {
+          "count": 256288,
+          "mean_us": 29203.01228305656,
+          "max_us": 134795,
+          "p50_us": 29539.966406591193,
+          "p95_us": 63321.54143694483,
+          "p99_us": 69653.69558063932
+        },
+        "battle_duration_us": {
+          "count": 1056,
+          "mean_us": 2487036.3702651514,
+          "max_us": 71618969,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 6143280.789206571,
+          "p99_us": 21208271.430511992
+        },
+        "settlement_us": {
+          "count": 1056,
+          "mean_us": 7855.053977272727,
+          "max_us": 13995,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 10353.578016395475
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      }
+    },
+    "bot": {
+      "actual_seconds": 59.018367999999995,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 0,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 0,
+        "sent_bytes": 0,
+        "sent_packets": 0,
+        "inputs_received": 0,
+        "inputs_consumed": 0,
+        "inputs_ignored": 0,
+        "rooms_created": 0,
+        "rooms_removed": 0,
+        "battles_started": 0,
+        "battles_finished": 0,
+        "settlement_attempts": 0,
+        "settlement_failures": 0,
+        "settlement_success": 0,
+        "loop_iterations": 0,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 0.0,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 0.0,
+        "sent_bytes": 0.0,
+        "sent_packets": 0.0,
+        "inputs_received": 0.0,
+        "inputs_consumed": 0.0,
+        "inputs_ignored": 0.0,
+        "rooms_created": 0.0,
+        "rooms_removed": 0.0,
+        "battles_started": 0.0,
+        "battles_finished": 0.0,
+        "settlement_attempts": 0.0,
+        "settlement_failures": 0.0,
+        "settlement_success": 0.0,
+        "loop_iterations": 0.0,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "connect_ok_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "connections_live": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "game_over_notifications_total": {
+          "min": 784,
+          "max": 2092,
+          "mean": 1560.1333333333334,
+          "first": 784,
+          "last": 2092,
+          "delta": 1308
+        },
+        "heartbeat_cancelled_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_pending": {
+          "min": 0,
+          "max": 7,
+          "mean": 0.4666666666666667,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_responses_total": {
+          "min": 600,
+          "max": 3000,
+          "mean": 1861.1666666666667,
+          "first": 600,
+          "last": 3000,
+          "delta": 2400
+        },
+        "heartbeat_sent_total": {
+          "min": 600,
+          "max": 3000,
+          "mean": 1861.6333333333334,
+          "first": 600,
+          "last": 3000,
+          "delta": 2400
+        },
+        "heartbeat_timeouts_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "input_enqueued_total": {
+          "min": 53100,
+          "max": 250041,
+          "mean": 147925.0,
+          "first": 53100,
+          "last": 250041,
+          "delta": 196941
+        },
+        "input_written_total": {
+          "min": 53100,
+          "max": 250041,
+          "mean": 147924.83333333334,
+          "first": 53100,
+          "last": 250041,
+          "delta": 196941
+        },
+        "login_attempts_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "login_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "login_ok_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "match_notifications_total": {
+          "min": 950,
+          "max": 2280,
+          "mean": 1739.5333333333333,
+          "first": 950,
+          "last": 2280,
+          "delta": 1330
+        },
+        "packets_written_total": {
+          "min": 55782,
+          "max": 257797,
+          "mean": 153456.11666666667,
+          "first": 55782,
+          "last": 257797,
+          "delta": 202015
+        },
+        "playing_notifications_total": {
+          "min": 924,
+          "max": 2274,
+          "mean": 1726.4333333333334,
+          "first": 924,
+          "last": 2274,
+          "delta": 1350
+        },
+        "reconnect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "reconnect_ok_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "simulated_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "state_notifications_total": {
+          "min": 43468,
+          "max": 218002,
+          "mean": 126008.71666666666,
+          "first": 43468,
+          "last": 218002,
+          "delta": 174534
+        },
+        "unexpected_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 2400,
+          "mean_us": 5433.874583333333,
+          "max_us": 48294,
+          "p50_us": 276.8014904921996,
+          "p95_us": 29539.966406591193,
+          "p99_us": 39317.695287172886
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419658557,
+        "elapsed_s": 81.114426,
+        "interval_s": 0.08902,
+        "gauges": {
+          "connect_failed_total": 0,
+          "connect_ok_total": 200,
+          "connections_live": 0,
+          "game_over_notifications_total": 2112,
+          "heartbeat_cancelled_total": 0,
+          "heartbeat_pending": 0,
+          "heartbeat_responses_total": 3200,
+          "heartbeat_sent_total": 3200,
+          "heartbeat_timeouts_total": 0,
+          "input_enqueued_total": 257660,
+          "input_written_total": 257660,
+          "login_attempts_total": 200,
+          "login_failed_total": 0,
+          "login_ok_total": 200,
+          "match_notifications_total": 2302,
+          "packets_written_total": 265657,
+          "playing_notifications_total": 2294,
+          "reconnect_failed_total": 0,
+          "reconnect_ok_total": 0,
+          "simulated_disconnects_total": 0,
+          "state_notifications_total": 225106,
+          "unexpected_disconnects_total": 0
+        },
+        "counters": {
+          "connections_accepted": 0,
+          "connections_removed": 0,
+          "messages_received": 0,
+          "unknown_messages": 0,
+          "read_errors": 0,
+          "write_errors": 0,
+          "received_bytes": 0,
+          "sent_bytes": 0,
+          "sent_packets": 0,
+          "inputs_received": 0,
+          "inputs_consumed": 0,
+          "inputs_ignored": 0,
+          "rooms_created": 0,
+          "rooms_removed": 0,
+          "battles_started": 0,
+          "battles_finished": 0,
+          "settlement_attempts": 0,
+          "settlement_failures": 0,
+          "settlement_success": 0,
+          "loop_iterations": 0,
+          "tick_over_budget": 0
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "loop_interval_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "room_tick_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "tick_callback_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 200,
+          "mean_us": 53105.575,
+          "max_us": 126500,
+          "p50_us": 52331.852427227124,
+          "p95_us": 123395.77059653304,
+          "p99_us": 126500
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 3200,
+          "mean_us": 5143.451875,
+          "max_us": 48294,
+          "p50_us": 276.8014904921996,
+          "p95_us": 29539.966406591193,
+          "p99_us": 39317.695287172886
+        }
+      }
+    },
+    "resources": {
+      "server": {
+        "cpu_percent": {
+          "mean": 37.57719983022882,
+          "max": 42.50065062102718
+        },
+        "rss_kib": {
+          "mean": 20572.533333333333,
+          "max": 20600
+        },
+        "threads": {
+          "mean": 8.0,
+          "max": 8
+        },
+        "fds": {
+          "mean": 210.0,
+          "max": 210
+        }
+      },
+      "bot": {
+        "cpu_percent": {
+          "mean": 53.78760514093996,
+          "max": 62.25668884414591
+        },
+        "rss_kib": {
+          "mean": 16192.0,
+          "max": 16192
+        },
+        "threads": {
+          "mean": 202.0,
+          "max": 202
+        },
+        "fds": {
+          "mean": 804.0,
+          "max": 804
+        }
+      },
+      "mysql": {
+        "cpu_percent": {
+          "mean": 10.85778641324299,
+          "max": 18.90572518582631
+        },
+        "rss_kib": {
+          "mean": 510121.93333333335,
+          "max": 510448
+        },
+        "threads": {
+          "mean": 55.0,
+          "max": 55
+        },
+        "fds": {
+          "mean": 50.0,
+          "max": 50
+        }
+      },
+      "redis": {
+        "cpu_percent": {
+          "mean": 0.5272383023909616,
+          "max": 1.9764022438416924
+        },
+        "rss_kib": {
+          "mean": 14359.866666666667,
+          "max": 14360
+        },
+        "threads": {
+          "mean": 6.0,
+          "max": 6
+        },
+        "fds": {
+          "mean": 9.0,
+          "max": 9
+        }
+      }
+    }
+  },
+  {
+    "bots": 200,
+    "run": "04-200-bots",
+    "server": {
+      "actual_seconds": 59.025864999999996,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 200827,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 6186746,
+        "sent_bytes": 9501468,
+        "sent_packets": 183426,
+        "inputs_received": 195235,
+        "inputs_consumed": 194623,
+        "inputs_ignored": 431,
+        "rooms_created": 674,
+        "rooms_removed": 674,
+        "battles_started": 679,
+        "battles_finished": 674,
+        "settlement_attempts": 674,
+        "settlement_failures": 0,
+        "settlement_success": 674,
+        "loop_iterations": 1045,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 3402.355899401051,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 104814.15223648142,
+        "sent_bytes": 160971.26234405884,
+        "sent_packets": 3107.5529346329786,
+        "inputs_received": 3307.6177706163226,
+        "inputs_consumed": 3297.2494346334443,
+        "inputs_ignored": 7.30188367421638,
+        "rooms_created": 11.418722961535591,
+        "rooms_removed": 11.418722961535591,
+        "battles_started": 11.503431588846686,
+        "battles_finished": 11.418722961535591,
+        "settlement_attempts": 11.418722961535591,
+        "settlement_failures": 0.0,
+        "settlement_success": 11.418722961535591,
+        "loop_iterations": 17.704103108018835,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connections": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "logged_in_players": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "match_queue": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.4666666666666667,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms": {
+          "min": 81,
+          "max": 96,
+          "mean": 89.15,
+          "first": 86,
+          "last": 86,
+          "delta": 0
+        },
+        "rooms_closed": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_playing": {
+          "min": 70,
+          "max": 89,
+          "mean": 82.51666666666667,
+          "first": 76,
+          "last": 81,
+          "delta": 5
+        },
+        "rooms_settlement": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.11666666666666667,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_waiting": {
+          "min": 2,
+          "max": 14,
+          "mean": 6.516666666666667,
+          "first": 10,
+          "last": 5,
+          "delta": -5
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 1045,
+          "mean_us": 6354.065071770335,
+          "max_us": 39665,
+          "p50_us": 1538.9933993880381,
+          "p95_us": 18341.995024303593,
+          "p99_us": 26854.514915082902
+        },
+        "loop_interval_us": {
+          "count": 1045,
+          "mean_us": 56483.271770334926,
+          "max_us": 89760,
+          "p50_us": 52331.852427227124,
+          "p95_us": 69653.69558063932,
+          "p99_us": 76619.06513870326
+        },
+        "room_tick_us": {
+          "count": 86555,
+          "mean_us": 1.6935012419848652,
+          "max_us": 55,
+          "p50_us": 2.1435888100000016,
+          "p95_us": 3.138428376721003,
+          "p99_us": 4.177248169415656
+        },
+        "tick_callback_us": {
+          "count": 86555,
+          "mean_us": 74.03649702501299,
+          "max_us": 10216,
+          "p50_us": 11.918176537727234,
+          "p95_us": 28.10243684806433,
+          "p99_us": 142.04293198443193
+        },
+        "message_handler_us": {
+          "count": 200827,
+          "mean_us": 5.33657824894063,
+          "max_us": 219,
+          "p50_us": 4.177248169415656,
+          "p95_us": 9.84973267580763,
+          "p99_us": 25.54766986187666
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 195054,
+          "mean_us": 28819.53615921745,
+          "max_us": 89340,
+          "p50_us": 29539.966406591193,
+          "p95_us": 57565.037669949845,
+          "p99_us": 69653.69558063932
+        },
+        "battle_duration_us": {
+          "count": 674,
+          "mean_us": 3334872.5356083084,
+          "max_us": 66460252,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 10883196.658207586,
+          "p99_us": 45461813.31788823
+        },
+        "settlement_us": {
+          "count": 674,
+          "mean_us": 7850.821958456973,
+          "max_us": 10198,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 9412.343651268613
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419743930,
+        "elapsed_s": 83.036309,
+        "interval_s": 1.000464,
+        "gauges": {
+          "connections": 0,
+          "logged_in_players": 0,
+          "match_queue": 0,
+          "rooms": 93,
+          "rooms_closed": 0,
+          "rooms_playing": 83,
+          "rooms_settlement": 0,
+          "rooms_waiting": 10
+        },
+        "counters": {
+          "connections_accepted": 201,
+          "connections_removed": 201,
+          "messages_received": 262371,
+          "unknown_messages": 0,
+          "read_errors": 201,
+          "write_errors": 0,
+          "received_bytes": 8033651,
+          "sent_bytes": 12211428,
+          "sent_packets": 238738,
+          "inputs_received": 252963,
+          "inputs_consumed": 251920,
+          "inputs_ignored": 750,
+          "rooms_created": 1212,
+          "rooms_removed": 1119,
+          "battles_started": 1202,
+          "battles_finished": 1119,
+          "settlement_attempts": 1119,
+          "settlement_failures": 0,
+          "settlement_success": 1119,
+          "loop_iterations": 1451,
+          "tick_over_budget": 4
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 19,
+            "sum_us": 4364,
+            "max_us": 262,
+            "p50_us": 228.76156239,
+            "p95_us": 262,
+            "p99_us": 262,
+            "buckets": [
+              [
+                57,
+                14
+              ],
+              [
+                58,
+                2
+              ],
+              [
+                59,
+                3
+              ]
+            ]
+          },
+          "loop_interval_us": {
+            "count": 19,
+            "sum_us": 957608,
+            "max_us": 50439,
+            "p50_us": 50439,
+            "p95_us": 50439,
+            "p99_us": 50439,
+            "buckets": [
+              [
+                114,
+                19
+              ]
+            ]
+          },
+          "room_tick_us": {
+            "count": 1577,
+            "sum_us": 703,
+            "max_us": 32,
+            "p50_us": 1,
+            "p95_us": 1,
+            "p99_us": 1,
+            "buckets": [
+              [
+                0,
+                1574
+              ],
+              [
+                8,
+                2
+              ],
+              [
+                37,
+                1
+              ]
+            ]
+          },
+          "tick_callback_us": {
+            "count": 1577,
+            "sum_us": 2757,
+            "max_us": 42,
+            "p50_us": 2.14358881,
+            "p95_us": 2.14358881,
+            "p99_us": 7.40024994426,
+            "buckets": [
+              [
+                0,
+                557
+              ],
+              [
+                8,
+                999
+              ],
+              [
+                19,
+                3
+              ],
+              [
+                21,
+                16
+              ],
+              [
+                36,
+                1
+              ],
+              [
+                40,
+                1
+              ]
+            ]
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 1451,
+          "mean_us": 7086.949689869056,
+          "max_us": 62512,
+          "p50_us": 1692.892739326842,
+          "p95_us": 24413.19537734809,
+          "p99_us": 39317.695287172886
+        },
+        "loop_interval_us": {
+          "count": 1450,
+          "mean_us": 57234.39103448276,
+          "max_us": 112663,
+          "p50_us": 52331.852427227124,
+          "p95_us": 76619.06513870326,
+          "p99_us": 92709.06881783096
+        },
+        "room_tick_us": {
+          "count": 113501,
+          "mean_us": 1.666831129241152,
+          "max_us": 71,
+          "p50_us": 2.1435888100000016,
+          "p95_us": 3.138428376721003,
+          "p99_us": 4.177248169415656
+        },
+        "tick_callback_us": {
+          "count": 113501,
+          "mean_us": 87.96381529678153,
+          "max_us": 14407,
+          "p50_us": 10.834705943388395,
+          "p95_us": 30.912680532870763,
+          "p99_us": 189.05914247127893
+        },
+        "message_handler_us": {
+          "count": 262371,
+          "mean_us": 7.741507254993882,
+          "max_us": 25471,
+          "p50_us": 4.177248169415656,
+          "p95_us": 9.84973267580763,
+          "p99_us": 66.26407607736665
+        },
+        "login_handler_us": {
+          "count": 200,
+          "mean_us": 2755.645,
+          "max_us": 25471,
+          "p50_us": 2253.2402360440274,
+          "p95_us": 7778.796406007117,
+          "p99_us": 13780.61233982238
+        },
+        "input_queue_wait_us": {
+          "count": 252670,
+          "mean_us": 29359.56538568093,
+          "max_us": 128901,
+          "p50_us": 29539.966406591193,
+          "p95_us": 63321.54143694483,
+          "p99_us": 69653.69558063932
+        },
+        "battle_duration_us": {
+          "count": 1119,
+          "mean_us": 2787657.7354781055,
+          "max_us": 66460252,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 5584800.717460519,
+          "p99_us": 34156133.221553884
+        },
+        "settlement_us": {
+          "count": 1119,
+          "mean_us": 7646.930294906167,
+          "max_us": 14394,
+          "p50_us": 7778.796406007117,
+          "p95_us": 9412.343651268613,
+          "p99_us": 9412.343651268613
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      }
+    },
+    "bot": {
+      "actual_seconds": 59.019339,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 0,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 0,
+        "sent_bytes": 0,
+        "sent_packets": 0,
+        "inputs_received": 0,
+        "inputs_consumed": 0,
+        "inputs_ignored": 0,
+        "rooms_created": 0,
+        "rooms_removed": 0,
+        "battles_started": 0,
+        "battles_finished": 0,
+        "settlement_attempts": 0,
+        "settlement_failures": 0,
+        "settlement_success": 0,
+        "loop_iterations": 0,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 0.0,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 0.0,
+        "sent_bytes": 0.0,
+        "sent_packets": 0.0,
+        "inputs_received": 0.0,
+        "inputs_consumed": 0.0,
+        "inputs_ignored": 0.0,
+        "rooms_created": 0.0,
+        "rooms_removed": 0.0,
+        "battles_started": 0.0,
+        "battles_finished": 0.0,
+        "settlement_attempts": 0.0,
+        "settlement_failures": 0.0,
+        "settlement_success": 0.0,
+        "loop_iterations": 0.0,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "connect_ok_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "connections_live": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "game_over_notifications_total": {
+          "min": 838,
+          "max": 2190,
+          "mean": 1568.5166666666667,
+          "first": 838,
+          "last": 2190,
+          "delta": 1352
+        },
+        "heartbeat_cancelled_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_pending": {
+          "min": 0,
+          "max": 10,
+          "mean": 0.95,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_responses_total": {
+          "min": 601,
+          "max": 3000,
+          "mean": 1861.1833333333334,
+          "first": 601,
+          "last": 3000,
+          "delta": 2399
+        },
+        "heartbeat_sent_total": {
+          "min": 601,
+          "max": 3000,
+          "mean": 1862.1333333333334,
+          "first": 601,
+          "last": 3000,
+          "delta": 2399
+        },
+        "heartbeat_timeouts_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "input_enqueued_total": {
+          "min": 51781,
+          "max": 247320,
+          "mean": 147833.58333333334,
+          "first": 51781,
+          "last": 247320,
+          "delta": 195539
+        },
+        "input_written_total": {
+          "min": 51780,
+          "max": 247320,
+          "mean": 147833.25,
+          "first": 51780,
+          "last": 247320,
+          "delta": 195540
+        },
+        "login_attempts_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "login_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "login_ok_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "match_notifications_total": {
+          "min": 1008,
+          "max": 2372,
+          "mean": 1747.1666666666667,
+          "first": 1008,
+          "last": 2372,
+          "delta": 1364
+        },
+        "packets_written_total": {
+          "min": 54581,
+          "max": 255263,
+          "mean": 153380.15,
+          "first": 54581,
+          "last": 255263,
+          "delta": 200682
+        },
+        "playing_notifications_total": {
+          "min": 986,
+          "max": 2368,
+          "mean": 1733.8,
+          "first": 986,
+          "last": 2368,
+          "delta": 1382
+        },
+        "reconnect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "reconnect_ok_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "simulated_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "state_notifications_total": {
+          "min": 42146,
+          "max": 214948,
+          "mean": 126507.15,
+          "first": 42146,
+          "last": 214948,
+          "delta": 172802
+        },
+        "unexpected_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 2399,
+          "mean_us": 5136.292205085452,
+          "max_us": 45436,
+          "p50_us": 276.8014904921996,
+          "p95_us": 29539.966406591193,
+          "p99_us": 39317.695287172886
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419742089,
+        "elapsed_s": 81.120087,
+        "interval_s": 0.094023,
+        "gauges": {
+          "connect_failed_total": 0,
+          "connect_ok_total": 200,
+          "connections_live": 0,
+          "game_over_notifications_total": 2238,
+          "heartbeat_cancelled_total": 0,
+          "heartbeat_pending": 0,
+          "heartbeat_responses_total": 3200,
+          "heartbeat_sent_total": 3200,
+          "heartbeat_timeouts_total": 0,
+          "input_enqueued_total": 254137,
+          "input_written_total": 254136,
+          "login_attempts_total": 200,
+          "login_failed_total": 0,
+          "login_ok_total": 200,
+          "match_notifications_total": 2424,
+          "packets_written_total": 262371,
+          "playing_notifications_total": 2404,
+          "reconnect_failed_total": 0,
+          "reconnect_ok_total": 0,
+          "simulated_disconnects_total": 0,
+          "state_notifications_total": 220931,
+          "unexpected_disconnects_total": 0
+        },
+        "counters": {
+          "connections_accepted": 0,
+          "connections_removed": 0,
+          "messages_received": 0,
+          "unknown_messages": 0,
+          "read_errors": 0,
+          "write_errors": 0,
+          "received_bytes": 0,
+          "sent_bytes": 0,
+          "sent_packets": 0,
+          "inputs_received": 0,
+          "inputs_consumed": 0,
+          "inputs_ignored": 0,
+          "rooms_created": 0,
+          "rooms_removed": 0,
+          "battles_started": 0,
+          "battles_finished": 0,
+          "settlement_attempts": 0,
+          "settlement_failures": 0,
+          "settlement_success": 0,
+          "loop_iterations": 0,
+          "tick_over_budget": 0
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "loop_interval_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "room_tick_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "tick_callback_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 200,
+          "mean_us": 36643.12,
+          "max_us": 90435,
+          "p50_us": 35743.35935197535,
+          "p95_us": 84280.9716525736,
+          "p99_us": 90435
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 3200,
+          "mean_us": 5172.008125,
+          "max_us": 45436,
+          "p50_us": 276.8014904921996,
+          "p95_us": 29539.966406591193,
+          "p99_us": 39317.695287172886
+        }
+      }
+    },
+    "resources": {
+      "server": {
+        "cpu_percent": {
+          "mean": 36.98426158504107,
+          "max": 39.5326903121551
+        },
+        "rss_kib": {
+          "mean": 20572.6,
+          "max": 20584
+        },
+        "threads": {
+          "mean": 8.0,
+          "max": 8
+        },
+        "fds": {
+          "mean": 210.0,
+          "max": 210
+        }
+      },
+      "bot": {
+        "cpu_percent": {
+          "mean": 53.66528134146743,
+          "max": 58.31781873321411
+        },
+        "rss_kib": {
+          "mean": 16188.0,
+          "max": 16188
+        },
+        "threads": {
+          "mean": 202.0,
+          "max": 202
+        },
+        "fds": {
+          "mean": 804.0,
+          "max": 804
+        }
+      },
+      "mysql": {
+        "cpu_percent": {
+          "mean": 11.264035060801556,
+          "max": 17.784734820883436
+        },
+        "rss_kib": {
+          "mean": 512765.3333333333,
+          "max": 513136
+        },
+        "threads": {
+          "mean": 55.0,
+          "max": 55
+        },
+        "fds": {
+          "mean": 54.0,
+          "max": 54
+        }
+      },
+      "redis": {
+        "cpu_percent": {
+          "mean": 0.543546299196758,
+          "max": 1.9763632863340441
+        },
+        "rss_kib": {
+          "mean": 14358.2,
+          "max": 14360
+        },
+        "threads": {
+          "mean": 6.0,
+          "max": 6
+        },
+        "fds": {
+          "mean": 9.0,
+          "max": 9
+        }
+      }
+    }
+  },
+  {
+    "bots": 200,
+    "run": "05-200-bots",
+    "server": {
+      "actual_seconds": 59.02568099999999,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 200644,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 6179117,
+        "sent_bytes": 9484362,
+        "sent_packets": 183140,
+        "inputs_received": 195082,
+        "inputs_consumed": 194506,
+        "inputs_ignored": 424,
+        "rooms_created": 676,
+        "rooms_removed": 668,
+        "battles_started": 678,
+        "battles_finished": 668,
+        "settlement_attempts": 668,
+        "settlement_failures": 0,
+        "settlement_success": 668,
+        "loop_iterations": 1044,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 3399.2661600973315,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 104685.23014584111,
+        "sent_bytes": 160681.9580785523,
+        "sent_packets": 3102.717273181482,
+        "inputs_received": 3305.03598933488,
+        "inputs_consumed": 3295.2775250488007,
+        "inputs_ignored": 7.183313988363811,
+        "rooms_created": 11.452642113523435,
+        "rooms_removed": 11.317107887327891,
+        "battles_started": 11.486525670072322,
+        "battles_finished": 11.317107887327891,
+        "settlement_attempts": 11.317107887327891,
+        "settlement_failures": 0.0,
+        "settlement_success": 11.317107887327891,
+        "loop_iterations": 17.687216518518444,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connections": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "logged_in_players": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "match_queue": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.5333333333333333,
+          "first": 1,
+          "last": 1,
+          "delta": 0
+        },
+        "rooms": {
+          "min": 80,
+          "max": 95,
+          "mean": 89.33333333333333,
+          "first": 86,
+          "last": 94,
+          "delta": 8
+        },
+        "rooms_closed": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_playing": {
+          "min": 71,
+          "max": 91,
+          "mean": 82.36666666666666,
+          "first": 78,
+          "last": 88,
+          "delta": 10
+        },
+        "rooms_settlement": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.1,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_waiting": {
+          "min": 2,
+          "max": 15,
+          "mean": 6.866666666666666,
+          "first": 8,
+          "last": 6,
+          "delta": -2
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 1044,
+          "mean_us": 6411.522988505747,
+          "max_us": 30963,
+          "p50_us": 1692.892739326842,
+          "p95_us": 18341.995024303593,
+          "p99_us": 26854.514915082902
+        },
+        "loop_interval_us": {
+          "count": 1044,
+          "mean_us": 56555.80938697318,
+          "max_us": 81123,
+          "p50_us": 52331.852427227124,
+          "p95_us": 69653.69558063932,
+          "p99_us": 76619.06513870326
+        },
+        "room_tick_us": {
+          "count": 86417,
+          "mean_us": 1.7263385676429406,
+          "max_us": 58,
+          "p50_us": 2.1435888100000016,
+          "p95_us": 3.138428376721003,
+          "p99_us": 4.177248169415656
+        },
+        "tick_callback_us": {
+          "count": 86417,
+          "mean_us": 74.68619600310124,
+          "max_us": 11032,
+          "p50_us": 11.918176537727234,
+          "p95_us": 30.912680532870763,
+          "p99_us": 142.04293198443193
+        },
+        "message_handler_us": {
+          "count": 200644,
+          "mean_us": 5.370666454018062,
+          "max_us": 267,
+          "p50_us": 4.177248169415656,
+          "p95_us": 9.84973267580763,
+          "p99_us": 25.54766986187666
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 194930,
+          "mean_us": 28803.77903862925,
+          "max_us": 87763,
+          "p50_us": 29539.966406591193,
+          "p95_us": 57565.037669949845,
+          "p99_us": 69653.69558063932
+        },
+        "battle_duration_us": {
+          "count": 668,
+          "mean_us": 3456674.610778443,
+          "max_us": 70103003,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 11971516.324028347,
+          "p99_us": 45461813.31788823
+        },
+        "settlement_us": {
+          "count": 668,
+          "mean_us": 7954.709580838324,
+          "max_us": 11016,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 9412.343651268613
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419827460,
+        "elapsed_s": 83.036062,
+        "interval_s": 1.000465,
+        "gauges": {
+          "connections": 0,
+          "logged_in_players": 0,
+          "match_queue": 0,
+          "rooms": 92,
+          "rooms_closed": 0,
+          "rooms_playing": 88,
+          "rooms_settlement": 0,
+          "rooms_waiting": 4
+        },
+        "counters": {
+          "connections_accepted": 201,
+          "connections_removed": 201,
+          "messages_received": 264455,
+          "unknown_messages": 0,
+          "read_errors": 201,
+          "write_errors": 0,
+          "received_bytes": 8101297,
+          "sent_bytes": 12321348,
+          "sent_packets": 240492,
+          "inputs_received": 255324,
+          "inputs_consumed": 254314,
+          "inputs_ignored": 711,
+          "rooms_created": 1167,
+          "rooms_removed": 1075,
+          "battles_started": 1163,
+          "battles_finished": 1075,
+          "settlement_attempts": 1075,
+          "settlement_failures": 0,
+          "settlement_success": 1075,
+          "loop_iterations": 1454,
+          "tick_over_budget": 1
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 19,
+            "sum_us": 4563,
+            "max_us": 313,
+            "p50_us": 251.637718629,
+            "p95_us": 313,
+            "p99_us": 313,
+            "buckets": [
+              [
+                53,
+                1
+              ],
+              [
+                58,
+                14
+              ],
+              [
+                59,
+                3
+              ],
+              [
+                61,
+                1
+              ]
+            ]
+          },
+          "loop_interval_us": {
+            "count": 19,
+            "sum_us": 957790,
+            "max_us": 50463,
+            "p50_us": 50463,
+            "p95_us": 50463,
+            "p99_us": 50463,
+            "buckets": [
+              [
+                114,
+                19
+              ]
+            ]
+          },
+          "room_tick_us": {
+            "count": 1672,
+            "sum_us": 677,
+            "max_us": 31,
+            "p50_us": 1,
+            "p95_us": 1,
+            "p99_us": 1,
+            "buckets": [
+              [
+                0,
+                1671
+              ],
+              [
+                37,
+                1
+              ]
+            ]
+          },
+          "tick_callback_us": {
+            "count": 1672,
+            "sum_us": 2960,
+            "max_us": 43,
+            "p50_us": 2.14358881,
+            "p95_us": 2.14358881,
+            "p99_us": 7.40024994426,
+            "buckets": [
+              [
+                0,
+                597
+              ],
+              [
+                8,
+                1034
+              ],
+              [
+                12,
+                18
+              ],
+              [
+                15,
+                2
+              ],
+              [
+                19,
+                4
+              ],
+              [
+                21,
+                14
+              ],
+              [
+                37,
+                1
+              ],
+              [
+                38,
+                1
+              ],
+              [
+                40,
+                1
+              ]
+            ]
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 1454,
+          "mean_us": 6973.466299862448,
+          "max_us": 50780,
+          "p50_us": 1692.892739326842,
+          "p95_us": 24413.19537734809,
+          "p99_us": 32493.963047250316
+        },
+        "loop_interval_us": {
+          "count": 1453,
+          "mean_us": 57118.14728148658,
+          "max_us": 100967,
+          "p50_us": 52331.852427227124,
+          "p95_us": 76619.06513870326,
+          "p99_us": 84280.9716525736
+        },
+        "room_tick_us": {
+          "count": 114815,
+          "mean_us": 1.694944040412838,
+          "max_us": 58,
+          "p50_us": 2.1435888100000016,
+          "p95_us": 3.138428376721003,
+          "p99_us": 4.177248169415656
+        },
+        "tick_callback_us": {
+          "count": 114815,
+          "mean_us": 85.6110351434917,
+          "max_us": 14496,
+          "p50_us": 11.918176537727234,
+          "p95_us": 30.912680532870763,
+          "p99_us": 156.24722518287513
+        },
+        "message_handler_us": {
+          "count": 264455,
+          "mean_us": 7.6638785426632134,
+          "max_us": 17789,
+          "p50_us": 4.177248169415656,
+          "p95_us": 9.84973267580763,
+          "p99_us": 66.26407607736665
+        },
+        "login_handler_us": {
+          "count": 200,
+          "mean_us": 2693.525,
+          "max_us": 17788,
+          "p50_us": 2048.4002145854793,
+          "p95_us": 6428.75736033646,
+          "p99_us": 11388.935818035025
+        },
+        "input_queue_wait_us": {
+          "count": 255025,
+          "mean_us": 29230.57091265562,
+          "max_us": 107428,
+          "p50_us": 29539.966406591193,
+          "p95_us": 57565.037669949845,
+          "p99_us": 69653.69558063932
+        },
+        "battle_duration_us": {
+          "count": 1075,
+          "mean_us": 2908899.522790698,
+          "max_us": 70103003,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 7433369.754939952,
+          "p99_us": 34156133.221553884
+        },
+        "settlement_us": {
+          "count": 1075,
+          "mean_us": 7771.537674418605,
+          "max_us": 14477,
+          "p50_us": 8556.67604660783,
+          "p95_us": 9412.343651268613,
+          "p99_us": 10353.578016395475
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      }
+    },
+    "bot": {
+      "actual_seconds": 59.019314,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 0,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 0,
+        "sent_bytes": 0,
+        "sent_packets": 0,
+        "inputs_received": 0,
+        "inputs_consumed": 0,
+        "inputs_ignored": 0,
+        "rooms_created": 0,
+        "rooms_removed": 0,
+        "battles_started": 0,
+        "battles_finished": 0,
+        "settlement_attempts": 0,
+        "settlement_failures": 0,
+        "settlement_success": 0,
+        "loop_iterations": 0,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 0.0,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 0.0,
+        "sent_bytes": 0.0,
+        "sent_packets": 0.0,
+        "inputs_received": 0.0,
+        "inputs_consumed": 0.0,
+        "inputs_ignored": 0.0,
+        "rooms_created": 0.0,
+        "rooms_removed": 0.0,
+        "battles_started": 0.0,
+        "battles_finished": 0.0,
+        "settlement_attempts": 0.0,
+        "settlement_failures": 0.0,
+        "settlement_success": 0.0,
+        "loop_iterations": 0.0,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "connect_ok_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "connections_live": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "game_over_notifications_total": {
+          "min": 768,
+          "max": 2120,
+          "mean": 1510.8166666666666,
+          "first": 768,
+          "last": 2120,
+          "delta": 1352
+        },
+        "heartbeat_cancelled_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_pending": {
+          "min": 0,
+          "max": 8,
+          "mean": 0.5833333333333334,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_responses_total": {
+          "min": 600,
+          "max": 3000,
+          "mean": 1861.7666666666667,
+          "first": 600,
+          "last": 3000,
+          "delta": 2400
+        },
+        "heartbeat_sent_total": {
+          "min": 600,
+          "max": 3000,
+          "mean": 1862.3333333333333,
+          "first": 600,
+          "last": 3000,
+          "delta": 2400
+        },
+        "heartbeat_timeouts_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "input_enqueued_total": {
+          "min": 53687,
+          "max": 249008,
+          "mean": 149436.71666666667,
+          "first": 53687,
+          "last": 249008,
+          "delta": 195321
+        },
+        "input_written_total": {
+          "min": 53687,
+          "max": 249008,
+          "mean": 149436.5,
+          "first": 53687,
+          "last": 249008,
+          "delta": 195321
+        },
+        "login_attempts_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "login_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "login_ok_total": {
+          "min": 200,
+          "max": 200,
+          "mean": 200.0,
+          "first": 200,
+          "last": 200,
+          "delta": 0
+        },
+        "match_notifications_total": {
+          "min": 940,
+          "max": 2304,
+          "mean": 1689.5,
+          "first": 940,
+          "last": 2304,
+          "delta": 1364
+        },
+        "packets_written_total": {
+          "min": 56345,
+          "max": 256812,
+          "mean": 154867.16666666666,
+          "first": 56345,
+          "last": 256812,
+          "delta": 200467
+        },
+        "playing_notifications_total": {
+          "min": 910,
+          "max": 2296,
+          "mean": 1675.2333333333333,
+          "first": 910,
+          "last": 2296,
+          "delta": 1386
+        },
+        "reconnect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "reconnect_ok_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "simulated_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "state_notifications_total": {
+          "min": 44276,
+          "max": 216538,
+          "mean": 127850.7,
+          "first": 44276,
+          "last": 216538,
+          "delta": 172262
+        },
+        "unexpected_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 2400,
+          "mean_us": 4810.700416666667,
+          "max_us": 49582,
+          "p50_us": 251.63771862927234,
+          "p95_us": 29539.966406591193,
+          "p99_us": 39317.695287172886
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419825629,
+        "elapsed_s": 81.123609,
+        "interval_s": 0.097491,
+        "gauges": {
+          "connect_failed_total": 0,
+          "connect_ok_total": 200,
+          "connections_live": 0,
+          "game_over_notifications_total": 2150,
+          "heartbeat_cancelled_total": 0,
+          "heartbeat_pending": 0,
+          "heartbeat_responses_total": 3200,
+          "heartbeat_sent_total": 3200,
+          "heartbeat_timeouts_total": 0,
+          "input_enqueued_total": 256394,
+          "input_written_total": 256394,
+          "login_attempts_total": 200,
+          "login_failed_total": 0,
+          "login_ok_total": 200,
+          "match_notifications_total": 2334,
+          "packets_written_total": 264455,
+          "playing_notifications_total": 2326,
+          "reconnect_failed_total": 0,
+          "reconnect_ok_total": 0,
+          "simulated_disconnects_total": 0,
+          "state_notifications_total": 223258,
+          "unexpected_disconnects_total": 0
+        },
+        "counters": {
+          "connections_accepted": 0,
+          "connections_removed": 0,
+          "messages_received": 0,
+          "unknown_messages": 0,
+          "read_errors": 0,
+          "write_errors": 0,
+          "received_bytes": 0,
+          "sent_bytes": 0,
+          "sent_packets": 0,
+          "inputs_received": 0,
+          "inputs_consumed": 0,
+          "inputs_ignored": 0,
+          "rooms_created": 0,
+          "rooms_removed": 0,
+          "battles_started": 0,
+          "battles_finished": 0,
+          "settlement_attempts": 0,
+          "settlement_failures": 0,
+          "settlement_success": 0,
+          "loop_iterations": 0,
+          "tick_over_budget": 0
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "loop_interval_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "room_tick_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "tick_callback_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 200,
+          "mean_us": 31481.85,
+          "max_us": 77818,
+          "p50_us": 29539.966406591193,
+          "p95_us": 76619.06513870326,
+          "p99_us": 77818
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 3200,
+          "mean_us": 4937.7984375,
+          "max_us": 49582,
+          "p50_us": 251.63771862927234,
+          "p95_us": 29539.966406591193,
+          "p99_us": 39317.695287172886
+        }
+      }
+    },
+    "resources": {
+      "server": {
+        "cpu_percent": {
+          "mean": 37.33160824198629,
+          "max": 41.49969994446314
+        },
+        "rss_kib": {
+          "mean": 20535.066666666666,
+          "max": 20552
+        },
+        "threads": {
+          "mean": 8.0,
+          "max": 8
+        },
+        "fds": {
+          "mean": 210.0,
+          "max": 210
+        }
+      },
+      "bot": {
+        "cpu_percent": {
+          "mean": 53.205486060976895,
+          "max": 59.28888174973024
+        },
+        "rss_kib": {
+          "mean": 16228.0,
+          "max": 16228
+        },
+        "threads": {
+          "mean": 202.0,
+          "max": 202
+        },
+        "fds": {
+          "mean": 804.0,
+          "max": 804
+        }
+      },
+      "mysql": {
+        "cpu_percent": {
+          "mean": 11.264338885604856,
+          "max": 17.79081541615207
+        },
+        "rss_kib": {
+          "mean": 514850.2,
+          "max": 515228
+        },
+        "threads": {
+          "mean": 55.0,
+          "max": 55
+        },
+        "fds": {
+          "mean": 58.0,
+          "max": 58
+        }
+      },
+      "redis": {
+        "cpu_percent": {
+          "mean": 0.5435303969553933,
+          "max": 1.9767572684613415
+        },
+        "rss_kib": {
+          "mean": 14357.066666666668,
+          "max": 14360
+        },
+        "threads": {
+          "mean": 6.0,
+          "max": 6
+        },
+        "fds": {
+          "mean": 9.0,
+          "max": 9
+        }
+      }
+    }
+  },
+  {
+    "bots": 500,
+    "run": "06-500-bots",
+    "server": {
+      "actual_seconds": 59.028850999999996,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 504146,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 15530675,
+        "sent_bytes": 20117004,
+        "sent_packets": 390872,
+        "inputs_received": 490234,
+        "inputs_consumed": 488682,
+        "inputs_ignored": 1258,
+        "rooms_created": 1675,
+        "rooms_removed": 1658,
+        "battles_started": 1683,
+        "battles_finished": 1658,
+        "settlement_attempts": 1658,
+        "settlement_failures": 0,
+        "settlement_success": 1658,
+        "loop_iterations": 877,
+        "tick_over_budget": 8
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 8540.671069474147,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 263103.1222342444,
+        "sent_bytes": 340799.51852696575,
+        "sent_packets": 6621.711135796969,
+        "inputs_received": 8304.989707490664,
+        "inputs_consumed": 8278.69747964432,
+        "inputs_ignored": 21.311612519782912,
+        "rooms_created": 28.37595466664259,
+        "rooms_removed": 28.08795990286174,
+        "battles_started": 28.511481614304166,
+        "battles_finished": 28.08795990286174,
+        "settlement_attempts": 28.08795990286174,
+        "settlement_failures": 0.0,
+        "settlement_success": 28.08795990286174,
+        "loop_iterations": 14.857141637400328,
+        "tick_over_budget": 0.13552694766157655
+      },
+      "gauges": {
+        "connections": {
+          "min": 500,
+          "max": 500,
+          "mean": 500.0,
+          "first": 500,
+          "last": 500,
+          "delta": 0
+        },
+        "logged_in_players": {
+          "min": 500,
+          "max": 500,
+          "mean": 500.0,
+          "first": 500,
+          "last": 500,
+          "delta": 0
+        },
+        "match_queue": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.6,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms": {
+          "min": 205,
+          "max": 238,
+          "mean": 223.75,
+          "first": 213,
+          "last": 230,
+          "delta": 17
+        },
+        "rooms_closed": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_playing": {
+          "min": 184,
+          "max": 229,
+          "mean": 206.75,
+          "first": 192,
+          "last": 217,
+          "delta": 25
+        },
+        "rooms_settlement": {
+          "min": 0,
+          "max": 1,
+          "mean": 0.16666666666666666,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "rooms_waiting": {
+          "min": 6,
+          "max": 26,
+          "mean": 16.833333333333332,
+          "first": 21,
+          "last": 13,
+          "delta": -8
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 877,
+          "mean_us": 17181.610034207526,
+          "max_us": 98683,
+          "p50_us": 13780.61233982238,
+          "p95_us": 39317.695287172886,
+          "p99_us": 52331.852427227124
+        },
+        "loop_interval_us": {
+          "count": 877,
+          "mean_us": 67330.65564424173,
+          "max_us": 148846,
+          "p50_us": 63321.54143694483,
+          "p95_us": 92709.06881783096,
+          "p99_us": 101979.97569961406
+        },
+        "room_tick_us": {
+          "count": 182632,
+          "mean_us": 1.9201509045512286,
+          "max_us": 84,
+          "p50_us": 2.1435888100000016,
+          "p95_us": 3.138428376721003,
+          "p99_us": 4.177248169415656
+        },
+        "tick_callback_us": {
+          "count": 182632,
+          "mean_us": 79.69597879889614,
+          "max_us": 30385,
+          "p50_us": 11.918176537727234,
+          "p95_us": 23.22515441988787,
+          "p99_us": 129.1299381676654
+        },
+        "message_handler_us": {
+          "count": 504141,
+          "mean_us": 4.4359613679506325,
+          "max_us": 240,
+          "p50_us": 3.138428376721003,
+          "p95_us": 8.14027493868399,
+          "p99_us": 23.22515441988787
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 489940,
+          "mean_us": 34938.50759276646,
+          "max_us": 161209,
+          "p50_us": 35743.35935197535,
+          "p95_us": 76619.06513870326,
+          "p99_us": 92709.06881783096
+        },
+        "battle_duration_us": {
+          "count": 1658,
+          "mean_us": 3281985.0307599516,
+          "max_us": 69300388,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 10883196.658207586,
+          "p99_us": 37571746.54370927
+        },
+        "settlement_us": {
+          "count": 1658,
+          "mean_us": 7435.582629674306,
+          "max_us": 30335,
+          "p50_us": 7778.796406007117,
+          "p95_us": 9412.343651268613,
+          "p99_us": 10353.578016395475
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419909980,
+        "elapsed_s": 82.039915,
+        "interval_s": 1.000495,
+        "gauges": {
+          "connections": 0,
+          "logged_in_players": 0,
+          "match_queue": 1,
+          "rooms": 231,
+          "rooms_closed": 0,
+          "rooms_playing": 218,
+          "rooms_settlement": 0,
+          "rooms_waiting": 13
+        },
+        "counters": {
+          "connections_accepted": 501,
+          "connections_removed": 501,
+          "messages_received": 653774,
+          "unknown_messages": 0,
+          "read_errors": 501,
+          "write_errors": 1,
+          "received_bytes": 20026686,
+          "sent_bytes": 24968232,
+          "sent_packets": 492048,
+          "inputs_received": 631280,
+          "inputs_consumed": 628002,
+          "inputs_ignored": 2593,
+          "rooms_created": 2891,
+          "rooms_removed": 2660,
+          "battles_started": 2878,
+          "battles_finished": 2660,
+          "settlement_attempts": 2660,
+          "settlement_failures": 0,
+          "settlement_success": 2660,
+          "loop_iterations": 1173,
+          "tick_over_budget": 48
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 20,
+            "sum_us": 11738,
+            "max_us": 606,
+            "p50_us": 606,
+            "p95_us": 606,
+            "p99_us": 606,
+            "buckets": [
+              [
+                67,
+                9
+              ],
+              [
+                68,
+                11
+              ]
+            ]
+          },
+          "loop_interval_us": {
+            "count": 20,
+            "sum_us": 1015129,
+            "max_us": 50800,
+            "p50_us": 50800,
+            "p95_us": 50800,
+            "p99_us": 50800,
+            "buckets": [
+              [
+                114,
+                20
+              ]
+            ]
+          },
+          "room_tick_us": {
+            "count": 4360,
+            "sum_us": 1893,
+            "max_us": 34,
+            "p50_us": 1,
+            "p95_us": 1,
+            "p99_us": 1,
+            "buckets": [
+              [
+                0,
+                4359
+              ],
+              [
+                37,
+                1
+              ]
+            ]
+          },
+          "tick_callback_us": {
+            "count": 4360,
+            "sum_us": 7572,
+            "max_us": 36,
+            "p50_us": 2.14358881,
+            "p95_us": 2.14358881,
+            "p99_us": 2.14358881,
+            "buckets": [
+              [
+                0,
+                1467
+              ],
+              [
+                8,
+                2863
+              ],
+              [
+                12,
+                2
+              ],
+              [
+                19,
+                5
+              ],
+              [
+                21,
+                15
+              ],
+              [
+                34,
+                2
+              ],
+              [
+                35,
+                1
+              ],
+              [
+                36,
+                1
+              ],
+              [
+                37,
+                3
+              ],
+              [
+                38,
+                1
+              ]
+            ]
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 1173,
+          "mean_us": 19835.936913895992,
+          "max_us": 305720,
+          "p50_us": 18341.995024303593,
+          "p95_us": 52331.852427227124,
+          "p99_us": 92709.06881783096
+        },
+        "loop_interval_us": {
+          "count": 1172,
+          "mean_us": 69993.82337883959,
+          "max_us": 355909,
+          "p50_us": 69653.69558063932,
+          "p95_us": 101979.97569961406,
+          "p99_us": 135735.34765618635
+        },
+        "room_tick_us": {
+          "count": 232411,
+          "mean_us": 1.941637874283059,
+          "max_us": 84,
+          "p50_us": 2.1435888100000016,
+          "p95_us": 3.138428376721003,
+          "p99_us": 4.177248169415656
+        },
+        "tick_callback_us": {
+          "count": 232411,
+          "mean_us": 97.28989161442445,
+          "max_us": 30385,
+          "p50_us": 10.834705943388395,
+          "p95_us": 25.54766986187666,
+          "p99_us": 6428.75736033646
+        },
+        "message_handler_us": {
+          "count": 653774,
+          "mean_us": 7.40666193516414,
+          "max_us": 88395,
+          "p50_us": 3.138428376721003,
+          "p95_us": 9.84973267580763,
+          "p99_us": 54.763699237493086
+        },
+        "login_handler_us": {
+          "count": 500,
+          "mean_us": 3663.866,
+          "max_us": 88393,
+          "p50_us": 2478.56425964843,
+          "p95_us": 8556.67604660783,
+          "p99_us": 24413.19537734809
+        },
+        "input_queue_wait_us": {
+          "count": 630595,
+          "mean_us": 38196.33068609805,
+          "max_us": 466901,
+          "p50_us": 35743.35935197535,
+          "p95_us": 84280.9716525736,
+          "p99_us": 135735.34765618635
+        },
+        "battle_duration_us": {
+          "count": 2660,
+          "mean_us": 2848381.972556391,
+          "max_us": 69300388,
+          "p50_us": 1779489.6193538306,
+          "p95_us": 7433369.754939952,
+          "p99_us": 31051030.20141262
+        },
+        "settlement_us": {
+          "count": 2660,
+          "mean_us": 7451.924436090226,
+          "max_us": 30335,
+          "p50_us": 7778.796406007117,
+          "p95_us": 9412.343651268613,
+          "p99_us": 10353.578016395475
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        }
+      }
+    },
+    "bot": {
+      "actual_seconds": 59.018811,
+      "samples": 60,
+      "counters_delta": {
+        "connections_accepted": 0,
+        "connections_removed": 0,
+        "messages_received": 0,
+        "unknown_messages": 0,
+        "read_errors": 0,
+        "write_errors": 0,
+        "received_bytes": 0,
+        "sent_bytes": 0,
+        "sent_packets": 0,
+        "inputs_received": 0,
+        "inputs_consumed": 0,
+        "inputs_ignored": 0,
+        "rooms_created": 0,
+        "rooms_removed": 0,
+        "battles_started": 0,
+        "battles_finished": 0,
+        "settlement_attempts": 0,
+        "settlement_failures": 0,
+        "settlement_success": 0,
+        "loop_iterations": 0,
+        "tick_over_budget": 0
+      },
+      "rates_per_second": {
+        "connections_accepted": 0.0,
+        "connections_removed": 0.0,
+        "messages_received": 0.0,
+        "unknown_messages": 0.0,
+        "read_errors": 0.0,
+        "write_errors": 0.0,
+        "received_bytes": 0.0,
+        "sent_bytes": 0.0,
+        "sent_packets": 0.0,
+        "inputs_received": 0.0,
+        "inputs_consumed": 0.0,
+        "inputs_ignored": 0.0,
+        "rooms_created": 0.0,
+        "rooms_removed": 0.0,
+        "battles_started": 0.0,
+        "battles_finished": 0.0,
+        "settlement_attempts": 0.0,
+        "settlement_failures": 0.0,
+        "settlement_success": 0.0,
+        "loop_iterations": 0.0,
+        "tick_over_budget": 0.0
+      },
+      "gauges": {
+        "connect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "connect_ok_total": {
+          "min": 500,
+          "max": 500,
+          "mean": 500.0,
+          "first": 500,
+          "last": 500,
+          "delta": 0
+        },
+        "connections_live": {
+          "min": 500,
+          "max": 500,
+          "mean": 500.0,
+          "first": 500,
+          "last": 500,
+          "delta": 0
+        },
+        "game_over_notifications_total": {
+          "min": 1928,
+          "max": 5268,
+          "mean": 3792.7,
+          "first": 1928,
+          "last": 5268,
+          "delta": 3340
+        },
+        "heartbeat_cancelled_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_pending": {
+          "min": 0,
+          "max": 6,
+          "mean": 0.3,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "heartbeat_responses_total": {
+          "min": 1501,
+          "max": 7500,
+          "mean": 4651.15,
+          "first": 1501,
+          "last": 7500,
+          "delta": 5999
+        },
+        "heartbeat_sent_total": {
+          "min": 1501,
+          "max": 7500,
+          "mean": 4651.45,
+          "first": 1501,
+          "last": 7500,
+          "delta": 5999
+        },
+        "heartbeat_timeouts_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "input_enqueued_total": {
+          "min": 133203,
+          "max": 623942,
+          "mean": 373076.11666666664,
+          "first": 133203,
+          "last": 623942,
+          "delta": 490739
+        },
+        "input_written_total": {
+          "min": 133202,
+          "max": 623942,
+          "mean": 373075.68333333335,
+          "first": 133202,
+          "last": 623942,
+          "delta": 490740
+        },
+        "login_attempts_total": {
+          "min": 500,
+          "max": 500,
+          "mean": 500.0,
+          "first": 500,
+          "last": 500,
+          "delta": 0
+        },
+        "login_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "login_ok_total": {
+          "min": 500,
+          "max": 500,
+          "mean": 500.0,
+          "first": 500,
+          "last": 500,
+          "delta": 0
+        },
+        "match_notifications_total": {
+          "min": 2352,
+          "max": 5738,
+          "mean": 4240.733333333334,
+          "first": 2352,
+          "last": 5738,
+          "delta": 3386
+        },
+        "packets_written_total": {
+          "min": 139869,
+          "max": 643398,
+          "mean": 386682.76666666666,
+          "first": 139869,
+          "last": 643398,
+          "delta": 503529
+        },
+        "playing_notifications_total": {
+          "min": 2298,
+          "max": 5716,
+          "mean": 4206.5,
+          "first": 2298,
+          "last": 5716,
+          "delta": 3418
+        },
+        "reconnect_failed_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "reconnect_ok_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "simulated_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        },
+        "state_notifications_total": {
+          "min": 77712,
+          "max": 441602,
+          "mean": 250735.1,
+          "first": 77712,
+          "last": 441602,
+          "delta": 363890
+        },
+        "unexpected_disconnects_total": {
+          "min": 0,
+          "max": 0,
+          "mean": 0.0,
+          "first": 0,
+          "last": 0,
+          "delta": 0
+        }
+      },
+      "histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 5999,
+          "mean_us": 6522.509418236373,
+          "max_us": 48763,
+          "p50_us": 228.76156239024755,
+          "p95_us": 35743.35935197535,
+          "p99_us": 43249.464815890184
+        }
+      },
+      "last_export": {
+        "schema": 1,
+        "unix_ms": 1790419908250,
+        "elapsed_s": 80.223589,
+        "interval_s": 0.197921,
+        "gauges": {
+          "connect_failed_total": 0,
+          "connect_ok_total": 500,
+          "connections_live": 0,
+          "game_over_notifications_total": 5318,
+          "heartbeat_cancelled_total": 27,
+          "heartbeat_pending": 0,
+          "heartbeat_responses_total": 7655,
+          "heartbeat_sent_total": 7682,
+          "heartbeat_timeouts_total": 0,
+          "input_enqueued_total": 634048,
+          "input_written_total": 634048,
+          "login_attempts_total": 500,
+          "login_failed_total": 0,
+          "login_ok_total": 500,
+          "match_notifications_total": 5782,
+          "packets_written_total": 653774,
+          "playing_notifications_total": 5756,
+          "reconnect_failed_total": 0,
+          "reconnect_ok_total": 0,
+          "simulated_disconnects_total": 0,
+          "state_notifications_total": 449415,
+          "unexpected_disconnects_total": 0
+        },
+        "counters": {
+          "connections_accepted": 0,
+          "connections_removed": 0,
+          "messages_received": 0,
+          "unknown_messages": 0,
+          "read_errors": 0,
+          "write_errors": 0,
+          "received_bytes": 0,
+          "sent_bytes": 0,
+          "sent_packets": 0,
+          "inputs_received": 0,
+          "inputs_consumed": 0,
+          "inputs_ignored": 0,
+          "rooms_created": 0,
+          "rooms_removed": 0,
+          "battles_started": 0,
+          "battles_finished": 0,
+          "settlement_attempts": 0,
+          "settlement_failures": 0,
+          "settlement_success": 0,
+          "loop_iterations": 0,
+          "tick_over_budget": 0
+        },
+        "histograms": {
+          "loop_work_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "loop_interval_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "room_tick_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "tick_callback_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "message_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "login_handler_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "input_queue_wait_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "battle_duration_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "settlement_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_login_rtt_us": {
+            "count": 0,
+            "sum_us": 0,
+            "max_us": 0,
+            "p50_us": 0,
+            "p95_us": 0,
+            "p99_us": 0,
+            "buckets": []
+          },
+          "bot_heartbeat_rtt_us": {
+            "count": 142,
+            "sum_us": 596683,
+            "max_us": 33750,
+            "p50_us": 276.801490492,
+            "p95_us": 26854.5149151,
+            "p99_us": 33750,
+            "buckets": [
+              [
+                50,
+                1
+              ],
+              [
+                51,
+                1
+              ],
+              [
+                52,
+                7
+              ],
+              [
+                53,
+                9
+              ],
+              [
+                54,
+                4
+              ],
+              [
+                55,
+                11
+              ],
+              [
+                56,
+                10
+              ],
+              [
+                57,
+                13
+              ],
+              [
+                58,
+                10
+              ],
+              [
+                59,
+                5
+              ],
+              [
+                60,
+                7
+              ],
+              [
+                61,
+                8
+              ],
+              [
+                62,
+                5
+              ],
+              [
+                63,
+                1
+              ],
+              [
+                66,
+                1
+              ],
+              [
+                67,
+                2
+              ],
+              [
+                74,
+                1
+              ],
+              [
+                76,
+                1
+              ],
+              [
+                77,
+                2
+              ],
+              [
+                79,
+                4
+              ],
+              [
+                81,
+                2
+              ],
+              [
+                83,
+                1
+              ],
+              [
+                87,
+                1
+              ],
+              [
+                89,
+                2
+              ],
+              [
+                90,
+                1
+              ],
+              [
+                91,
+                3
+              ],
+              [
+                92,
+                1
+              ],
+              [
+                93,
+                1
+              ],
+              [
+                95,
+                1
+              ],
+              [
+                97,
+                1
+              ],
+              [
+                98,
+                3
+              ],
+              [
+                99,
+                3
+              ],
+              [
+                100,
+                4
+              ],
+              [
+                101,
+                3
+              ],
+              [
+                104,
+                1
+              ],
+              [
+                105,
+                1
+              ],
+              [
+                106,
+                1
+              ],
+              [
+                107,
+                2
+              ],
+              [
+                108,
+                4
+              ],
+              [
+                109,
+                1
+              ],
+              [
+                110,
+                2
+              ]
+            ]
+          }
+        }
+      },
+      "all_run_histograms": {
+        "loop_work_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "loop_interval_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "room_tick_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "tick_callback_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "message_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "login_handler_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "input_queue_wait_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "battle_duration_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "settlement_us": {
+          "count": 0,
+          "mean_us": null,
+          "max_us": null,
+          "p50_us": null,
+          "p95_us": null,
+          "p99_us": null
+        },
+        "bot_login_rtt_us": {
+          "count": 500,
+          "mean_us": 170253.878,
+          "max_us": 385122,
+          "p50_us": 180663.7477303841,
+          "p95_us": 385122,
+          "p99_us": 385122
+        },
+        "bot_heartbeat_rtt_us": {
+          "count": 7655,
+          "mean_us": 6226.815284128021,
+          "max_us": 48763,
+          "p50_us": 228.76156239024755,
+          "p95_us": 35743.35935197535,
+          "p99_us": 43249.464815890184
+        }
+      }
+    },
+    "resources": {
+      "server": {
+        "cpu_percent": {
+          "mean": 71.39507407632222,
+          "max": 78.99175917280729
+        },
+        "rss_kib": {
+          "mean": 22658.55172413793,
+          "max": 22684
+        },
+        "threads": {
+          "mean": 8.0,
+          "max": 8
+        },
+        "fds": {
+          "mean": 510.0,
+          "max": 510
+        }
+      },
+      "bot": {
+        "cpu_percent": {
+          "mean": 111.77137401547103,
+          "max": 120.89322064499983
+        },
+        "rss_kib": {
+          "mean": 27276.0,
+          "max": 27276
+        },
+        "threads": {
+          "mean": 502.0,
+          "max": 502
+        },
+        "fds": {
+          "mean": 2004.0,
+          "max": 2004
+        }
+      },
+      "mysql": {
+        "cpu_percent": {
+          "mean": 22.111991308246616,
+          "max": 32.84660055847825
+        },
+        "rss_kib": {
+          "mean": 519319.6551724138,
+          "max": 520316
+        },
+        "threads": {
+          "mean": 55.0,
+          "max": 55
+        },
+        "fds": {
+          "mean": 62.0,
+          "max": 62
+        }
+      },
+      "redis": {
+        "cpu_percent": {
+          "mean": 0.9753885200823104,
+          "max": 1.9782604061418976
+        },
+        "rss_kib": {
+          "mean": 14379.034482758621,
+          "max": 14380
+        },
+        "threads": {
+          "mean": 6.0,
+          "max": 6
+        },
+        "fds": {
+          "mean": 9.0,
+          "max": 9
+        }
+      }
+    }
+  }
+]
