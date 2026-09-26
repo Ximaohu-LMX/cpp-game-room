@@ -2,6 +2,8 @@
 
 #include "net/codec.h"
 #include "net/packet.h"
+#include "util/metrics.h"
+#include <unordered_map>
 
 #include <boost/asio.hpp>
 
@@ -30,9 +32,20 @@ struct BotOptions {
     int heartbeat_interval_ms = 5000;
     int input_interval_ms = 50;
     bool verbose = false;
+    std::string account_prefix = "bot_";
 };
 
 struct BotStats {
+    std::atomic<int64_t> connections_live{0};
+    std::atomic<int64_t> unexpected_disconnects{0};
+    std::atomic<int64_t> packets_written{0};
+    std::atomic<int64_t> input_written{0};
+    std::atomic<int64_t> login_attempts{0};
+    std::atomic<int64_t> heartbeat_sent{0};
+    std::atomic<int64_t> heartbeat_responses{0};
+    std::atomic<int64_t> heartbeat_timeouts{0};
+    std::atomic<int64_t> heartbeat_cancelled{0};
+    std::atomic<int64_t> heartbeat_pending{0};
     std::atomic<int64_t> connect_ok{0};
     std::atomic<int64_t> connect_failed{0};
     std::atomic<int64_t> disconnects{0};
@@ -82,6 +95,8 @@ private:
     void Connect(bool reconnect);
     void ScheduleReconnect();
     void CloseSocket();
+    void MarkDisconnected(bool unexpected);
+    void ExpireHeartbeats();
     void DoRead(const std::shared_ptr<TcpSocket>& socket);
     void SendPacket(const Packet& packet);
     void DoWrite(const std::shared_ptr<TcpSocket>& socket);
@@ -125,7 +140,13 @@ private:
     Codec codec_;
     Buffer read_buffer_;
     std::array<char, 4096> read_temp_{};
-    std::deque<std::string> write_queue_;
+    struct PendingWrite {
+        std::string bytes;
+        uint32_t msg_id;
+    };
+    std::deque<PendingWrite> write_queue_;
+    uint64_t login_started_us_ = 0;
+    std::unordered_map<uint32_t, uint64_t> heartbeat_started_us_;
     FlowState state_ = FlowState::Disconnected;
     bool connected_ = false;
     bool heartbeat_started_ = false;

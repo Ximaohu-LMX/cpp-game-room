@@ -10,6 +10,7 @@
 #include "util/id_generator.h"
 #include "util/logger.h"
 #include "util/time_util.h"
+#include "util/metrics.h"
 
 #include "game.pb.h"
 #include "room.pb.h"
@@ -49,8 +50,24 @@ RoomPtr RoomManager::CreateRoom(const std::vector<int64_t>& player_ids) {
             }
         }
     }
+    Metrics::Instance().Increment(Counter::RoomsCreated);
     LOG_INFO("created room {}", room_id);
     return room;
+}
+
+std::map<std::string, int64_t> RoomManager::MeasurementGauges() {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::map<std::string, int64_t> values{{"rooms", static_cast<int64_t>(rooms_.size())},
+        {"rooms_waiting", 0}, {"rooms_playing", 0}, {"rooms_settlement", 0}, {"rooms_closed", 0}};
+    for (const auto& [_, room] : rooms_) {
+        switch (room->State()) {
+        case RoomState::Waiting: ++values["rooms_waiting"]; break;
+        case RoomState::Playing: ++values["rooms_playing"]; break;
+        case RoomState::Settlement: ++values["rooms_settlement"]; break;
+        case RoomState::Closed: ++values["rooms_closed"]; break;
+        }
+    }
+    return values;
 }
 
 RoomPtr RoomManager::GetRoom(int64_t room_id) {
@@ -70,7 +87,7 @@ void RoomManager::RemoveRoom(int64_t room_id) {
                 player_room_map_.erase(player_id);
             }
         }
-        rooms_.erase(room_id);
+        if (rooms_.erase(room_id)) Metrics::Instance().Increment(Counter::RoomsRemoved);
     }
 
     for (auto player_id : player_ids) {
@@ -141,6 +158,7 @@ void RoomManager::HandleInput(const SessionPtr& session, const Packet& packet) {
     input.move_y = request.input().move_y();
     input.fire = request.input().fire();
     input.timestamp_ms = NowMs();
+    if (Metrics::Instance().Enabled()) input.received_steady_us = Metrics::SteadyUs();
     game_room->HandleInput(input);
 }
 

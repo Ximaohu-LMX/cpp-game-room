@@ -50,6 +50,8 @@ void BotClient::Stop() {
     if (worker_.joinable()) {
         worker_.join();
     }
+    // The event loop is stopped, so measurement state has no concurrent writer.
+    MarkDisconnected(false);
 }
 
 void BotClient::Connect(bool reconnect) {
@@ -58,7 +60,7 @@ void BotClient::Connect(bool reconnect) {
     }
 
     state_ = FlowState::Connecting;
-    connected_ = false;
+    MarkDisconnected(false);
     read_buffer_.clear();
     write_queue_.clear();
     socket_ = std::make_shared<TcpSocket>(io_context_);
@@ -89,6 +91,7 @@ void BotClient::Connect(bool reconnect) {
         connected_ = true;
         if (stats_) {
             ++stats_->connect_ok;
+            ++stats_->connections_live;
         }
         if (reconnect && player_id_ != 0 && !session_token_.empty()) {
             Reconnect();
@@ -106,8 +109,33 @@ void BotClient::ScheduleReconnect() {
     ScheduleTimer(JitterMs(options_.reconnect_delay_ms), [this]() { Connect(true); });
 }
 
-void BotClient::CloseSocket() {
+void BotClient::ExpireHeartbeats() {
+    const auto now = Metrics::SteadyUs();
+    for (auto it = heartbeat_started_us_.begin(); it != heartbeat_started_us_.end();) {
+        if (now - it->second >= 30000000) {
+            if (stats_) { ++stats_->heartbeat_timeouts; --stats_->heartbeat_pending; }
+            it = heartbeat_started_us_.erase(it);
+        } else {
+            ++it;
+        }
+    }
+}
+
+void BotClient::MarkDisconnected(bool unexpected) {
+    if (connected_ && stats_) {
+        --stats_->connections_live;
+        if (unexpected) ++stats_->unexpected_disconnects;
+    }
     connected_ = false;
+    if (stats_) {
+        stats_->heartbeat_cancelled += heartbeat_started_us_.size();
+        stats_->heartbeat_pending -= heartbeat_started_us_.size();
+    }
+    heartbeat_started_us_.clear();
+}
+
+void BotClient::CloseSocket() {
+    MarkDisconnected(false);
     input_loop_active_ = false;
     write_queue_.clear();
 
@@ -128,7 +156,7 @@ void BotClient::DoRead(const std::shared_ptr<TcpSocket>& socket) {
             return;
         }
         if (ec) {
-            connected_ = false;
+            MarkDisconnected(true);
             return;
         }
 
@@ -139,6 +167,7 @@ void BotClient::DoRead(const std::shared_ptr<TcpSocket>& socket) {
                 OnMessage(packet);
             }
         } catch (const std::exception&) {
+            MarkDisconnected(true);
             CloseSocket();
             return;
         }
@@ -155,7 +184,7 @@ void BotClient::SendPacket(const Packet& packet) {
             return;
         }
         const bool writing = !write_queue_.empty();
-        write_queue_.push_back(codec_.Encode(packet));
+        write_queue_.push_back({codec_.Encode(packet), packet.msg_id});
         if (!writing) {
             DoWrite(socket_);
         }
@@ -166,14 +195,19 @@ void BotClient::DoWrite(const std::shared_ptr<TcpSocket>& socket) {
     if (!socket || socket != socket_ || write_queue_.empty()) {
         return;
     }
-    boost::asio::async_write(*socket, boost::asio::buffer(write_queue_.front()),
+    boost::asio::async_write(*socket, boost::asio::buffer(write_queue_.front().bytes),
                              [this, socket](const boost::system::error_code& ec, std::size_t) {
                                  if (!running_ || socket != socket_) {
                                      return;
                                  }
                                  if (ec) {
+                                     MarkDisconnected(true);
                                      CloseSocket();
                                      return;
+                                 }
+                                 if (stats_) {
+                                     ++stats_->packets_written;
+                                     if (write_queue_.front().msg_id == MSG_INPUT_REQ) ++stats_->input_written;
                                  }
                                  write_queue_.pop_front();
                                  if (!write_queue_.empty()) {
@@ -211,7 +245,9 @@ bool BotClient::PercentHit(int percent) const {
 
 void BotClient::Login() {
     proto::LoginRequest request;
-    request.set_account("bot_" + std::to_string(index_));
+    request.set_account(options_.account_prefix + std::to_string(index_));
+    if (stats_) ++stats_->login_attempts;
+    login_started_us_ = Metrics::Instance().Enabled() ? Metrics::SteadyUs() : 0;
     request.set_token("bot_token");
     SendPacket(ProtoHelper::Build(MSG_LOGIN_REQ, request, ++seq_));
 }
@@ -235,10 +271,16 @@ void BotClient::Heartbeat() {
     if (!running_) {
         return;
     }
+    ExpireHeartbeats();
     if (connected_) {
         proto::HeartbeatRequest request;
         request.set_client_time_ms(NowMs());
-        SendPacket(ProtoHelper::Build(MSG_HEARTBEAT_REQ, request, ++seq_));
+        const auto seq = ++seq_;
+        if (Metrics::Instance().Enabled()) {
+            heartbeat_started_us_[seq] = Metrics::SteadyUs();
+            if (stats_) { ++stats_->heartbeat_sent; ++stats_->heartbeat_pending; }
+        }
+        SendPacket(ProtoHelper::Build(MSG_HEARTBEAT_REQ, request, seq));
     }
     ScheduleTimer(options_.heartbeat_interval_ms, [this]() { Heartbeat(); });
 }
@@ -401,9 +443,21 @@ void BotClient::SendInput() {
 }
 
 void BotClient::OnMessage(const Packet& packet) {
+    if (packet.msg_id == MSG_HEARTBEAT_RESP) {
+        ExpireHeartbeats();
+        auto it = heartbeat_started_us_.find(packet.seq);
+        if (it != heartbeat_started_us_.end()) {
+            Metrics::Instance().Observe(Distribution::BotHeartbeatRtt, Metrics::SteadyUs() - it->second);
+            heartbeat_started_us_.erase(it);
+            if (stats_) { ++stats_->heartbeat_responses; --stats_->heartbeat_pending; }
+        }
+        return;
+    }
     if (packet.msg_id == MSG_LOGIN_RESP) {
         proto::LoginResponse response;
         if (ProtoHelper::Parse(packet, &response) && response.code() == 0) {
+            if (login_started_us_)
+                Metrics::Instance().Observe(Distribution::BotLoginRtt, Metrics::SteadyUs() - login_started_us_);
             player_id_ = response.player_id();
             session_token_ = response.session_token();
             state_ = FlowState::LoggedIn;

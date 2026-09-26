@@ -92,6 +92,7 @@ private:
     InputBuffer input_buffer_;
     bool game_over_ = false;
     int64_t winner_id_ = 0;
+    uint64_t started_steady_us_ = 0;
 };
 
 } // namespace game

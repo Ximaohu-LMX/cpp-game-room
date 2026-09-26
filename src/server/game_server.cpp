@@ -92,14 +92,18 @@ bool GameServer::Init() {
             return;
         }
         pending.next_attempt = now + std::chrono::seconds(1);
+        ScopedMetric settlement_time(Distribution::Settlement);
+        Metrics::Instance().Increment(Counter::SettlementAttempts);
         if (pending.battle_id == 0) {
             pending.battle_id = battle_repository_->CreateBattle(room_id);
         }
         if (pending.battle_id == 0 ||
             !settlement_service_->SettleBattle(pending.battle_id, room_id, winner_id, losers)) {
+            Metrics::Instance().Increment(Counter::SettlementFailures);
             // 落库或榜单同步失败时保留房间，由后续 tick 复用相同 ID 重试。
             return;
         }
+        Metrics::Instance().Increment(Counter::SettlementSuccess);
         pending_settlements_.erase(room_id);
 
         // 结算成功后才广播结束、关闭房间并从管理器移除。
@@ -162,6 +166,14 @@ bool GameServer::Init() {
         });
 
     return true;
+}
+
+std::map<std::string, int64_t> GameServer::MeasurementGauges() {
+    auto gauges = connection_manager_->MeasurementGauges();
+    const auto rooms = room_manager_->MeasurementGauges();
+    gauges.insert(rooms.begin(), rooms.end());
+    gauges["match_queue"] = static_cast<int64_t>(match_service_->QueueSize());
+    return gauges;
 }
 
 void GameServer::Start() {

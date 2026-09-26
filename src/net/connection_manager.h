@@ -1,6 +1,7 @@
 #pragma once
 
 #include "net/session.h"
+#include "util/metrics.h"
 
 #include <cstdint>
 #include <mutex>
@@ -24,6 +25,8 @@ public:
             return;
         }
         std::lock_guard<std::mutex> lock(mutex_);
+        if (sessions_.count(session->SessionId()) == 0)
+            Metrics::Instance().Increment(Counter::ConnectionsAccepted);
         sessions_[session->SessionId()] = session;
         if (session->PlayerId() != 0) {
             player_sessions_[session->PlayerId()] = session;
@@ -57,7 +60,7 @@ public:
                 player_sessions_.erase(player_it);
             }
         }
-        sessions_.erase(session_id);
+        if (sessions_.erase(session_id)) Metrics::Instance().Increment(Counter::ConnectionsRemoved);
     }
 
     /**
@@ -94,6 +97,12 @@ public:
             result.push_back(session);
         }
         return result;
+    }
+
+    std::map<std::string, int64_t> MeasurementGauges() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        return {{"connections", static_cast<int64_t>(sessions_.size())},
+                {"logged_in_players", static_cast<int64_t>(player_sessions_.size())}};
     }
 
 private:

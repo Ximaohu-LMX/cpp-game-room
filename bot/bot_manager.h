@@ -16,6 +16,7 @@ public:
     void Start(int bot_count);
     void Stop();
     void PrintStats(int64_t elapsed_seconds) const;
+    std::map<std::string, int64_t> MeasurementGauges() const;
 
 private:
     std::string host_;
