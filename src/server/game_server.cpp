@@ -85,11 +85,24 @@ bool GameServer::Init() {
             }
         }
 
-        if (settlement_service_) {
-            settlement_service_->SettleBattle(room_id, winner_id, losers);
+        room->SetSettlement();
+        auto& pending = pending_settlements_[room_id];
+        const auto now = std::chrono::steady_clock::now();
+        if (now < pending.next_attempt) {
+            return;
         }
+        pending.next_attempt = now + std::chrono::seconds(1);
+        if (pending.battle_id == 0) {
+            pending.battle_id = battle_repository_->CreateBattle(room_id);
+        }
+        if (pending.battle_id == 0 ||
+            !settlement_service_->SettleBattle(pending.battle_id, room_id, winner_id, losers)) {
+            // 落库或榜单同步失败时保留房间，由后续 tick 复用相同 ID 重试。
+            return;
+        }
+        pending_settlements_.erase(room_id);
 
-        // 广播本局结束通知，然后把房间推进到结算/关闭状态并从管理器移除。
+        // 结算成功后才广播结束、关闭房间并从管理器移除。
         proto::GameOverNotify over;
         over.set_room_id(room_id);
         over.set_winner_id(winner_id);
@@ -97,7 +110,6 @@ bool GameServer::Init() {
             over.add_loser_ids(loser_id);
         }
         room->Broadcast(MSG_GAME_OVER_NOTIFY, over);
-        room->SetSettlement();
         room->Close();
         room_manager_->RemoveRoom(room_id);
     });

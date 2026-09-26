@@ -37,6 +37,9 @@ public:
      */
     PlayerData LoadPlayer(int64_t player_id);
 
+    /** @brief 只读取已有玩家；不存在或读取失败返回 false，不创建默认玩家。 */
+    bool FindPlayer(int64_t player_id, PlayerData& data);
+
     /**
      * @brief 创建玩家。
      * @param data 玩家数据。

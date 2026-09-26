@@ -27,11 +27,11 @@ void RankService::RegisterHandlers(MessageDispatcher& dispatcher) {
     });
 }
 
-void RankService::UpdateScore(int64_t player_id, int score) {
+bool RankService::UpdateScore(int64_t player_id, int score) {
     if (!redis_) {
-        return;
+        return false;
     }
-    redis_->ZAdd(kRankScoreKey, score, std::to_string(player_id));
+    return redis_->ZAdd(kRankScoreKey, score, std::to_string(player_id));
 }
 
 std::vector<RankEntry> RankService::GetTopN(int offset, int limit) {

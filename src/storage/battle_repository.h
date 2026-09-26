@@ -4,6 +4,7 @@
 
 #include <cstdint>
 #include <string>
+#include <vector>
 
 namespace game {
 
@@ -48,6 +49,15 @@ public:
      * @param mysql MySQL 客户端。
      */
     explicit BattleRepository(MysqlClient* mysql);
+
+    /** @brief 预留一局战斗，返回数据库分配的稳定 ID；失败返回 0。 */
+    int64_t CreateBattle(int64_t room_id);
+
+    /**
+     * @brief 原子保存整局结果、结算日志和玩家积分/胜负统计。
+     * @return 首次提交或相同请求已提交返回 true；失败或结果冲突返回 false。
+     */
+    bool ApplySettlement(const Battle& battle, const std::vector<BattlePlayerResult>& results);
 
     /**
      * @brief 插入战斗总记录。

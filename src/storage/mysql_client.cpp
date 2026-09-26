@@ -4,6 +4,7 @@
 #include "util/logger.h"
 
 #include <utility>
+#include <errmsg.h>
 
 namespace game {
 
@@ -13,6 +14,9 @@ MysqlClient::~MysqlClient() {
 
 bool MysqlClient::Connect() {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
+    if (in_transaction_) {
+        return false;
+    }
     Disconnect();  // 先断开旧连接，防止重复连接导致资源泄漏
 
     conn_ = mysql_init(nullptr);
@@ -23,6 +27,8 @@ bool MysqlClient::Connect() {
 
     const auto config = ConfigManager::Instance().Mysql();
     mysql_options(conn_, MYSQL_SET_CHARSET_NAME, "utf8mb4");
+    const bool reconnect = false;
+    mysql_options(conn_, MYSQL_OPT_RECONNECT, &reconnect);
     if (!mysql_real_connect(conn_,
                             config.host.c_str(),
                             config.user.c_str(),
@@ -48,6 +54,17 @@ void MysqlClient::Disconnect() {
     }
 }
 
+void MysqlClient::ResetOnConnectionError() {
+    if (!conn_ || in_transaction_) {
+        return;
+    }
+    const auto error = mysql_errno(conn_);
+    if (error == CR_SERVER_GONE_ERROR || error == CR_SERVER_LOST) {
+        // 事务外的分配 ID / 查询失败也要丢弃坏连接，下一次请求才能重新连接。
+        Disconnect();
+    }
+}
+
 bool MysqlClient::Execute(const std::string& sql) {
     std::lock_guard<std::recursive_mutex> lock(mutex_);
     if (!conn_ && !Connect()) {
@@ -55,6 +72,7 @@ bool MysqlClient::Execute(const std::string& sql) {
     }
     if (mysql_query(conn_, sql.c_str()) != 0) {
         LOG_ERROR("mysql execute failed: {}, sql={}", mysql_error(conn_), sql);
+        ResetOnConnectionError();
         return false;
     }
 
@@ -74,9 +92,61 @@ int64_t MysqlClient::ExecuteAffected(const std::string& sql) {
     }
     if (mysql_query(conn_, sql.c_str()) != 0) {
         LOG_ERROR("mysql execute failed: {}, sql={}", mysql_error(conn_), sql);
+        ResetOnConnectionError();
         return -1;
     }
     return static_cast<int64_t>(mysql_affected_rows(conn_));
+}
+
+int64_t MysqlClient::ExecuteInsert(const std::string& sql) {
+    std::lock_guard<std::recursive_mutex> lock(mutex_);
+    if (ExecuteAffected(sql) != 1) {
+        return 0;
+    }
+    // INSERT 与读取 ID 必须在同一临界区，不能被其他线程的 INSERT 打断。
+    return static_cast<int64_t>(mysql_insert_id(conn_));
+}
+
+bool MysqlClient::RunTransaction(const std::function<bool()>& operation) {
+    std::lock_guard<std::recursive_mutex> lock(mutex_);
+    if (in_transaction_ || !operation || (!conn_ && !Connect())) {
+        return false;
+    }
+    if (mysql_query(conn_, "START TRANSACTION") != 0) {
+        LOG_ERROR("mysql begin transaction failed: {}", mysql_error(conn_));
+        Disconnect();
+        return false;
+    }
+    in_transaction_ = true;
+    try {
+        const bool success = operation();
+        if (!conn_) {
+            in_transaction_ = false;
+            return false;
+        }
+        if (!success) {
+            if (mysql_rollback(conn_) != 0) {
+                Disconnect();
+            }
+            in_transaction_ = false;
+            return false;
+        }
+        if (mysql_commit(conn_) != 0) {
+            // COMMIT 的响应丢失时结果可能未知；关闭连接，让调用方复用原 ID 重试。
+            LOG_ERROR("mysql commit failed: {}", mysql_error(conn_));
+            Disconnect();
+            in_transaction_ = false;
+            return false;
+        }
+        in_transaction_ = false;
+        return true;
+    } catch (...) {
+        if (conn_ && mysql_rollback(conn_) != 0) {
+            Disconnect();
+        }
+        in_transaction_ = false;
+        throw;
+    }
 }
 
 QueryResult MysqlClient::Query(const std::string& sql) {
@@ -87,6 +157,7 @@ QueryResult MysqlClient::Query(const std::string& sql) {
     }
     if (mysql_query(conn_, sql.c_str()) != 0) {
         LOG_ERROR("mysql query failed: {}, sql={}", mysql_error(conn_), sql);
+        ResetOnConnectionError();
         return output;
     }
 

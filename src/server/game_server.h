@@ -17,7 +17,9 @@
 #include "storage/redis_client.h"
 #include "timer/timer_manager.h"
 
+#include <chrono>
 #include <memory>
+#include <unordered_map>
 
 namespace game {
 
@@ -45,6 +47,13 @@ public:
     void Stop();
 
 private:
+    struct PendingSettlement {
+        int64_t battle_id = 0;
+        std::chrono::steady_clock::time_point next_attempt{};
+    };
+    // 仅由 GameLoop 线程访问；同一房间的结算重试始终复用 battle_id。
+    std::unordered_map<int64_t, PendingSettlement> pending_settlements_;
+
     std::unique_ptr<ServiceContext> context_;
     std::unique_ptr<MessageDispatcher> dispatcher_;
     std::unique_ptr<ConnectionManager> connection_manager_;

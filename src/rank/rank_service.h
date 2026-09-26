@@ -49,8 +49,9 @@ public:
      * @brief 更新玩家排行榜分数。
      * @param player_id 玩家 ID。
      * @param score 玩家最新积分。
+     * @return 写入成功返回 true，否则返回 false。
      */
-    void UpdateScore(int64_t player_id, int score);
+    bool UpdateScore(int64_t player_id, int score);
 
     /**
      * @brief 查询排行榜。

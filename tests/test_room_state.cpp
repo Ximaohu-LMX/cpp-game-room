@@ -127,3 +127,18 @@ TEST(RoomStateTest, LeaveWaitingRequeuesRemainingPlayers) {
     EXPECT_EQ(player2->RoomId(), 0);
     EXPECT_EQ(session2->RoomId(), 0);
 }
+
+TEST(RoomStateTest, SettlementCannotBeRestartedByReadyRequests) {
+    game::Room room(1, nullptr);
+    ASSERT_TRUE(room.AddPlayer(11));
+    ASSERT_TRUE(room.AddPlayer(12));
+    EXPECT_FALSE(room.SetReadyAndTryStart(11, true));
+    ASSERT_TRUE(room.SetReadyAndTryStart(12, true));
+    room.SetSettlement();
+
+    EXPECT_FALSE(room.SetReadyAndTryStart(11, true));
+    room.SetReady(12, false);
+    EXPECT_FALSE(room.CanStart());
+    room.StartGame();
+    EXPECT_EQ(room.State(), game::RoomState::Settlement);
+}
