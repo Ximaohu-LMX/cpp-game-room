@@ -2,7 +2,7 @@
 
 #include "net/codec.h"
 #include "net/packet.h"
-#include "util/metrics.h"
+#include "bot_metrics.h"
 #include <unordered_map>
 
 #include <boost/asio.hpp>
@@ -15,7 +15,8 @@
 #include <functional>
 #include <memory>
 #include <string>
-#include <thread>
+#include <random>
+#include <unordered_set>
 
 namespace game {
 
@@ -31,44 +32,19 @@ struct BotOptions {
     int action_jitter_ms = 800;
     int heartbeat_interval_ms = 5000;
     int input_interval_ms = 50;
+    int io_threads = 4;
+    uint64_t seed = 1;
+    int recovery_timeout_ms = 30000;
     bool verbose = false;
     std::string account_prefix = "bot_";
 };
 
-struct BotStats {
-    std::atomic<int64_t> connections_live{0};
-    std::atomic<int64_t> unexpected_disconnects{0};
-    std::atomic<int64_t> packets_written{0};
-    std::atomic<int64_t> input_written{0};
-    std::atomic<int64_t> login_attempts{0};
-    std::atomic<int64_t> heartbeat_sent{0};
-    std::atomic<int64_t> heartbeat_responses{0};
-    std::atomic<int64_t> heartbeat_timeouts{0};
-    std::atomic<int64_t> heartbeat_cancelled{0};
-    std::atomic<int64_t> heartbeat_pending{0};
-    std::atomic<int64_t> connect_ok{0};
-    std::atomic<int64_t> connect_failed{0};
-    std::atomic<int64_t> disconnects{0};
-    std::atomic<int64_t> login_ok{0};
-    std::atomic<int64_t> login_failed{0};
-    std::atomic<int64_t> reconnect_ok{0};
-    std::atomic<int64_t> reconnect_failed{0};
-    std::atomic<int64_t> match_ok{0};
-    std::atomic<int64_t> match_failed{0};
-    std::atomic<int64_t> match_cancel{0};
-    std::atomic<int64_t> match_success{0};
-    std::atomic<int64_t> ready{0};
-    std::atomic<int64_t> unready{0};
-    std::atomic<int64_t> room_playing{0};
-    std::atomic<int64_t> input_sent{0};
-    std::atomic<int64_t> game_state{0};
-    std::atomic<int64_t> game_over{0};
-};
 
-class BotClient {
+class BotClient : public std::enable_shared_from_this<BotClient> {
 public:
-    BotClient(std::string host, uint16_t port, int index, BotOptions options, std::shared_ptr<BotStats> stats);
-    ~BotClient();
+    BotClient(boost::asio::io_context& io,
+              boost::asio::ip::tcp::resolver::results_type endpoints,
+              int index, BotOptions options, std::shared_ptr<BotStats> stats);
 
     void Start();
     void Stop();
@@ -97,12 +73,22 @@ private:
     void CloseSocket();
     void MarkDisconnected(bool unexpected);
     void ExpireHeartbeats();
-    void DoRead(const std::shared_ptr<TcpSocket>& socket);
+    struct ReadState {
+        Buffer buffer;
+        std::array<char, 4096> temporary{};
+    };
+    void DoRead(const std::shared_ptr<TcpSocket>& socket, const std::shared_ptr<ReadState>& read);
     void SendPacket(const Packet& packet);
     void DoWrite(const std::shared_ptr<TcpSocket>& socket);
-    void ScheduleTimer(int delay_ms, std::function<void()> callback);
-    int JitterMs(int base_ms) const;
-    bool PercentHit(int percent) const;
+    enum class TimerScope { Lifetime, Connection, Round };
+    void ScheduleTimer(int delay_ms, std::function<void()> callback,
+                       TimerScope scope = TimerScope::Round, bool input = false);
+    int JitterMs(int base_ms);
+    bool PercentHit(int percent);
+    int RandomInt(int low, int high);
+    float RandomFloat(float low, float high);
+    void FinishRecovery(const char* outcome, int64_t frame = -1, int hp = -1);
+    void TryFinishRecovery();
 
     void Login();
     void Reconnect();
@@ -125,27 +111,33 @@ private:
     void HandleGameState(const Packet& packet);
     void HandleGameOver();
 
-    std::string host_;
-    uint16_t port_;
+    boost::asio::ip::tcp::resolver::results_type endpoints_;
     int index_;
     BotOptions options_;
     std::shared_ptr<BotStats> stats_;
 
-    boost::asio::io_context io_context_;
-    std::unique_ptr<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>> work_guard_;
+    boost::asio::strand<boost::asio::io_context::executor_type> strand_;
     std::shared_ptr<TcpSocket> socket_;
-    std::thread worker_;
-    std::atomic<bool> running_{false};
-
+    std::shared_ptr<ReadState> read_;
+    std::unordered_set<std::shared_ptr<Timer>> timers_;
+    bool running_ = false; // Only accessed on strand_; manager drains before destruction.
+    uint64_t connection_generation_ = 0, round_generation_ = 0, input_generation_ = 0;
+    std::mt19937_64 random_;
     Codec codec_;
-    Buffer read_buffer_;
-    std::array<char, 4096> read_temp_{};
     struct PendingWrite {
         std::string bytes;
         uint32_t msg_id;
+        uint64_t enqueued_us;
     };
-    std::deque<PendingWrite> write_queue_;
+    std::deque<std::shared_ptr<PendingWrite>> write_queue_;
     uint64_t login_started_us_ = 0;
+    uint64_t last_input_us_ = 0;
+    uint64_t recovery_started_us_ = 0, recovery_id_ = 0;
+    int64_t recovery_room_ = 0, recovery_frame_ = -1, recovery_response_room_ = -1;
+    int recovery_hp_ = -1;
+    bool recovery_ack_ = false;
+    struct StateSample { int64_t room = 0, frame = -1; int hp = -1; };
+    StateSample last_state_, recovery_sample_;
     std::unordered_map<uint32_t, uint64_t> heartbeat_started_us_;
     FlowState state_ = FlowState::Disconnected;
     bool connected_ = false;

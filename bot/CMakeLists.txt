@@ -2,6 +2,7 @@ add_executable(game_bot
     bot_main.cpp
     bot_client.cpp
     bot_manager.cpp
+    bot_metrics.cpp
 )
 
 target_link_libraries(game_bot PRIVATE game_core)

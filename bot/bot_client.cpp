@@ -2,7 +2,6 @@
 
 #include "protocol/message_id.h"
 #include "protocol/proto_helper.h"
-#include "util/random_util.h"
 #include "util/time_util.h"
 
 #include "game.pb.h"
@@ -14,99 +13,65 @@
 #include <chrono>
 #include <iostream>
 #include <utility>
+#include <sstream>
 
 namespace game {
 
-BotClient::BotClient(std::string host, uint16_t port, int index, BotOptions options, std::shared_ptr<BotStats> stats)
-    : host_(std::move(host)),
-      port_(port),
-      index_(index),
-      options_(options),
-      stats_(std::move(stats)) {}
-
-BotClient::~BotClient() {
-    Stop();
+BotClient::BotClient(boost::asio::io_context& io,
+                     boost::asio::ip::tcp::resolver::results_type endpoints,
+                     int index, BotOptions options, std::shared_ptr<BotStats> stats)
+    : endpoints_(std::move(endpoints)), index_(index), options_(options),
+      stats_(std::move(stats)), strand_(boost::asio::make_strand(io)) {
+    std::seed_seq seed{static_cast<uint32_t>(options.seed),
+                       static_cast<uint32_t>(options.seed >> 32), static_cast<uint32_t>(index)};
+    random_.seed(seed);
 }
 
 void BotClient::Start() {
-    if (running_.exchange(true)) {
-        return;
-    }
-    work_guard_ = std::make_unique<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>>(
-        io_context_.get_executor());
-    Connect(false);
-    worker_ = std::thread([this]() { io_context_.run(); });
+    boost::asio::post(strand_, [self = shared_from_this()] {
+        if (self->running_) return;
+        self->running_ = true;
+        self->Connect(false);
+    });
 }
 
 void BotClient::Stop() {
-    if (!running_.exchange(false)) {
-        return;
-    }
-    boost::asio::post(io_context_, [this]() { CloseSocket(); });
-    if (work_guard_) {
-        work_guard_->reset();
-    }
-    io_context_.stop();
-    if (worker_.joinable()) {
-        worker_.join();
-    }
-    // The event loop is stopped, so measurement state has no concurrent writer.
-    MarkDisconnected(false);
+    boost::asio::post(strand_, [self = shared_from_this()] {
+        self->running_ = false;
+        self->CloseSocket();
+    });
 }
 
 void BotClient::Connect(bool reconnect) {
-    if (!running_) {
-        return;
-    }
-
+    if (!running_) return;
+    CloseSocket();
     state_ = FlowState::Connecting;
-    MarkDisconnected(false);
-    read_buffer_.clear();
-    write_queue_.clear();
-    socket_ = std::make_shared<TcpSocket>(io_context_);
-
-    boost::system::error_code resolve_ec;
-    auto endpoints = boost::asio::ip::tcp::resolver(io_context_).resolve(host_, std::to_string(port_), resolve_ec);
-    if (resolve_ec) {
-        if (stats_) {
-            ++stats_->connect_failed;
-        }
-        ScheduleTimer(options_.reconnect_delay_ms, [this, reconnect]() { Connect(reconnect); });
-        return;
-    }
-
+    socket_ = std::make_shared<TcpSocket>(strand_);
+    read_ = std::make_shared<ReadState>();
     auto socket = socket_;
-    boost::asio::async_connect(*socket, endpoints, [this, socket, reconnect](const boost::system::error_code& ec, const auto&) {
-        if (!running_ || socket != socket_) {
-            return;
-        }
-        if (ec) {
-            if (stats_) {
+    boost::asio::async_connect(*socket, endpoints_, boost::asio::bind_executor(strand_,
+        [this, self = shared_from_this(), socket, reconnect](const boost::system::error_code& ec, const auto&) {
+            if (!running_ || socket != socket_) return;
+            if (ec) {
                 ++stats_->connect_failed;
+                ScheduleTimer(options_.reconnect_delay_ms, [this, reconnect] { Connect(reconnect); },
+                              TimerScope::Lifetime);
+                return;
             }
-            ScheduleTimer(options_.reconnect_delay_ms, [this, reconnect]() { Connect(reconnect); });
-            return;
-        }
-
-        connected_ = true;
-        if (stats_) {
+            connected_ = true;
             ++stats_->connect_ok;
             ++stats_->connections_live;
-        }
-        if (reconnect && player_id_ != 0 && !session_token_.empty()) {
-            Reconnect();
-        } else {
-            Login();
-        }
-        DoRead(socket);
-    });
+            if (reconnect && player_id_ != 0 && !session_token_.empty()) Reconnect();
+            else Login();
+            DoRead(socket, read_);
+        }));
 }
 
 void BotClient::ScheduleReconnect() {
     if (!running_ || player_id_ == 0 || session_token_.empty()) {
         return;
     }
-    ScheduleTimer(JitterMs(options_.reconnect_delay_ms), [this]() { Connect(true); });
+    ScheduleTimer(JitterMs(options_.reconnect_delay_ms), [this]() { Connect(true); }, TimerScope::Lifetime);
 }
 
 void BotClient::ExpireHeartbeats() {
@@ -135,124 +100,135 @@ void BotClient::MarkDisconnected(bool unexpected) {
 }
 
 void BotClient::CloseSocket() {
+    ++connection_generation_;
+    ++input_generation_;
     MarkDisconnected(false);
+    FinishRecovery("cancelled");
     input_loop_active_ = false;
-    write_queue_.clear();
-
-    auto socket = socket_;
-    socket_.reset();
-    if (!socket) {
-        return;
+    heartbeat_started_ = false;
+    last_input_us_ = 0;
+    for (const auto& timer : timers_) timer->cancel();
+    timers_.clear();
+    for (const auto& write : write_queue_) if (write->msg_id == MSG_INPUT_REQ) {
+        ++stats_->input_cancelled;
+        --stats_->input_pending;
     }
-
-    boost::system::error_code ignored;
-    socket->shutdown(TcpSocket::shutdown_both, ignored);
-    socket->close(ignored);
+    write_queue_.clear(); // In-flight write captures its buffer separately.
+    auto socket = std::move(socket_);
+    read_.reset(); // Old read callbacks retain their own buffers.
+    if (socket) {
+        boost::system::error_code ignored;
+        socket->shutdown(TcpSocket::shutdown_both, ignored);
+        socket->close(ignored);
+    }
 }
 
-void BotClient::DoRead(const std::shared_ptr<TcpSocket>& socket) {
-    socket->async_read_some(boost::asio::buffer(read_temp_), [this, socket](const boost::system::error_code& ec, std::size_t bytes) {
-        if (!running_ || socket != socket_) {
-            return;
-        }
-        if (ec) {
-            MarkDisconnected(true);
-            return;
-        }
-
-        read_buffer_.insert(read_buffer_.end(), read_temp_.data(), read_temp_.data() + bytes);
-        try {
-            auto packets = codec_.Decode(read_buffer_);
-            for (const auto& packet : packets) {
-                OnMessage(packet);
+void BotClient::DoRead(const std::shared_ptr<TcpSocket>& socket, const std::shared_ptr<ReadState>& read) {
+    socket->async_read_some(boost::asio::buffer(read->temporary), boost::asio::bind_executor(strand_,
+        [this, self = shared_from_this(), socket, read](const boost::system::error_code& ec, std::size_t bytes) {
+            if (!running_ || socket != socket_) return;
+            if (ec) { MarkDisconnected(true); CloseSocket(); return; }
+            read->buffer.insert(read->buffer.end(), read->temporary.data(), read->temporary.data() + bytes);
+            try {
+                const auto packets = codec_.Decode(read->buffer);
+                for (const auto& packet : packets) {
+                    if (!running_ || socket != socket_) break;
+                    OnMessage(packet);
+                }
+            } catch (const std::exception&) {
+                MarkDisconnected(true); CloseSocket(); return;
             }
-        } catch (const std::exception&) {
-            MarkDisconnected(true);
-            CloseSocket();
-            return;
-        }
-        DoRead(socket);
-    });
+            if (socket == socket_) DoRead(socket, read);
+        }));
 }
 
 void BotClient::SendPacket(const Packet& packet) {
-    if (!running_) {
-        return;
-    }
-    boost::asio::post(io_context_, [this, packet]() {
-        if (!running_ || !connected_ || !socket_ || !socket_->is_open()) {
+    const auto posted = Metrics::SteadyUs();
+    const auto generation = connection_generation_, input_generation = input_generation_;
+    const bool input = packet.msg_id == MSG_INPUT_REQ;
+    if (input) ++stats_->input_pending;
+    boost::asio::post(strand_, [this, self = shared_from_this(), packet, posted, generation, input_generation, input] {
+        if (!running_ || !connected_ || !socket_ || generation != connection_generation_ ||
+            (input && input_generation != input_generation_)) {
+            if (input) { ++stats_->input_dropped; --stats_->input_pending; }
             return;
         }
+        if (input) stats_->Observe(stats_->input_post_late, Metrics::SteadyUs() - posted);
         const bool writing = !write_queue_.empty();
-        write_queue_.push_back({codec_.Encode(packet), packet.msg_id});
-        if (!writing) {
-            DoWrite(socket_);
-        }
+        write_queue_.push_back(std::make_shared<PendingWrite>(PendingWrite{codec_.Encode(packet), packet.msg_id, posted}));
+        if (!writing) DoWrite(socket_);
     });
 }
 
 void BotClient::DoWrite(const std::shared_ptr<TcpSocket>& socket) {
-    if (!socket || socket != socket_ || write_queue_.empty()) {
-        return;
-    }
-    boost::asio::async_write(*socket, boost::asio::buffer(write_queue_.front().bytes),
-                             [this, socket](const boost::system::error_code& ec, std::size_t) {
-                                 if (!running_ || socket != socket_) {
-                                     return;
-                                 }
-                                 if (ec) {
-                                     MarkDisconnected(true);
-                                     CloseSocket();
-                                     return;
-                                 }
-                                 if (stats_) {
-                                     ++stats_->packets_written;
-                                     if (write_queue_.front().msg_id == MSG_INPUT_REQ) ++stats_->input_written;
-                                 }
-                                 write_queue_.pop_front();
-                                 if (!write_queue_.empty()) {
-                                     DoWrite(socket);
-                                 }
-                             });
+    if (socket != socket_ || write_queue_.empty()) return;
+    auto write = write_queue_.front();
+    if (write->msg_id == MSG_INPUT_REQ)
+        stats_->Observe(stats_->input_write_wait, Metrics::SteadyUs() - write->enqueued_us);
+    boost::asio::async_write(*socket, boost::asio::buffer(write->bytes), boost::asio::bind_executor(strand_,
+        [this, self = shared_from_this(), socket, write](const boost::system::error_code& ec, std::size_t) {
+            if (!running_ || socket != socket_) return;
+            if (ec) { MarkDisconnected(true); CloseSocket(); return; }
+            ++stats_->packets_written;
+            if (write->msg_id == MSG_INPUT_REQ) { ++stats_->input_written; --stats_->input_pending; }
+            write_queue_.pop_front();
+            if (!write_queue_.empty()) DoWrite(socket);
+        }));
 }
 
-void BotClient::ScheduleTimer(int delay_ms, std::function<void()> callback) {
-    if (!running_) {
-        return;
-    }
-    auto timer = std::make_shared<Timer>(io_context_, std::chrono::milliseconds(std::max(0, delay_ms)));
-    timer->async_wait([this, timer, callback = std::move(callback)](const boost::system::error_code& ec) {
-        if (!ec && running_) {
+void BotClient::ScheduleTimer(int delay_ms, std::function<void()> callback, TimerScope scope, bool input) {
+    if (!running_) return;
+    auto timer = std::make_shared<Timer>(strand_);
+    timer->expires_after(std::chrono::milliseconds(std::max(0, delay_ms)));
+    const auto due = std::chrono::duration_cast<std::chrono::microseconds>(timer->expiry().time_since_epoch()).count();
+    const auto connection = connection_generation_, round = round_generation_, input_generation = input_generation_;
+    timers_.insert(timer);
+    timer->async_wait(boost::asio::bind_executor(strand_,
+        [this, self = shared_from_this(), timer, callback = std::move(callback), scope, input,
+         due, connection, round, input_generation](const boost::system::error_code& ec) {
+            timers_.erase(timer);
+            if (ec || !running_) return;
+            if (scope != TimerScope::Lifetime && connection != connection_generation_) return;
+            if (scope == TimerScope::Round && round != round_generation_) return;
+            if (input) {
+                if (input_generation != input_generation_ || !input_loop_active_) return;
+                const auto now = Metrics::SteadyUs();
+                stats_->Observe(stats_->input_timer_late, now > static_cast<uint64_t>(due) ? now - due : 0);
+            }
             callback();
-        }
-    });
+        }));
 }
 
-int BotClient::JitterMs(int base_ms) const {
-    const int jitter = std::max(0, options_.action_jitter_ms);
-    return std::max(0, base_ms + RandomUtil::Int(0, jitter));
-}
-
-bool BotClient::PercentHit(int percent) const {
-    if (percent <= 0) {
-        return false;
-    }
-    if (percent >= 100) {
-        return true;
-    }
-    return RandomUtil::Int(1, 100) <= percent;
+int BotClient::RandomInt(int low, int high) { return std::uniform_int_distribution<int>(low, high)(random_); }
+float BotClient::RandomFloat(float low, float high) { return std::uniform_real_distribution<float>(low, high)(random_); }
+int BotClient::JitterMs(int base_ms) { return std::max(0, base_ms + RandomInt(0, std::max(0, options_.action_jitter_ms))); }
+bool BotClient::PercentHit(int percent) {
+    return percent >= 100 || (percent > 0 && RandomInt(1, 100) <= percent);
 }
 
 void BotClient::Login() {
     proto::LoginRequest request;
     request.set_account(options_.account_prefix + std::to_string(index_));
     if (stats_) ++stats_->login_attempts;
-    login_started_us_ = Metrics::Instance().Enabled() ? Metrics::SteadyUs() : 0;
+    login_started_us_ = stats_->measurements.load() ? Metrics::SteadyUs() : 0;
     request.set_token("bot_token");
     SendPacket(ProtoHelper::Build(MSG_LOGIN_REQ, request, ++seq_));
 }
 
 void BotClient::Reconnect() {
+    ++stats_->reconnect_attempts;
+    ++stats_->recovery_pending;
+    recovery_started_us_ = Metrics::SteadyUs();
+    recovery_room_ = room_id_;
+    recovery_frame_ = last_state_.room == room_id_ ? last_state_.frame : -1;
+    recovery_hp_ = last_state_.room == room_id_ ? last_state_.hp : -1;
+    recovery_response_room_ = -1;
+    recovery_sample_ = {};
+    recovery_ack_ = false;
+    const auto attempt = ++recovery_id_;
+    ScheduleTimer(options_.recovery_timeout_ms, [this, attempt] {
+        if (attempt == recovery_id_) FinishRecovery("timeout");
+    }, TimerScope::Connection);
     proto::ReconnectRequest request;
     request.set_player_id(player_id_);
     request.set_session_token(session_token_);
@@ -264,7 +240,7 @@ void BotClient::ScheduleHeartbeat() {
         return;
     }
     heartbeat_started_ = true;
-    ScheduleTimer(options_.heartbeat_interval_ms, [this]() { Heartbeat(); });
+    ScheduleTimer(options_.heartbeat_interval_ms, [this]() { Heartbeat(); }, TimerScope::Connection);
 }
 
 void BotClient::Heartbeat() {
@@ -276,13 +252,13 @@ void BotClient::Heartbeat() {
         proto::HeartbeatRequest request;
         request.set_client_time_ms(NowMs());
         const auto seq = ++seq_;
-        if (Metrics::Instance().Enabled()) {
+        if (stats_->measurements.load()) {
             heartbeat_started_us_[seq] = Metrics::SteadyUs();
             if (stats_) { ++stats_->heartbeat_sent; ++stats_->heartbeat_pending; }
         }
         SendPacket(ProtoHelper::Build(MSG_HEARTBEAT_REQ, request, seq));
     }
-    ScheduleTimer(options_.heartbeat_interval_ms, [this]() { Heartbeat(); });
+    ScheduleTimer(options_.heartbeat_interval_ms, [this]() { Heartbeat(); }, TimerScope::Connection);
 }
 
 void BotClient::Match() {
@@ -315,7 +291,7 @@ void BotClient::CancelMatch() {
 }
 
 void BotClient::ScheduleCancelMatch() {
-    ScheduleTimer(RandomUtil::Int(50, JitterMs(250)), [this]() { CancelMatch(); });
+    ScheduleTimer(RandomInt(50, JitterMs(250)), [this]() { CancelMatch(); });
 }
 
 bool BotClient::MaybeScheduleDisconnect(DisconnectPoint point) {
@@ -344,7 +320,7 @@ bool BotClient::MaybeScheduleDisconnect(DisconnectPoint point) {
         return false;
     }
     *round_flag = true;
-    ScheduleTimer(RandomUtil::Int(50, JitterMs(500)), [this, point]() { SimulateDisconnect(point); });
+    ScheduleTimer(RandomInt(50, JitterMs(500)), [this, point]() { SimulateDisconnect(point); });
     return true;
 }
 
@@ -406,9 +382,9 @@ void BotClient::ScheduleReadyFlow() {
 
     if (PercentHit(options_.ready_toggle_percent)) {
         Ready();
-        ScheduleTimer(RandomUtil::Int(100, JitterMs(600)), [this]() {
+        ScheduleTimer(RandomInt(100, JitterMs(600)), [this]() {
             Unready();
-            ScheduleTimer(RandomUtil::Int(100, JitterMs(600)), [this]() { Ready(); });
+            ScheduleTimer(RandomInt(100, JitterMs(600)), [this]() { Ready(); });
         });
         return;
     }
@@ -420,6 +396,8 @@ void BotClient::StartInputLoop() {
         return;
     }
     input_loop_active_ = true;
+    ++input_generation_;
+    last_input_us_ = 0;
     SendInput();
 }
 
@@ -427,19 +405,22 @@ void BotClient::SendInput() {
     if (!running_ || !connected_ || room_id_ == 0 || !input_loop_active_) {
         return;
     }
+    const auto now = Metrics::SteadyUs();
+    if (last_input_us_) stats_->Observe(stats_->input_interval, now - last_input_us_);
+    last_input_us_ = now;
     proto::InputRequest request;
     auto* input = request.mutable_input();
     input->set_player_id(player_id_);
     input->set_input_seq(++input_seq_);
-    input->set_move_x(RandomUtil::Float(-1.0f, 1.0f));
-    input->set_move_y(RandomUtil::Float(-1.0f, 1.0f));
-    input->set_fire(RandomUtil::Int(0, 3) == 0);
+    input->set_move_x(RandomFloat(-1.0f, 1.0f));
+    input->set_move_y(RandomFloat(-1.0f, 1.0f));
+    input->set_fire(RandomInt(0, 3) == 0);
     SendPacket(ProtoHelper::Build(MSG_INPUT_REQ, request, ++seq_));
     if (stats_) {
         ++stats_->input_sent;
     }
 
-    ScheduleTimer(options_.input_interval_ms, [this]() { SendInput(); });
+    ScheduleTimer(options_.input_interval_ms, [this]() { SendInput(); }, TimerScope::Round, true);
 }
 
 void BotClient::OnMessage(const Packet& packet) {
@@ -447,7 +428,7 @@ void BotClient::OnMessage(const Packet& packet) {
         ExpireHeartbeats();
         auto it = heartbeat_started_us_.find(packet.seq);
         if (it != heartbeat_started_us_.end()) {
-            Metrics::Instance().Observe(Distribution::BotHeartbeatRtt, Metrics::SteadyUs() - it->second);
+            stats_->Observe(stats_->heartbeat_rtt, Metrics::SteadyUs() - it->second);
             heartbeat_started_us_.erase(it);
             if (stats_) { ++stats_->heartbeat_responses; --stats_->heartbeat_pending; }
         }
@@ -457,7 +438,7 @@ void BotClient::OnMessage(const Packet& packet) {
         proto::LoginResponse response;
         if (ProtoHelper::Parse(packet, &response) && response.code() == 0) {
             if (login_started_us_)
-                Metrics::Instance().Observe(Distribution::BotLoginRtt, Metrics::SteadyUs() - login_started_us_);
+                stats_->Observe(stats_->login_rtt, Metrics::SteadyUs() - login_started_us_);
             player_id_ = response.player_id();
             session_token_ = response.session_token();
             state_ = FlowState::LoggedIn;
@@ -475,7 +456,17 @@ void BotClient::OnMessage(const Packet& packet) {
     if (packet.msg_id == MSG_RECONNECT_RESP) {
         proto::ReconnectResponse response;
         if (ProtoHelper::Parse(packet, &response) && response.code() == 0) {
+            if (recovery_started_us_)
+                stats_->Observe(stats_->reconnect_rtt, Metrics::SteadyUs() - recovery_started_us_);
+            recovery_ack_ = true;
             room_id_ = response.room_id();
+            recovery_response_room_ = room_id_;
+            ScheduleHeartbeat();
+            if (recovery_started_us_) {
+                if (room_id_ == 0) FinishRecovery("no_room");
+                else if (room_id_ != recovery_room_) FinishRecovery("invalid");
+                else TryFinishRecovery();
+            }
             state_ = room_id_ == 0 ? FlowState::LoggedIn : FlowState::InRoom;
             if (stats_) {
                 ++stats_->reconnect_ok;
@@ -486,8 +477,9 @@ void BotClient::OnMessage(const Packet& packet) {
             } else {
                 ScheduleTimer(JitterMs(options_.rematch_delay_ms), [this]() { Match(); });
             }
-        } else if (stats_) {
+        } else {
             ++stats_->reconnect_failed;
+            FinishRecovery("rejected");
         }
         return;
     }
@@ -553,6 +545,9 @@ void BotClient::HandleMatchSuccess(const Packet& packet) {
     if (!ProtoHelper::Parse(packet, &notify)) {
         return;
     }
+    ++round_generation_;
+    ++input_generation_;
+    last_state_ = {};
     room_id_ = notify.room_id();
     state_ = FlowState::InRoom;
     input_loop_active_ = false;
@@ -587,9 +582,14 @@ void BotClient::HandleRoomState(const Packet& packet) {
     }
 }
 
-void BotClient::HandleGameState(const Packet&) {
-    if (stats_) {
-        ++stats_->game_state;
+void BotClient::HandleGameState(const Packet& packet) {
+    proto::GameStateNotify notify;
+    if (!ProtoHelper::Parse(packet, &notify)) return;
+    ++stats_->game_state;
+    for (const auto& player : notify.players()) if (player.player_id() == player_id_) {
+        last_state_ = {notify.room_id(), notify.frame_id(), player.hp()};
+        if (recovery_started_us_) { recovery_sample_ = last_state_; TryFinishRecovery(); }
+        break;
     }
     if (room_id_ != 0 && state_ != FlowState::Playing) {
         state_ = FlowState::Playing;
@@ -598,7 +598,40 @@ void BotClient::HandleGameState(const Packet&) {
     }
 }
 
+void BotClient::TryFinishRecovery() {
+    if (!recovery_started_us_ || !recovery_ack_ || recovery_sample_.frame < 0) return;
+    if (recovery_sample_.room != recovery_room_ || recovery_sample_.frame < recovery_frame_)
+        FinishRecovery("invalid", recovery_sample_.frame, recovery_sample_.hp);
+    else FinishRecovery("state", recovery_sample_.frame, recovery_sample_.hp);
+}
+
+void BotClient::FinishRecovery(const char* outcome, int64_t frame, int hp) {
+    if (!recovery_started_us_) return;
+    const auto elapsed = Metrics::SteadyUs() - recovery_started_us_;
+    const std::string result(outcome);
+    if (result == "state") { ++stats_->recovery_state; stats_->Observe(stats_->recovery_latency, elapsed); }
+    else if (result == "no_room") ++stats_->recovery_no_room;
+    else if (result == "rejected") ++stats_->recovery_rejected;
+    else if (result == "timeout") ++stats_->recovery_timeout;
+    else if (result == "terminal") ++stats_->recovery_terminal;
+    else if (result == "invalid") ++stats_->recovery_invalid;
+    else ++stats_->recovery_cancelled;
+    --stats_->recovery_pending;
+    std::ostringstream event;
+    event << "{\"bot\":" << index_ << ",\"attempt\":" << recovery_id_
+          << ",\"player_id\":" << player_id_ << ",\"expected_room\":" << recovery_room_
+          << ",\"response_room\":" << recovery_response_room_ << ",\"before_frame\":" << recovery_frame_
+          << ",\"before_hp\":" << recovery_hp_ << ",\"observed_frame\":" << frame << ",\"observed_hp\":" << hp
+          << ",\"elapsed_us\":" << elapsed << ",\"outcome\":\"" << result << "\"}";
+    stats_->RecoveryEvent(event.str());
+    recovery_started_us_ = 0;
+}
+
 void BotClient::HandleGameOver() {
+    FinishRecovery("terminal");
+    ++round_generation_;
+    ++input_generation_;
+    last_input_us_ = 0;
     room_id_ = 0;
     input_loop_active_ = false;
     state_ = FlowState::LoggedIn;

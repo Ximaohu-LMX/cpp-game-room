@@ -55,7 +55,9 @@ def proc_sample(pid):
                 "rss_kib": int(status.get("VmRSS", "0 kB").split()[0]),
                 "threads": int(status["Threads"]),
                 "fds": len(list((base / "fd").iterdir()))}
-    except (FileNotFoundError, ProcessLookupError):
+    except (FileNotFoundError, ProcessLookupError, PermissionError):
+        # /proc can revoke access while the process exits, even before State becomes Z.
+        # Retain a missing sample (None), never manufacture a zero resource reading.
         return None
 
 
@@ -102,6 +104,34 @@ def summarize_metrics(path, start_ms, end_ms):
                                    for key in last["histograms"]}}
 
 
+def audit_bot(gauges):
+    """Evaluate conservation only on the final export after all workers drain."""
+    recovery = sum(gauges[f"recovery_{name}_total"] for name in
+                   ("state", "no_room", "rejected", "timeout", "cancelled", "terminal", "invalid"))
+    return {
+        "input_accounted": gauges["input_enqueued_total"] == sum(gauges[k] for k in
+            ("input_written_total", "input_cancelled_total", "input_dropped_total", "input_pending")),
+        "heartbeat_accounted": gauges["heartbeat_sent_total"] == sum(gauges[k] for k in
+            ("heartbeat_responses_total", "heartbeat_timeouts_total", "heartbeat_cancelled_total", "heartbeat_pending")),
+        "recovery_accounted": gauges["reconnect_attempts_total"] == recovery + gauges["recovery_pending"],
+        "workers_drained": gauges["io_workers_live"] == 0,
+        "connections_drained": gauges["connections_live"] == 0,
+        "pending_drained": all(gauges[k] == 0 for k in
+                               ("input_pending", "heartbeat_pending", "recovery_pending")),
+        "no_worker_exceptions": gauges["worker_exceptions_total"] == 0,
+    }
+
+
+def version_record(revision, paths):
+    """Fail rather than silently label a dirty tool/server with an unrelated revision."""
+    revision = subprocess.check_output(["git", "rev-parse", "--verify", revision + "^{commit}"], text=True).strip()
+    subprocess.run(["git", "diff", "--exit-code", revision, "--", *paths], check=True,
+                   stdout=subprocess.DEVNULL)
+    return {"commit": revision, "source_objects": {
+        path: subprocess.check_output(["git", "rev-parse", f"{revision}:{path}"], text=True).strip()
+        for path in paths}}
+
+
 def summarize(run_dir):
     meta = json.loads((run_dir / "metadata.json").read_text())
     start, end = meta["sample_start_unix_ms"], meta["sample_end_unix_ms"]
@@ -118,9 +148,20 @@ def summarize(run_dir):
     result["resources"] = {}
     for name, values in processes.items():
         result["resources"][name] = {
-            key: {"mean": sum(v[key] for v in values) / len(values),
+            key: {"min": min(v[key] for v in values), "mean": sum(v[key] for v in values) / len(values),
                   "max": max(v[key] for v in values)}
             for key in ("cpu_percent", "rss_kib", "threads", "fds")}
+        result["resources"][name]["samples"] = len(values)
+        result["resources"][name]["unavailable_samples"] = len(rows) - len(values)
+    if "io_workers_live" in result["bot"]["last_export"]["gauges"]:
+        result["audit"] = audit_bot(result["bot"]["last_export"]["gauges"])
+        configured = meta.get("bot_threads", result["bot"]["gauges"]["io_threads_configured"]["last"])
+        result["audit"]["fixed_workers_in_window"] = all(
+            result["bot"]["gauges"]["io_workers_live"][k] == configured for k in ("min", "max"))
+        result["audit"]["fixed_process_threads"] = all(
+            result["resources"]["bot"]["threads"][k] == configured + 2 for k in ("min", "max"))
+        result["audit"]["clean_exit"] = meta["bot_exit_code"] == 0
+        result["versions"] = meta.get("versions")
     (run_dir / "summary.json").write_text(json.dumps(result, indent=2) + "\n")
     return result
 
@@ -150,7 +191,7 @@ def run_one(args, root, config, index, count):
         env["GAME_SERVER_CONFIG"] = str(run_config)
         env["GAME_METRICS_FILE"] = str(run_dir / "server.jsonl")
         server = bot = None
-        meta = {"bots": count, "warmup_seconds": args.warmup, "sample_seconds_requested": args.seconds,
+        meta = {"bots": count, "bot_threads": args.bot_threads, "seed": args.seed, "versions": args.versions, "warmup_seconds": args.warmup, "sample_seconds_requested": args.seconds,
                 "config": {k: {a: ("<redacted>" if a == "password" else b) for a, b in v.items()}
                            for k, v in config.items()}}
         with (run_dir / "server.log").open("w") as server_log, (run_dir / "bot.log").open("w") as bot_log:
@@ -170,6 +211,8 @@ def run_one(args, root, config, index, count):
                 command = [str(args.bot), "--host", "127.0.0.1", "--port", config["server"]["port"],
                            "--count", str(count), "--duration", str(args.warmup + args.seconds + 5),
                            "--metrics-file", str(run_dir / "bot.jsonl"),
+                           "--recovery-file", str(run_dir / "recovery.jsonl"),
+                           "--io-threads", str(args.bot_threads), "--seed", str(args.seed),
                            "--account-prefix", f"measure_{index}_",
                            "--cancel-match-percent", "0", "--queue-disconnect-percent", "0",
                            "--room-disconnect-percent", "0", "--playing-disconnect-percent", "0",
@@ -220,6 +263,8 @@ def run_one(args, root, config, index, count):
                 meta["finished_at"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
                 (run_dir / "metadata.json").write_text(json.dumps(meta, indent=2) + "\n")
     result = summarize(run_dir)
+    if not all(result["audit"].values()):
+        raise RuntimeError(f"bot audit failed: {result['audit']}; see {run_dir}")
     print(json.dumps({"run": run_dir.name, "seconds": result["server"]["actual_seconds"],
                       "connections": result["server"]["gauges"]["connections"],
                       "loop_p99_us": result["server"]["histograms"]["loop_work_us"]["p99_us"],
@@ -234,6 +279,10 @@ def main():
     parser.add_argument("--bot", type=Path)
     parser.add_argument("--config", type=Path)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--server-revision", help="commit used to build the unchanged server")
+    parser.add_argument("--bot-revision", help="frozen commit used to build the bot and sampling script")
+    parser.add_argument("--bot-threads", type=int, default=4)
+    parser.add_argument("--seed", type=int, default=1)
     parser.add_argument("--counts", default="50,100,200")
     parser.add_argument("--warmup", type=int, default=20)
     parser.add_argument("--seconds", type=int, default=60)
@@ -244,8 +293,13 @@ def main():
     if args.summarize_only:
         results = [summarize(p) for p in sorted(args.output.iterdir()) if (p / "metadata.json").exists()]
     else:
-        if not all((args.server, args.bot, args.config)) or args.seconds < 3 or args.warmup < 0:
-            parser.error("server, bot, config, seconds >= 3, warmup >= 0 are required")
+        if not all((args.server, args.bot, args.config, args.server_revision, args.bot_revision)) or args.seconds < 3 or args.warmup < 0:
+            parser.error("server, bot, config, both revisions, seconds >= 3, warmup >= 0 are required")
+        if args.bot_threads <= 0 or not 0 <= args.seed < 2**64:
+            parser.error("bot-threads must be positive; seed must be uint64")
+        args.versions = {
+            "server": version_record(args.server_revision, ["src", "proto", "config", "CMakeLists.txt"]),
+            "bot": version_record(args.bot_revision, ["bot", "scripts/measure_baseline.py"])}
         args.server, args.bot = args.server.resolve(), args.bot.resolve()
         args.observe_pid = [(v.split("=", 1)[0], int(v.split("=", 1)[1])) for v in args.observe_pid]
         counts = [int(v) for v in args.counts.split(",")]
@@ -260,6 +314,7 @@ def main():
                        "meminfo": Path("/proc/meminfo").read_text(),
                        "rlimit_nofile": resource.getrlimit(resource.RLIMIT_NOFILE),
                        "rlimit_nproc": resource.getrlimit(resource.RLIMIT_NPROC),
+                       "versions": args.versions, "bot_threads": args.bot_threads, "seed": args.seed,
                        "git_head": command_output(["git", "rev-parse", "HEAD"]),
                        "git_diff_stat": command_output(["git", "diff", "--stat"]),
                        "binary_sha256": {k: hashlib.sha256(p.read_bytes()).hexdigest()

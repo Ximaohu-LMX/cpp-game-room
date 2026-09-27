@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from measure_baseline import histogram_summary, summarize_metrics
+from measure_baseline import audit_bot, histogram_summary, summarize_metrics
 
 
 class SummaryTest(unittest.TestCase):
@@ -15,6 +15,17 @@ class SummaryTest(unittest.TestCase):
         self.assertEqual(result["p99_us"], 1)
         self.assertEqual(result["count"], 1001)
         self.assertEqual(result["mean_us"], 2000 / 1001)
+
+    def test_audit_rejects_unaccounted_input_and_recovery(self):
+        import collections
+        gauges = collections.defaultdict(int, input_enqueued_total=3, input_written_total=2,
+                                          input_cancelled_total=1, reconnect_attempts_total=1,
+                                          recovery_timeout_total=1)
+        self.assertTrue(all(audit_bot(gauges).values()))
+        gauges["input_enqueued_total"] += 1
+        gauges["recovery_timeout_total"] = 0
+        self.assertFalse(audit_bot(gauges)["input_accounted"])
+        self.assertFalse(audit_bot(gauges)["recovery_accounted"])
 
     def test_empty_and_overflow(self):
         self.assertIsNone(histogram_summary([])["p99_us"])

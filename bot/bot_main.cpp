@@ -36,17 +36,21 @@ void PrintUsage(const char* program) {
         << "  --input-interval-ms N               default: 50\n"
         << "  --metrics-file PATH                 optional JSONL measurement output\n"
         << "  --account-prefix PREFIX             default: bot_\n"
+        << "  --io-threads N                     fixed shared worker count, default: 4\n"
+        << "  --seed N                           per-bot random stream base seed, default: 1\n"
+        << "  --recovery-file PATH               optional recovery event JSONL\n"
+        << "  --recovery-timeout-ms N            default: 30000\n"
         << "  --verbose                           print per-bot disconnect traces\n";
 }
 
 } // namespace
 
-int main(int argc, char** argv) {
+int Run(int argc, char** argv) {
     std::string host = "127.0.0.1";
     uint16_t port = 9000;
     int count = 100;
     int duration_seconds = 0;
-    std::string metrics_path;
+    std::string metrics_path, recovery_path;
     game::BotOptions options;
 
     for (int i = 1; i < argc; ++i) {
@@ -88,6 +92,18 @@ int main(int argc, char** argv) {
             metrics_path = argv[++i];
         } else if (arg == "--account-prefix" && i + 1 < argc) {
             options.account_prefix = argv[++i];
+        } else if (arg == "--io-threads" && i + 1 < argc) {
+            options.io_threads = std::stoi(argv[++i]);
+        } else if (arg == "--seed" && i + 1 < argc) {
+            std::string seed = argv[++i];
+            if (seed.empty() || seed[0] == '-') throw std::invalid_argument("seed must be unsigned");
+            size_t parsed = 0;
+            options.seed = std::stoull(seed, &parsed);
+            if (parsed != seed.size()) throw std::invalid_argument("invalid seed");
+        } else if (arg == "--recovery-file" && i + 1 < argc) {
+            recovery_path = argv[++i];
+        } else if (arg == "--recovery-timeout-ms" && i + 1 < argc) {
+            options.recovery_timeout_ms = std::stoi(argv[++i]);
         } else if (arg == "--verbose") {
             options.verbose = true;
         } else {
@@ -101,13 +117,17 @@ int main(int argc, char** argv) {
     std::signal(SIGTERM, OnSignal);
 
     game::BotManager manager(host, port, options);
-    game::MetricsReporter metrics;
-    if (!metrics_path.empty() && !metrics.Start(metrics_path, [&manager]() { return manager.MeasurementGauges(); })) {
+    if (!manager.Stats()->OpenRecoveryLog(recovery_path)) {
+        std::cerr << "failed to open recovery event file\n";
+        return 1;
+    }
+    game::BotMetricsReporter metrics;
+    if (!metrics_path.empty() && !metrics.Start(metrics_path, manager.Stats(), [&manager]() { return manager.MeasurementGauges(); })) {
         std::cerr << "failed to open metrics output\n";
         return 1;
     }
     manager.Start(count);
-    std::cout << "started " << count << " bots on " << host << ":" << port << "\n";
+    std::cout << "started " << count << " bots on " << host << ":" << port << " io_threads=" << options.io_threads << " seed=" << options.seed << "\n";
 
     int64_t elapsed = 0;
     while (g_running && (duration_seconds <= 0 || elapsed < duration_seconds)) {
@@ -120,4 +140,9 @@ int main(int argc, char** argv) {
     manager.PrintStats(elapsed);
     metrics.Stop();
     return 0;
+}
+
+int main(int argc, char** argv) {
+    try { return Run(argc, argv); }
+    catch (const std::exception& e) { std::cerr << "bot: " << e.what() << '\n'; return 1; }
 }

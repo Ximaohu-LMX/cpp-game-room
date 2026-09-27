@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <utility>
+#include <stdexcept>
 
 namespace game {
 
@@ -12,23 +13,65 @@ BotManager::BotManager(std::string host, uint16_t port, BotOptions options)
       stats_(std::make_shared<BotStats>()) {}
 
 void BotManager::Start(int bot_count) {
-    bots_.reserve(bot_count);
-    for (int i = 0; i < bot_count; ++i) {
-        auto bot = std::make_unique<BotClient>(host_, port_, i, options_, stats_);
-        bot->Start();
-        bots_.push_back(std::move(bot));
-    }
+    if (started_) throw std::logic_error("bot manager already started");
+    if (bot_count <= 0 || options_.io_threads <= 0 || options_.input_interval_ms <= 0 ||
+        options_.recovery_timeout_ms <= 0) throw std::invalid_argument("positive count, io threads and intervals required");
+    // Resolve once before starting the fixed worker pool (no per-bot resolver threads).
+    const auto endpoints = boost::asio::ip::tcp::resolver(io_context_).resolve(host_, std::to_string(port_));
+    io_context_.restart();
+    work_guard_ = std::make_unique<boost::asio::executor_work_guard<boost::asio::io_context::executor_type>>(io_context_.get_executor());
+    started_ = true;
+    try {
+        bots_.reserve(bot_count);
+        for (int i = 0; i < bot_count; ++i) {
+            auto bot = std::make_shared<BotClient>(io_context_, endpoints, i, options_, stats_);
+            bots_.push_back(bot);
+            bot->Start();
+        }
+        for (int i = 0; i < options_.io_threads; ++i) workers_.emplace_back([this] {
+            ++stats_->workers_live;
+            for (;;) {
+                try { io_context_.run(); break; }
+                catch (const std::exception& e) {
+                    ++stats_->worker_exceptions;
+                    std::cerr << "bot worker callback failed: " << e.what() << '\n';
+                }
+            }
+            --stats_->workers_live;
+        });
+    } catch (...) { Stop(); throw; }
 }
 
 void BotManager::Stop() {
-    for (auto& bot : bots_) {
-        bot->Stop();
-    }
+    if (!started_) return;
+    for (const auto& bot : bots_) bot->Stop();
+    work_guard_->reset();
+    // Do not stop io_context: cancellation handlers must drain before buffers/bots die.
+    if (workers_.empty()) io_context_.run();
+    for (auto& worker : workers_) if (worker.joinable()) worker.join();
+    workers_.clear();
     bots_.clear();
+    work_guard_.reset();
+    started_ = false;
 }
 
 std::map<std::string, int64_t> BotManager::MeasurementGauges() const {
     return {
+        {"io_threads_configured", options_.io_threads},
+        {"io_workers_live", stats_->workers_live.load()},
+        {"worker_exceptions_total", stats_->worker_exceptions.load()},
+        {"input_dropped_total", stats_->input_dropped.load()},
+        {"input_cancelled_total", stats_->input_cancelled.load()},
+        {"input_pending", stats_->input_pending.load()},
+        {"reconnect_attempts_total", stats_->reconnect_attempts.load()},
+        {"recovery_state_total", stats_->recovery_state.load()},
+        {"recovery_no_room_total", stats_->recovery_no_room.load()},
+        {"recovery_rejected_total", stats_->recovery_rejected.load()},
+        {"recovery_timeout_total", stats_->recovery_timeout.load()},
+        {"recovery_cancelled_total", stats_->recovery_cancelled.load()},
+        {"recovery_terminal_total", stats_->recovery_terminal.load()},
+        {"recovery_invalid_total", stats_->recovery_invalid.load()},
+        {"recovery_pending", stats_->recovery_pending.load()},
         {"connections_live", stats_->connections_live.load()},
         {"connect_ok_total", stats_->connect_ok.load()},
         {"connect_failed_total", stats_->connect_failed.load()},
