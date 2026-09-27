@@ -1,0 +1,147 @@
+Running main() from /croot/yaml-cpp-split_1714510678659/work/test/gtest-1.11.0/googletest/src/gtest_main.cc
+[==========] Running 23 tests from 6 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from RoomStateTest
+[ RUN      ] RoomStateTest.AllReadyStartsGame
+[       OK ] RoomStateTest.AllReadyStartsGame (0 ms)
+[ RUN      ] RoomStateTest.PlayerStatusSyncsOnStartAndRemove
+[2026-09-27 04:27:22.885] [info] created room 1000
+[2026-09-27 04:27:22.885] [info] room 1000 started game
+[       OK ] RoomStateTest.PlayerStatusSyncsOnStartAndRemove (0 ms)
+[ RUN      ] RoomStateTest.LeaveWaitingRequeuesRemainingPlayers
+[2026-09-27 04:27:22.885] [info] created room 1001
+[       OK ] RoomStateTest.LeaveWaitingRequeuesRemainingPlayers (0 ms)
+[ RUN      ] RoomStateTest.SettlementCannotBeRestartedByReadyRequests
+[       OK ] RoomStateTest.SettlementCannotBeRestartedByReadyRequests (0 ms)
+[----------] 4 tests from RoomStateTest (0 ms total)
+
+[----------] 2 tests from MatchQueueTest
+[ RUN      ] MatchQueueTest.PreventDuplicatePush
+[       OK ] MatchQueueTest.PreventDuplicatePush (0 ms)
+[ RUN      ] MatchQueueTest.RemoveAndPopN
+[       OK ] MatchQueueTest.RemoveAndPopN (0 ms)
+[----------] 2 tests from MatchQueueTest (0 ms total)
+
+[----------] 2 tests from ProtocolTest
+[ RUN      ] ProtocolTest.EncodeDecodeOnePacket
+[       OK ] ProtocolTest.EncodeDecodeOnePacket (0 ms)
+[ RUN      ] ProtocolTest.HalfPacketWaitsForMoreData
+[       OK ] ProtocolTest.HalfPacketWaitsForMoreData (0 ms)
+[----------] 2 tests from ProtocolTest (0 ms total)
+
+[----------] 4 tests from MetricsTest
+[ RUN      ] MetricsTest.HistogramBoundsAndDrain
+[       OK ] MetricsTest.HistogramBoundsAndDrain (0 ms)
+[ RUN      ] MetricsTest.ConcurrentExportLosesNoSamples
+[       OK ] MetricsTest.ConcurrentExportLosesNoSamples (20 ms)
+[ RUN      ] MetricsTest.ConnectionGaugeCountsSessionsAndUniquePlayers
+[       OK ] MetricsTest.ConnectionGaugeCountsSessionsAndUniquePlayers (0 ms)
+[ RUN      ] MetricsTest.CompletedBattleDurationRecordedOnlyOnce
+[       OK ] MetricsTest.CompletedBattleDurationRecordedOnlyOnce (0 ms)
+[----------] 4 tests from MetricsTest (20 ms total)
+
+[----------] 10 tests from SettlementTest
+[ RUN      ] SettlementTest.LogAndPlayerResultAreUniqueByBattlePlayer
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:22.924] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:22.930] [error] mysql execute failed: Duplicate entry '39-1790501242924780' for key 'settlement_log.uniq_battle_player', sql=INSERT INTO settlement_log(battle_id, player_id, score_delta) VALUES(39, 1790501242924780, 20)
+[2026-09-27 04:27:22.931] [error] mysql execute failed: Duplicate entry '39-1790501242924780' for key 'battle_player_result.uniq_battle_player_result', sql=INSERT INTO battle_player_result(battle_id, player_id, result, score_delta) VALUES(39, 1790501242924780, 'WIN', 20)
+[       OK ] SettlementTest.LogAndPlayerResultAreUniqueByBattlePlayer (32 ms)
+[ RUN      ] SettlementTest.RepeatedSettlementUpdatesScoresAndStatsOnce
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:22.954] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:22.962] [info] settlement complete, battle 40, room 1790501242924782, winner 1790501242924783
+[2026-09-27 04:27:22.964] [info] settlement complete, battle 40, room 1790501242924782, winner 1790501242924783
+[2026-09-27 04:27:22.965] [info] settlement complete, battle 40, room 1790501242924782, winner 1790501242924783
+[2026-09-27 04:27:22.966] [info] settlement complete, battle 40, room 1790501242924782, winner 1790501242924783
+[       OK ] SettlementTest.RepeatedSettlementUpdatesScoresAndStatsOnce (34 ms)
+[ RUN      ] SettlementTest.ConcurrentConnectionsSettleOnlyOnce
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:22.992] [info] mysql connected to 127.0.0.1:33316/game
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.013] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.013] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.014] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.014] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.017] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.018] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.019] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.020] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.021] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.022] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.023] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.024] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.025] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.026] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.027] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[2026-09-27 04:27:23.028] [info] settlement complete, battle 41, room 1790501242924786, winner 1790501242924787
+[       OK ] SettlementTest.ConcurrentConnectionsSettleOnlyOnce (65 ms)
+[ RUN      ] SettlementTest.FailureRollsBackAllPlayersAndRetrySucceeds
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.069] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.077] [error] mysql execute failed: Out of range value for column 'score' at row 1, sql=INSERT INTO player(player_id, name, score, win_count, lose_count) VALUES(1790501242924791, 'player_1790501242924791', 990, 0, 1) ON DUPLICATE KEY UPDATE score = score + (-10), win_count = win_count + 0, lose_count = lose_count + 1
+[2026-09-27 04:27:23.078] [error] settlement failed or conflicted, battle 42, room 1790501242924789
+[2026-09-27 04:27:23.085] [info] settlement complete, battle 42, room 1790501242924789, winner 1790501242924790
+[2026-09-27 04:27:23.086] [info] settlement complete, battle 42, room 1790501242924789, winner 1790501242924790
+[       OK ] SettlementTest.FailureRollsBackAllPlayersAndRetrySucceeds (54 ms)
+[ RUN      ] SettlementTest.ConflictingReplayIsRejected
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.127] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.135] [info] settlement complete, battle 43, room 1790501242924792, winner 1790501242924793
+[2026-09-27 04:27:23.136] [error] conflicting settlement for battle 43
+[2026-09-27 04:27:23.136] [error] settlement failed or conflicted, battle 43, room 1790501242924792
+[2026-09-27 04:27:23.136] [error] settlement failed or conflicted, battle 43, room 1790501242924793
+[2026-09-27 04:27:23.137] [error] settlement failed or conflicted, battle 43, room 1790501242924792
+[       OK ] SettlementTest.ConflictingReplayIsRejected (51 ms)
+[ RUN      ] SettlementTest.NewBattleInSameRoomUsesDifferentId
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.178] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.185] [info] settlement complete, battle 44, room 1790501242924795, winner 1790501242924796
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.218] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.225] [info] settlement complete, battle 45, room 1790501242924795, winner 1790501242924796
+[       OK ] SettlementTest.NewBattleInSameRoomUsesDifferentId (90 ms)
+[ RUN      ] SettlementTest.LostConnectionBeforeIdAllocationCanRetry
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.268] [info] mysql connected to 127.0.0.1:33316/game
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.304] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.305] [error] mysql execute failed: Lost connection to MySQL server during query, sql=INSERT INTO battle(room_id, winner_id, result_json) VALUES(1790501242924798, 0, '{}')
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.331] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.337] [info] settlement complete, battle 47, room 1790501242924798, winner 1790501242924799
+[       OK ] SettlementTest.LostConnectionBeforeIdAllocationCanRetry (111 ms)
+[ RUN      ] SettlementTest.TransactionExceptionRollsBackAndReleasesConnection
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.378] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.387] [info] settlement complete, battle 48, room 1790501242924801, winner 1790501242924802
+[       OK ] SettlementTest.TransactionExceptionRollsBackAndReleasesConnection (46 ms)
+[ RUN      ] SettlementTest.RankFailureCanRetryWithoutDoubleSettlement
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.425] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.429] [info] redis connected to 127.0.0.1:16400
+[2026-09-27 04:27:23.435] [warning] rank sync pending, battle 49, player 1790501242924805
+[2026-09-27 04:27:23.438] [info] settlement complete, battle 49, room 1790501242924804, winner 1790501242924805
+[       OK ] SettlementTest.RankFailureCanRetryWithoutDoubleSettlement (51 ms)
+[ RUN      ] SettlementTest.OldReplayRefreshesRankFromLatestDatabaseScore
+WARNING: MYSQL_OPT_RECONNECT is deprecated and will be removed in a future version.
+[2026-09-27 04:27:23.479] [info] mysql connected to 127.0.0.1:33316/game
+[2026-09-27 04:27:23.482] [info] redis connected to 127.0.0.1:16400
+[2026-09-27 04:27:23.487] [info] settlement complete, battle 50, room 1790501242924807, winner 1790501242924808
+[2026-09-27 04:27:23.492] [info] settlement complete, battle 51, room 1790501242924807, winner 1790501242924809
+[2026-09-27 04:27:23.495] [info] settlement complete, battle 50, room 1790501242924807, winner 1790501242924808
+[       OK ] SettlementTest.OldReplayRefreshesRankFromLatestDatabaseScore (60 ms)
+[----------] 10 tests from SettlementTest (600 ms total)
+
+[----------] 1 test from RankServiceTest
+[ RUN      ] RankServiceTest.GetTopNByScoreDesc
+[2026-09-27 04:27:23.507] [info] redis connected to 127.0.0.1:16400
+[       OK ] RankServiceTest.GetTopNByScoreDesc (1 ms)
+[----------] 1 test from RankServiceTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 23 tests from 6 test suites ran. (622 ms total)
+[  PASSED  ] 23 tests.

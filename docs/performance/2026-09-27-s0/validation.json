@@ -1,0 +1,39 @@
+{
+  "server_revision": "2703dd38d864071b20021f5897658cbc7619a1bd",
+  "historical_measurement_revision": "557675836b4c4a9c102fbb7fb0d82b8a98752f43",
+  "frozen_tool_revision": "591dc3aa1c5ed94fcab4a1eed30d657a7b9cd949",
+  "server_source_equal_to_5576758": true,
+  "cpp_tests": {
+    "tests": "23",
+    "failures": "0",
+    "disabled": "0",
+    "errors": "0",
+    "time": "0.622",
+    "timestamp": "2026-09-27T04:27:22.884",
+    "name": "AllTests"
+  },
+  "python_tests": {
+    "run": 9,
+    "passed": 9,
+    "skipped": 0,
+    "log": "python-tests.log"
+  },
+  "asan_bot_tests": {
+    "run": 5,
+    "passed": 5,
+    "skipped": 0,
+    "options": "detect_leaks=1:halt_on_error=1",
+    "log": "asan-tests.log"
+  },
+  "compiler": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "build_type": "Release",
+  "cxx_flags": "-O3 -DNDEBUG",
+  "cmake_prefix_path": [
+    "/home/dafn/anaconda3",
+    "/tmp/cpp-game-idempotency-deps/usr"
+  ],
+  "runtime_library_path": "/usr/lib/x86_64-linux-gnu:/tmp/cpp-game-idempotency-deps/usr/lib/x86_64-linux-gnu:/home/dafn/anaconda3/lib",
+  "source_file_count": 81,
+  "source_manifest_sha256": "ddc7ad370dfa23126990a47cacc00357c654ace61f59cc9b58b0c95e275f5921",
+  "scope": "S0 bot/tool validation, not S1-S6 server session correctness validation"
+}

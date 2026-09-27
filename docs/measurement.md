@@ -102,7 +102,7 @@ python3 -m unittest discover -s scripts -p 'test_measure_baseline.py'
 GAME_TEST_CONFIG=/path/to/test-server.yaml ctest --test-dir build-measure --output-on-failure
 ```
 
-历史工具的结果保留在 [目前的性能测试报告](目前的性能测试报告.md)；S0 新工具的 B0 另行记录，不能把两份报告的差值当成服务端优化收益。
+历史工具的结果保留在 [目前的性能测试报告](目前的性能测试报告.md)；S0 新工具的 B0 见 [S0 固定工具与 B0 基线报告](S0固定工具与B0基线报告.md)，不能把两份报告的差值当成服务端优化收益。
 
 ## S0 固定工具与可核查口径
 

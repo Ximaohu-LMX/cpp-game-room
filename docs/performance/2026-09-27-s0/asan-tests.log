@@ -1,0 +1,10 @@
+test_500_connections_use_fixed_workers_and_write_inputs (test_bot_runtime.BotRuntimeTest.test_500_connections_use_fixed_workers_and_write_inputs) ... ok
+test_malformed_peer_closes_once_and_drains_pending_callbacks (test_bot_runtime.BotRuntimeTest.test_malformed_peer_closes_once_and_drains_pending_callbacks) ... ok
+test_old_round_timers_do_not_multiply_input_rate (test_bot_runtime.BotRuntimeTest.test_old_round_timers_do_not_multiply_input_rate) ... ok
+test_recovery_requires_ack_and_own_valid_state (test_bot_runtime.BotRuntimeTest.test_recovery_requires_ack_and_own_valid_state) ... ok
+test_seed_is_independent_of_worker_assignment (test_bot_runtime.BotRuntimeTest.test_seed_is_independent_of_worker_assignment) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 15.636s
+
+OK
